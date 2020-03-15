@@ -226,7 +226,7 @@
                   <input type="text" class="form-control" name="description" disabled value="{{ $listproduct->updated_at }}" placeholder="">
                </div>
                <div class="form-group">
-                <a href="/product" class="btn btn-primary" role="button">Kembali</a>
+                <a href="/product" class="btn btn-primary" role="button">Back</a>
                </div>
                </div>
             @endforeach
