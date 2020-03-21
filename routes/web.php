@@ -26,3 +26,7 @@ Route::get('/product/hapus/{id}', 'Product@hapus');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Restfull API
+Route::get('/contacts','ControllerContact@index');
+
