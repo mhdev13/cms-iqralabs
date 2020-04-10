@@ -17,11 +17,18 @@ Route::get('/', function () {
 
 //route product
 Route::get('/product','Product@index');
+
 Route::get('/product/add','Product@add');
+
 Route::post('/product/store','Product@store');
+
+Route::get('/product/edit/{id}', 'Product@edit');
+
+Route::post('/product/update','Product@update');
+
 Route::get('/product/detail/{id}','Product@detail');
-Route::post('/product/update', 'Product@update');
-Route::get('/product/hapus/{id}', 'Product@hapus');
+
+Route::get('/product/delete/{id}', 'Product@delete');
 
 Auth::routes();
 

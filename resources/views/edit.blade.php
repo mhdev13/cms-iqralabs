@@ -39,7 +39,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
+        <a href="#" class="nav-link">Home</a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">Contact</a>
@@ -175,34 +175,6 @@
           <a href="#" class="d-block">Alexander Pierce</a>
         </div>
       </div>
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
-         
-          <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-user"></i>
-              <p>
-                Product
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/product" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>List Product</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
   </aside>
@@ -214,12 +186,11 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Dashboard</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Dashboard v1</li>
+              <li class="breadcrumb-item active">Detail Product</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -229,42 +200,48 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
-        <div class="row">
-          <div class="col-lg-6 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>{{ $countproduct }}</h3>
-
-                <p>Number of Products</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="/product" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <div class="col-lg-6 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>{{ $countuser }}</h3>
-
-                <p>User Registrations</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
+      <div class="container">
+        <div class="card">
+          <div class="card-body">
+            <table class="table table-bordered">
+              @foreach($product as $listproduct)
+              <form action="/product/update" method="post" enctype="multipart/form-data">
+              {{ csrf_field() }}
+               <div class="form-group">
+                    <label for="">URL Fabelio</label>
+                    <input type="text" class="form-control" name="url" value="{{ $listproduct->url }}">
+               </div> 
+               <div class="form-group">
+                    <label for="">Category</label>
+                    <input type="text" class="form-control" name="category_name" value="{{ $listproduct->category_name }}">
+               </div>
+               <div class="form-group">
+                    <label for="">Product Name</label>
+                    <input type="text" class="form-control" name="product_name" value="{{ $listproduct->product_name }}">
+               </div>  
+               <div class="form-group">
+                  <label for="">Image</label>
+                  <tr><img src="{{ URL::asset('upload/' . $listproduct->image) }}" width="100px;" height="100px;" alt="image"></tr>
+               </div>
+               <div class="form-group">
+                  <label for="">Price</label>
+                  <input type="text" class="form-control" name="price" value="{{ $listproduct->price }}" placeholder="">
+               </div>
+               <div class="form-group">
+                  <label for="">Description</label>
+                  <textarea class="form-control" name="description" rows="3">{{ $listproduct->description }}</textarea>
+               </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-primary">Save</button>
+                  <a href="/product" class="btn btn-primary" role="button">Cancel</a>
+                 </div>
+               </div>
+             </form>
+            @endforeach
+            </table>
           </div>
         </div>
-        <!-- /.row -->
-        <!-- Main row -->
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
+      </div>
     </section>
     <!-- /.content -->
   </div>

@@ -63,4 +63,46 @@ class Product extends Controller
 		
 		return view('detail',['product' => $product]);
     }
+
+    public function edit($id)
+    {
+        // mengambil data product berdasarkan id yang dipilih
+        $product = DB::table('products')->where('product_id',$id)->get();
+        // passing data product yang didapat ke view edit.blade.php
+        return view('edit',['product' => $product]);
+    }
+
+    // method untuk hapus data product
+    public function delete($id)
+    {
+        // menghapus data product berdasarkan id yang dipilih
+        DB::table('products')->where('product_id',$id)->delete();
+            
+        // alihkan halaman ke halaman product
+        return redirect('/product');
+    }
+
+     public function update(Request $request){
+        
+        // var_dump($request);exit;
+        // $this->validate($request, [
+        //     'fileimage' => 'required|file|image|mimes:jpeg,png,jpg|max:2048',
+        // ]);
+
+        // $file = $request->file('fileimage');
+        // $extension = $file->getClientOriginalExtension();
+        // $filename = time().".". $extension;
+        // $upload_directory = 'upload';
+        // $file->move($upload_directory,$filename);
+        Products::create([
+            'url' => $request->url,
+            'category_name' => $request->category_name,
+            'product_name' => $request->product_name,
+            // 'image' => $filename,
+            'price' => $request->price,
+            'description' => $request->description
+        ]);
+
+        return redirect('/product');
+    }
 }
