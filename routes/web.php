@@ -33,3 +33,7 @@ Route::get('/product/delete/{id}', 'Product@delete');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Restfull API
+Route::get('/contacts','ControllerContact@index');
+
