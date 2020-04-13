@@ -37,3 +37,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 //Restfull API
 Route::get('/contacts','ControllerContact@index');
 
+Route::get('/contacts/{id}','ControllerContact@show');
+
+Route::post('/contacts/store','ControllerContact@store');
+

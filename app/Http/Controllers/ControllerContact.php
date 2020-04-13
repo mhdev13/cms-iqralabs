@@ -44,7 +44,23 @@ class ControllerContact extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $name         = $request->input('name');
+        $email        = $request->input('email');
+        $phonenumber  = $request->input('phonenumber');
+        $address      = $request->input('address');
+
+        $data              = new \App\contact();
+        $data->name        = $name;
+        $data->email       = $email;
+        $data->phonenumber = $phonenumber;
+        $data->address     = $address;
+
+        if($data->save()){
+            $res['message'] = "Succsess!";
+            $res['value']   = "$data";
+            return response($res);
+        }
+
     }
 
     /**
@@ -55,7 +71,16 @@ class ControllerContact extends Controller
      */
     public function show($id)
     {
-        //
+        $data = \App\contact::where('id', $id)->get();
+
+        if(count($data) > 0){ //mengecek apakah data kosong atau tidak
+            $res['message'] = "Succsess!";
+            $res['values'] = $data;
+            return response($res);
+        } else {
+            $res['message'] = "Failed!";
+            return response($res);
+        }
     }
 
     /**
