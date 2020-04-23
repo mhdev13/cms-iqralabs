@@ -4,17 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Products extends Model
+class Users extends Model
 {
-    protected $table = "users";
+   protected $table = "users";
 
     protected $fillable = [
         'ic',
 		'user_name',
-		'gender',
-		'join_date',
+		'male|female',
+		'joindate',
 		'group',
-		'remark',
 		'image'
     ];
 }

@@ -16,28 +16,18 @@ Route::get('/', function () {
 });
 
 //route product
-Route::get('/product','Product@index');
+Route::get('/user','User@index');
 
-Route::get('/product/add','Product@add');
+Route::get('/user/add','User@add');
 
-Route::post('/product/store','Product@store');
+Route::post('/user/store','User@store');
 
-Route::get('/product/edit/{id}', 'Product@edit');
+Route::get('/user/edit/{id}', 'User@edit');
 
-Route::post('/product/update','Product@update');
+Route::post('/user/update','User@update');
 
-Route::get('/product/detail/{id}','Product@detail');
-
-Route::get('/product/delete/{id}', 'Product@delete');
+Route::get('/user/detail/{id}','User@detail');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-//Restfull API
-Route::get('/contacts','ControllerContact@index');
-
-Route::get('/contacts/{id}','ControllerContact@show');
-
-Route::post('/contacts/store','ControllerContact@store');
-

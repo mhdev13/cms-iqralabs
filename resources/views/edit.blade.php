@@ -190,7 +190,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Detail Product</li>
+              <li class="breadcrumb-item active">Edit User</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -204,38 +204,54 @@
         <div class="card">
           <div class="card-body">
             <table class="table table-bordered">
-              @foreach($product as $listproduct)
-              <form action="/product/update" method="post" enctype="multipart/form-data">
+              @foreach($users as $list)
+              <form action="/user/update" method="post" enctype="multipart/form-data">
               {{ csrf_field() }}
-               <div class="form-group">
-                    <label for="">URL Fabelio</label>
-                    <input type="text" class="form-control" name="url" value="{{ $listproduct->url }}">
-               </div> 
-               <div class="form-group">
-                    <label for="">Category</label>
-                    <input type="text" class="form-control" name="category_name" value="{{ $listproduct->category_name }}">
+              <div class="form-group">
+                <label for="">IC</label>
+                <input type="text" class="form-control" name="ic" value="{{ $list->ic }}" placeholder="">
+              </div>
+              <div class="form-group">
+                <label for="">User Name</label>
+                <input type="text" class="form-control" name="user_name" value="{{ $list->user_name }}"placeholder="">
+              </div>
+              <div class="form-group">
+                <p><b>Gender:</b></p>
+                <label class="radio-inline">
+                  <input type="radio" name="gender" value="male" {{ $list->gender == "male" ? 'checked' : '' }}>male
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="gender" value="female" {{ $list->gender == "female" ? 'checked' : '' }}>female
+                </label>
+              </div>
+              <div class="form-group">
+              <label>Join Date:</label>
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                  </div>
+                  <input type="text" value="{{ $list->join_date }}" name="join_date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-check">
+                  <input type="checkbox" name="group" class="form-check-input" value="1" {{ $list->group == "on" ? 'checked' : '' }}>
+                  <label class="form-check-label" for="exampleCheck1"><b>Group</b></label>
+                </div>
                </div>
                <div class="form-group">
-                    <label for="">Product Name</label>
-                    <input type="text" class="form-control" name="product_name" value="{{ $listproduct->product_name }}">
-               </div>  
+                    <label for="">Remark</label>
+                    <input type="text" class="form-control" name="remark" value="{{ $list->remark }}">
+               </div>        
                <div class="form-group">
                   <label for="">Image</label>
-                  <tr><img src="{{ URL::asset('upload/' . $listproduct->image) }}" width="100px;" height="100px;" alt="image"></tr>
+                  <tr><img src="{{ URL::asset('upload/' . $list->image) }}" width="100px;" height="100px;" alt="image"></tr>
                </div>
+               <br>
+               <br>
                <div class="form-group">
-                  <label for="">Price</label>
-                  <input type="text" class="form-control" name="price" value="{{ $listproduct->price }}" placeholder="">
-               </div>
-               <div class="form-group">
-                  <label for="">Description</label>
-                  <textarea class="form-control" name="description" rows="3">{{ $listproduct->description }}</textarea>
-               </div>
-                <div class="form-group">
                   <button type="submit" class="btn btn-primary">Save</button>
-                  <a href="/product" class="btn btn-primary" role="button">Cancel</a>
-                 </div>
-               </div>
+                </div>
              </form>
             @endforeach
             </table>
