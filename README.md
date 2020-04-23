@@ -75,6 +75,6 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
 ## Install this project
-- create the database in my sql the name is listing
+- create the database in mysql the name is listing
 - run laravel migration
 
