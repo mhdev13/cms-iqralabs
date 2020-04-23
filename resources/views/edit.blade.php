@@ -240,8 +240,8 @@
                 </div>
                </div>
                <div class="form-group">
-                    <label for="">Remark</label>
-                    <input type="text" class="form-control" name="remark" value="{{ $list->remark }}">
+                  <label for="">Remark</label>
+                  <textarea class="form-control" name="remark" disabled rows="3">{{ $list->remark }}</textarea>
                </div>        
                <div class="form-group">
                   <label for="">Image</label>

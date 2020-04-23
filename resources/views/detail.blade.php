@@ -225,6 +225,10 @@
                   <label for="">The Groups</label>
                   <input type="text" class="form-control" name="group" disabled value="{{ $list->group }}" placeholder="">
                </div>
+                <div class="form-group">
+                  <label for="">The number of groups</label>
+                  <input type="text" class="form-control" name="group" disabled value="" placeholder="">
+               </div>
                <div class="form-group">
                   <label for="">Remark</label>
                   <textarea class="form-control" name="remark" disabled rows="3">{{ $list->remark }}</textarea>
