@@ -175,6 +175,49 @@
           <a href="#" class="d-block">Alexander Pierce</a>
         </div>
       </div>
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+            <li class="nav-item has-treeview menu-open">
+              <a href="/user" class="nav-link active">
+                <i class="nav-icon fas fa-user"></i>
+                <p>
+                  User
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/user/" class="nav-link">
+                    <i class="fas fa-search-plus nav-icon"></i>
+                    <p>List User</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item has-treeview menu-open">
+              <a href="/user" class="nav-link active">
+                <i class="nav-icon fas fa-user-friends"></i>
+                <p>
+                  Group
+                  <i class="fas fa-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/group" class="nav-link">
+                    <i class="fas fa-search-plus nav-icon"></i>
+                    <p>List Group</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
   </aside>
@@ -241,7 +284,7 @@
                </div>
                <div class="form-group">
                   <label for="">Remark</label>
-                  <textarea class="form-control" name="remark" disabled rows="3">{{ $list->remark }}</textarea>
+                  <textarea class="form-control" name="remark" rows="3">{{ $list->remark }}</textarea>
                </div>        
                <div class="form-group">
                   <label for="">Image</label>

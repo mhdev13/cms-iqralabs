@@ -175,7 +175,7 @@
           <a href="#" class="d-block">Alexander Pierce</a>
         </div>
       </div>
-      <!-- Sidebar Menu -->
+         <!-- Sidebar Menu -->
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
@@ -233,7 +233,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Detail Product</li>
+              <li class="breadcrumb-item active">Detail Group</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -247,43 +247,31 @@
         <div class="card">
           <div class="card-body">
             <table class="table table-bordered">
-              @foreach($users as $list)
+              @foreach($groups as $list)
                <div class="form-group">
-                  <label for="">IC</label>
-                  <input type="text" class="form-control" name="ic" disabled value="{{ $list->ic }}" placeholder="">
+                  <label for="">Group name</label>
+                  <input type="text" class="form-control" name="group_name" disabled value="{{ $list->group_name }}" placeholder="">
                </div>
                <div class="form-group">
-                  <label for="">User Name</label>
-                  <input type="text" class="form-control" name="user_name" disabled value="{{ $list->user_name }}" placeholder="">
+                  <label for="">Date the group</label>
+                  <input type="text" class="form-control" name="user_name" disabled value="{{ $list->created_at }}" placeholder="">
                </div>
                <div class="form-group">
-                  <label for="">Gender</label>
-                  <input type="text" class="form-control" name="gender" disabled value="{{ $list->gender }}" placeholder="">
+                  <label for="">Remarks</label>
+                  <input type="text" class="form-control" name="gender" disabled value="" placeholder="">
                </div>
                <div class="form-group">
-                  <label for="">Join Date</label>
-                  <input type="text" class="form-control" name="join_date" disabled value="{{ $list->join_date }}" placeholder="">
-               </div>
-               <div class="form-group">
-                  <label for="">The Groups</label>
-                  <input type="text" class="form-control" name="group" disabled value="{{ $list->group }}" placeholder="">
+                  <label for="">Number of users</label>
+                  <input type="text" class="form-control" name="join_date" disabled value="" placeholder="">
                </div>
                 <div class="form-group">
-                  <label for="">The number of groups</label>
+                  <label for="">The list of users</label>
                   <input type="text" class="form-control" name="group" disabled value="" placeholder="">
                </div>
-               <div class="form-group">
-                  <label for="">Remark</label>
-                  <textarea class="form-control" name="remark" disabled rows="3">{{ $list->remark }}</textarea>
-               </div>
-               <div class="form-group">
-                  <label for="">Image</label>
-                  <tr><img src="{{ URL::asset('upload/' . $list->image) }}" width="100px;" height="100px;" alt="image"></tr>
-               </div>
                <br>
                <br>
                <div class="form-group">
-                <a href="/user/edit/{{ $list->id }}"" class="btn btn-primary" role="button">Add</a>
+                <a href="/group/edit/{{ $list->id }}"" class="btn btn-primary" role="button">Add</a>
                </div>
             </div>
             @endforeach

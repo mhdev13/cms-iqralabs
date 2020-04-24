@@ -153,7 +153,7 @@
               <div class="card">
                 <div class="card-body">
                   <table class="table table-bordered">
-                    <form action="/user/store" method="post" enctype="multipart/form-data">
+                    <form action="/group/store" method="post" enctype="multipart/form-data">
                       {{ csrf_field() }}
                       <div class="form-group">
                         <label for="">IC</label>
