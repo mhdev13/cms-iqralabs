@@ -17,7 +17,8 @@ class GroupSeeder extends Seeder
         	'group_name' => 'Jakarta',
         	'created_at' => Carbon::now(),
         	'updated_at' => Carbon::now(),
-        	'number_users' => 1
+        	'number_users' => 1,
+        	'remark' => 'tes group'
         ]);
     }
 }

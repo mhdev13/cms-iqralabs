@@ -64,8 +64,9 @@ class Group extends Controller
 
     public function update(Request $request)
     {
-        Groups::create([
-            'group_name' => $request->group_name
+        DB::table('groups')->where('id',$request->id)->update([
+            'group_name' => $request->group_name,
+            'remark' => $request->remark,
         ]);
 
         return redirect('/group');

@@ -21,7 +21,6 @@ class CreateUsersTable extends Migration
             $table->string('join_date')->nullable();
             $table->string('group')->nullable();
             $table->string('image')->nullable();
-            $table->string('remark')->nullable(); 
             $table->timestamps();
         });
     }

@@ -12,7 +12,7 @@ class Groups extends Model
         'group_name'
     ];
 
-    public function product(){
-    	return $this->belongsToMany('App\Product');
+    public function users(){
+    	return $this->belongsToMany('App\Users');
     }
 }

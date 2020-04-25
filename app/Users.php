@@ -20,7 +20,7 @@ class Users extends Model
 
 	public function group(){
 
-		return $this->belongsToMany('App\Group');
+		return $this->belongsToMany('App\Groups');
 	
 	}
 }

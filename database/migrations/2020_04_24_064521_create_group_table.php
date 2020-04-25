@@ -18,6 +18,8 @@ class CreateGroupTable extends Migration
             $table->string('group_name');
             $table->timestamps();
             $table->string('number_users')->nullable();
+            $table->string('remark')->nullable(); 
+            
         });
     }
 

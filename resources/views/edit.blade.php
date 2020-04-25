@@ -38,25 +38,7 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
     </ul>
-
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -248,8 +230,9 @@
           <div class="card-body">
             <table class="table table-bordered">
               @foreach($users as $list)
-              <form action="/user/update" method="post" enctype="multipart/form-data">
+              <form action="/user/update" method="post">
               {{ csrf_field() }}
+              <input type="hidden" name="id" value="{{ $list->id }}"> <br/>
               <div class="form-group">
                 <label for="">IC</label>
                 <input type="text" class="form-control" name="ic" value="{{ $list->ic }}" placeholder="">
@@ -278,17 +261,18 @@
               </div>
               <div class="form-group">
                 <div class="form-check">
-                  <input type="checkbox" name="group" class="form-check-input" value="1" {{ $list->group == "on" ? 'checked' : '' }}>
+                  <input type="checkbox" name="group" class="form-check-input" value="on" {{ $list->group == "on" ? 'checked' : '' }}>
                   <label class="form-check-label" for="exampleCheck1"><b>Group</b></label>
                 </div>
                </div>
                <div class="form-group">
                   <label for="">Remark</label>
-                  <textarea class="form-control" name="remark" rows="3">{{ $list->remark }}</textarea>
+                  <textarea class="form-control" name="remark" rows="3"></textarea>
                </div>        
                <div class="form-group">
                   <label for="">Image</label>
-                  <tr><img src="{{ URL::asset('upload/' . $list->image) }}" width="100px;" height="100px;" alt="image"></tr>
+                  <tr><img src="{{ URL::asset('/' . $list->image) }}" width="100px;" height="100px;" alt="image"></tr>
+                  <input type="file" class="custom-file-input" id="customFile" name="fileimage">
                </div>
                <br>
                <br>
@@ -354,7 +338,14 @@
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ URL::asset('dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="{{ URL::asset('dist/js/demo.js') }}"></script>
+<script src="{{ URL::asset('dist/js/demo.js') }}"></script>\
+<script type="text/javascript">
+  // Add the following code if you want the name of the file appear on select
+$(".custom-file-input").on("change", function() {
+  var fileName = $(this).val().split("\\").pop();
+  $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
+});
+</script>
 </body>
 </html>
 

@@ -38,25 +38,7 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
     </ul>
-
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
@@ -233,7 +215,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Detail Product</li>
+              <li class="breadcrumb-item active">Detail Users</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -274,11 +256,11 @@
                </div>
                <div class="form-group">
                   <label for="">Remark</label>
-                  <textarea class="form-control" name="remark" disabled rows="3">{{ $list->remark }}</textarea>
+                  <textarea class="form-control" name="remark" disabled rows="3"></textarea>
                </div>
                <div class="form-group">
                   <label for="">Image</label>
-                  <tr><img src="{{ URL::asset('upload/' . $list->image) }}" width="100px;" height="100px;" alt="image"></tr>
+                  <tr><img src="{{ URL::asset('/' . $list->image) }}" width="100px;" height="100px;" alt="image"></tr>
                </div>
                <br>
                <br>
