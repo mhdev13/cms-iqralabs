@@ -230,12 +230,12 @@
           <div class="card-body">
             <table class="table table-bordered">
               @foreach($users as $list)
-              <form action="/user/update" method="post">
+              <form action="/user/update" method="post" enctype="multipart/form-data">
               {{ csrf_field() }}
               <input type="hidden" name="id" value="{{ $list->id }}"> <br/>
               <div class="form-group">
                 <label for="">IC</label>
-                <input type="text" class="form-control" name="ic" value="{{ $list->ic }}" placeholder="">
+                <input type="text" class="form-control" name="ic" value="{{ $list->ic }}" required="required">
               </div>
               <div class="form-group">
                 <label for="">User Name</label>
@@ -272,7 +272,12 @@
                <div class="form-group">
                   <label for="">Image</label>
                   <tr><img src="{{ URL::asset('/' . $list->image) }}" width="100px;" height="100px;" alt="image"></tr>
-                  <input type="file" class="custom-file-input" id="customFile" name="fileimage">
+               </div>
+               <br>
+               <br>
+               <div class="custom-file mb-3">
+                  <input type="file" class="custom-file-input" id="customFile" name="image" id="image">
+                  <label class="custom-file-label" for="customFile">Choose file</label>
                </div>
                <br>
                <br>

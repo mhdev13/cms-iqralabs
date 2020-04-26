@@ -240,7 +240,7 @@
                   <td>{{ $list->gender }}</td>
                   <td>{{ $list->join_date }}</td>
                   <td>{{ $list->group }}</td>
-                  <td><img src="{{ URL::asset('/' . $list->image) }}" width="100px;" height="100px;" alt="image"></td>
+                  <td><img src="{{ URL::asset('images/' . $list->image) }}" width="100px;" height="100px;" alt="image"></td>
                 </tr>
                 @endforeach
                 </tbody>

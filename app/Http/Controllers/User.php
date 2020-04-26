@@ -8,6 +8,8 @@ use App\File;
 use App\UploadedFile;
 use App\Users;
 use App\Groups;
+use Illuminate\Validation\Rule;
+
 
 class User extends Controller
 {
@@ -67,26 +69,36 @@ class User extends Controller
     }
 
     public function update(Request $request)
-    {
-        $this->validate($request, [
-            'user_name' => 'required'
-        ]);
+    {   
+        $image_name = $request->image;
+        $image = $request->file('image');
+        if($image != '')
+        {
+            $request->validate([
+                'ic' => 'required',
+                'image' => 'image|max:2084'
+            ]);
 
-        // $file = $request->file('fileimage');
-        // $extension = $file->getClientOriginalExtension();
-        // $filename = time().".". $extension;
-        // $upload_directory = 'upload';
-        // $file->move($upload_directory,$filename);
+            $image_name = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $image_name);
+            // var_dump($image);exit;
+        } 
+        else 
+        {
+            $request->validate([
+                'ic' => 'required',
+            ]);
+        }
 
         DB::table('users')->where('id',$request->id)->update([
             'ic' => $request->ic,
             'user_name' => $request->user_name,
             'gender' => $request->gender,
             'join_date' => $request->join_date,
-            'group' => $request->group
-            // 'image' => $filename
+            'group' => $request->group,
+            'image' => $image_name
         ]);
 
-        return redirect('/user');
+        return redirect('/user')->with('success', 'Data is successfully updated');
     }
 }

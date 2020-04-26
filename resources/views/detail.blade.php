@@ -260,7 +260,7 @@
                </div>
                <div class="form-group">
                   <label for="">Image</label>
-                  <tr><img src="{{ URL::asset('/' . $list->image) }}" width="100px;" height="100px;" alt="image"></tr>
+                  <tr><img src="{{ URL::asset('images/' . $list->image) }}" width="100px;" height="100px;" alt="image"></tr>
                </div>
                <br>
                <br>
