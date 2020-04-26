@@ -10,7 +10,6 @@ use App\Users;
 use App\Groups;
 use Illuminate\Validation\Rule;
 
-
 class User extends Controller
 {
     public function index(){
@@ -72,6 +71,7 @@ class User extends Controller
     {   
         $image_name = $request->image;
         $image = $request->file('image');
+
         if($image != '')
         {
             $request->validate([
@@ -81,7 +81,6 @@ class User extends Controller
 
             $image_name = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $image_name);
-            // var_dump($image);exit;
         } 
         else 
         {
