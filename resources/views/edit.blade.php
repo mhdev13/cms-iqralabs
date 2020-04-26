@@ -235,11 +235,11 @@
               <input type="hidden" name="id" value="{{ $list->id }}"> <br/>
               <div class="form-group">
                 <label for="">IC</label>
-                <input type="text" class="form-control" name="ic" value="{{ $list->ic }}" required="required">
+                <input type="text" class="form-control" name="ic" value="{{ $list->ic }}">
               </div>
               <div class="form-group">
                 <label for="">User Name</label>
-                <input type="text" class="form-control" name="user_name" value="{{ $list->user_name }}"placeholder="">
+                <input type="text" class="form-control" name="user_name" value="{{ $list->user_name }}" required="required>
               </div>
               <div class="form-group">
                 <p><b>Gender:</b></p>
@@ -271,7 +271,7 @@
                </div>        
                <div class="form-group">
                   <label for="">Image</label>
-                  <tr><img src="{{ URL::asset('/' . $list->image) }}" width="100px;" height="100px;" alt="image"></tr>
+                  <tr><img src="{{ URL::asset('images/' . $list->image) }}" width="100px;" height="100px;" alt="image"></tr>
                </div>
                <br>
                <br>

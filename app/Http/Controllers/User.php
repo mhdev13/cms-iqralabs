@@ -75,7 +75,7 @@ class User extends Controller
         if($image != '')
         {
             $request->validate([
-                'ic' => 'required',
+                'user_name' => 'required',
                 'image' => 'image|max:2084'
             ]);
 
@@ -85,7 +85,7 @@ class User extends Controller
         else 
         {
             $request->validate([
-                'ic' => 'required',
+                'user_name' => 'required',
             ]);
         }
 
