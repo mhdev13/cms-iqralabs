@@ -276,8 +276,8 @@
                <br>
                <br>
                <div class="custom-file mb-3">
-                  <input type="file" class="custom-file-input" id="customFile" name="image" id="image">
-                  <label class="custom-file-label" for="customFile">Choose file</label>
+                  <input type="file" value="{{ $list->image }}" class="custom-file-input" id="customFile" name="image" id="image">
+                  <label class="custom-file-label" for="customFile">{{ $list->image }}</label>
                </div>
                <br>
                <br>
