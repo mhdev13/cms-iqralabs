@@ -229,6 +229,11 @@
         <div class="card">
           <div class="card-body">
             <table class="table table-bordered">
+              @if ($message = Session::get('failed'))
+              <div class="alert alert-danger" role="alert">
+              {{ $message }}
+              </div>
+              @endif
               @foreach($users as $list)
               <form action="/user/update" method="post" enctype="multipart/form-data">
               {{ csrf_field() }}
@@ -283,7 +288,7 @@
                <br>
                <div class="form-group">
                   <button type="submit" class="btn btn-primary">Save</button>
-                </div>
+               </div>
              </form>
             @endforeach
             </table>

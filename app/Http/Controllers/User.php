@@ -9,6 +9,9 @@ use App\UploadedFile;
 use App\Users;
 use App\Groups;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
 
 class User extends Controller
 {
@@ -81,23 +84,31 @@ class User extends Controller
 
             $image_name = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $image_name);
-        } 
-        else 
-        {
+        } else {
             $request->validate([
                 'user_name' => 'required',
             ]);
         }
 
-        DB::table('users')->where('id',$request->id)->update([
-            'ic' => $request->ic,
-            'user_name' => $request->user_name,
-            'gender' => $request->gender,
-            'join_date' => $request->join_date,
-            'group' => $request->group,
-            'image' => $image_name
-        ]);
+        $input['ic'] = Input::get('ic');
 
-        return redirect('/user')->with('success', 'Data is successfully updated');
+        $rules = array('ic' => 'unique:users,ic');
+        $validator = Validator::make($input, $rules);
+
+        if ($validator->fails()) {
+            Session::flash('failed',' failed update data, ic already use');
+            return redirect('/user/edit/'.$request->id.'');
+        } else {
+            DB::table('users')->where('id',$request->id)->update([
+                'ic' => $request->ic,
+                'user_name' => $request->user_name,
+                'gender' => $request->gender,
+                'join_date' => $request->join_date,
+                'group' => $request->group,
+                'image' => $image_name
+            ]);
+        }
+
+        return redirect('/user');
     }
 }
