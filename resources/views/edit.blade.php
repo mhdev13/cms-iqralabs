@@ -236,59 +236,56 @@
               @endif
               @foreach($users as $list)
               <form action="/user/update" method="post" enctype="multipart/form-data">
-              {{ csrf_field() }}
-              <input type="hidden" name="id" value="{{ $list->id }}"> <br/>
-              <div class="form-group">
-                <label for="">IC</label>
-                <input type="text" class="form-control" name="ic" value="{{ $list->ic }}">
-              </div>
-              <div class="form-group">
-                <label for="">User Name</label>
-                <input type="text" class="form-control" name="user_name" value="{{ $list->user_name }}" required="required>
-              </div>
-              <div class="form-group">
-                <p><b>Gender:</b></p>
-                <label class="radio-inline">
-                  <input type="radio" name="gender" value="male" {{ $list->gender == "male" ? 'checked' : '' }}>male
-                </label>
-                <label class="radio-inline">
-                  <input type="radio" name="gender" value="female" {{ $list->gender == "female" ? 'checked' : '' }}>female
-                </label>
-              </div>
-              <div class="form-group">
-              <label>Join Date:</label>
-                <div class="input-group">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                {{ csrf_field() }}
+                <input type="hidden" name="id" value="{{ $list->id }}"> <br/>
+                <div class="form-group">
+                  <label for="">IC</label>
+                  <input type="text" class="form-control" name="ic" value="{{ $list->ic }}">
+                </div>
+                <div class="form-group">
+                  <label for="">User Name</label>
+                  <input type="text" class="form-control" name="user_name" value="{{ $list->user_name }}" required="required">
+                </div>
+                <div class="form-group">
+                  <p><b>Gender:</b></p>
+                  <label class="radio-inline">
+                    <input type="radio" name="gender" value="male" {{ $list->gender == "male" ? 'checked' : '' }}>male
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="gender" value="female" {{ $list->gender == "female" ? 'checked' : '' }}>female
+                  </label>
+                </div>
+                <div class="form-group">
+                <label>Join Date:</label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                    </div>
+                    <input type="text" value="{{ $list->join_date }}" name="join_date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                   </div>
-                  <input type="text" value="{{ $list->join_date }}" name="join_date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                 </div>
-              </div>
-              <div class="form-group">
-                <div class="form-check">
-                  <input type="checkbox" name="group" class="form-check-input" value="on" {{ $list->group == "on" ? 'checked' : '' }}>
-                  <label class="form-check-label" for="exampleCheck1"><b>Group</b></label>
+                <div class="form-group">
+                  <div class="form-check">
+                    <input type="checkbox" name="group" class="form-check-input" value="on" {{ $list->group == "on" ? 'checked' : '' }}>
+                    <label class="form-check-label" for="exampleCheck1"><b>Group</b></label>
+                  </div>
+                 </div>
+                 <div class="form-group">
+                    <label for="">Remark</label>
+                    <textarea class="form-control" name="remark" rows="3"></textarea>
+                 </div>        
+                 <div class="form-group">
+                 <img src="{{ URL::asset('images/' . $list->image) }}" width="100" height="100">     
+                    <div class="custom-file">
+                        <br>
+                        <input type="hidden" value="{{ $list->image }}" class="custom-file-input" id="image" name="image">
+                        <input type="file" name="image" value="{{ $list->image }}"/>
+                    </div>
                 </div>
-               </div>
-               <div class="form-group">
-                  <label for="">Remark</label>
-                  <textarea class="form-control" name="remark" rows="3"></textarea>
-               </div>        
-               <div class="form-group">
-                  <label for="">Image</label>
-                  <tr><img src="{{ URL::asset('images/' . $list->image) }}" width="100px;" height="100px;" alt="image"></tr>
-               </div>
-               <br>
-               <br>
-               <div class="custom-file mb-3">
-                  <input type="file" value="{{ $list->image }}" class="custom-file-input" id="customFile" name="image" id="image">
-                  <label class="custom-file-label" for="customFile">{{ $list->image }}</label>
-               </div>
-               <br>
-               <br>
-               <div class="form-group">
-                  <button type="submit" class="btn btn-primary">Save</button>
-               </div>
+                <br>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                </div>
              </form>
             @endforeach
             </table>
