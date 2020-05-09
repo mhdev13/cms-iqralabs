@@ -272,7 +272,7 @@
                  </div>
                  <div class="form-group">
                     <label for="">Remark</label>
-                    <textarea class="form-control" name="remark" rows="3"></textarea>
+                    <textarea class="form-control" name="remark" rows="3">{{ $list->remark }}</textarea>
                  </div>        
                  <div class="form-group">
                  <img src="{{ URL::asset('images/' . $list->image) }}" width="100" height="100">     

@@ -55,19 +55,26 @@ class User extends Controller
 
     public function detail($id)
     {
-
-		$users = DB::table('users')->where('id',$id)->get();
-		
+        //mengambil data user berdasarkan id yang dipilih
+        $users = DB::table('users')
+            ->leftJoin('groups', 'users.id', '=', 'groups.id')
+            ->where('users.id',$id)
+            ->get();
+        
+        // passing data detail yang didapat ke view edit.blade.php		
 		return view('detail',['users' => $users]);
     }
 
     public function edit($id)
     {
-        // // mengambil data user berdasarkan id yang dipilih
-        $users = DB::table('users')->where('id',$id)->get();
-        // passing data user yang didapat ke view edit.blade.php
+        //mengambil data user berdasarkan id yang dipilih
+        $users = DB::table('users')
+            ->leftJoin('groups', 'users.id', '=', 'groups.id')
+            ->where('users.id',$id)
+            ->get();
+
+        // passing data edit user yang didapat ke view edit.blade.php
         return view('edit',['users' => $users]);
-        
     }
 
     public function update(Request $request)
@@ -99,13 +106,17 @@ class User extends Controller
             Session::flash('failed',' failed update data, ic already use');
             return redirect('/user/edit/'.$request->id.'');
         } else {
-            DB::table('users')->where('id',$request->id)->update([
+            DB::table('users')
+                ->leftJoin('groups', 'users.id', '=', 'groups.id')
+                ->where('users.id',$request->id)
+                ->update([
                 'ic' => $request->ic,
                 'user_name' => $request->user_name,
                 'gender' => $request->gender,
                 'join_date' => $request->join_date,
                 'group' => $request->group,
-                'image' => $image_name
+                'image' => $image_name,
+                'remark' => $request->remark
             ]);
         }
 
