@@ -21,35 +21,26 @@ class Group extends Controller
     }
 
     public function store(Request $request)
-    {
+    {   
         $this->validate($request, [
-    		'user_name' => 'required',
-    		'fileimage' => 'required|file|image|mimes:jpeg,png,jpg,svg|max:2048',
+    		'group_name' => 'required',
 		]);
 
-		$file = $request->file('fileimage');
-		$extension = $file->getClientOriginalExtension();
-		$filename = time().".". $extension;
-		$upload_directory = 'upload';
-		$file->move($upload_directory,$filename);
-
-		Users::create([
-			'ic' => $request->ic,
-    		'user_name' => $request->user_name,
-    		'gender' => $request->gender,
-            'price' => $request->price,
-            'join_date' => $request->join_date,
-            'group' => $request->group,
-            'remark' => $request->remark,
-    		'image' => $filename
+		Groups::create([
+    		'group_name' => $request->group_name,
+    		'number_users' => $request->number_users,
+            'remark' => $request->remark
 		]);
 
-    	return redirect('/user');
+    	return redirect('/group');
     }
 
     public function detail($id)
     {
-		$group = DB::table('groups')->where('id',$id)->get();
+		$group = DB::table('groups')
+            ->leftJoin('users', 'groups.id', '=', 'users.id')
+            ->where('groups.id',$id)
+            ->get();
 		
 		return view('detail_group',['groups' => $group]);
     }

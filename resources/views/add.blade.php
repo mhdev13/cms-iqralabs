@@ -97,6 +97,14 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
+                  <a href="/user/add" class="nav-link">
+                    <i class="fas fa fa-plus-circle nav-icon"></i>
+                    <p>Add User</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
                   <a href="/user/" class="nav-link">
                     <i class="fas fa-search-plus nav-icon"></i>
                     <p>List User</p>
@@ -112,6 +120,14 @@
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/group/add" class="nav-link">
+                    <i class="fas fa fa-plus-circle nav-icon"></i>
+                    <p>Add Group</p>
+                  </a>
+                </li>
+              </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="/group" class="nav-link">
@@ -135,12 +151,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add Group</h1>
+            <h1>Add User</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Add Group</li>
+              <li class="breadcrumb-item active">Add User</li>
             </ol>
           </div>
         </div>
@@ -153,6 +169,11 @@
               <div class="card">
                 <div class="card-body">
                   <table class="table table-bordered">
+                  @if ($message = Session::get('failed'))
+                  <div class="alert alert-danger" role="alert">
+                  {{ $message }}
+                  </div>
+                  @endif
                     <form action="/user/store" method="post" enctype="multipart/form-data">
                       {{ csrf_field() }}
                       <div class="form-group">
@@ -188,7 +209,7 @@
                         </div>
                       </div>
                       <div class="custom-file mb-3">
-                        <input type="file" class="custom-file-input" id="customFile" name="fileimage">
+                        <input type="file" class="custom-file-input" id="image" name="image">
                         <label class="custom-file-label" for="customFile">Choose file</label>
                       </div>
                       <div class="form-group">

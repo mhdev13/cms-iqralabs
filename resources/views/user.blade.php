@@ -163,6 +163,14 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
+                  <a href="/user/add" class="nav-link">
+                    <i class="fas fa fa-plus-circle nav-icon"></i>
+                    <p>Add User</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
                   <a href="/user/" class="nav-link">
                     <i class="fas fa-search-plus nav-icon"></i>
                     <p>List User</p>
@@ -178,6 +186,14 @@
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/group/add" class="nav-link">
+                    <i class="fas fa fa-plus-circle nav-icon"></i>
+                    <p>Add Group</p>
+                  </a>
+                </li>
+              </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="/group" class="nav-link">

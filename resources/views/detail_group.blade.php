@@ -172,6 +172,14 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
+                  <a href="/user/add" class="nav-link">
+                    <i class="fas fa fa-plus-circle nav-icon"></i>
+                    <p>Add User</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
                   <a href="/user/" class="nav-link">
                     <i class="fas fa-search-plus nav-icon"></i>
                     <p>List User</p>
@@ -187,6 +195,14 @@
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/group/add" class="nav-link">
+                    <i class="fas fa fa-plus-circle nav-icon"></i>
+                    <p>Add Group</p>
+                  </a>
+                </li>
+              </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="/group" class="nav-link">
@@ -229,35 +245,37 @@
         <div class="card">
           <div class="card-body">
             <table class="table table-bordered">
-              @foreach($groups as $list)
-               <div class="form-group">
-                  <label for="">Group name</label>
-                  <input type="text" class="form-control" name="group_name" disabled value="{{ $list->group_name }}" placeholder="">
-               </div>
-               <div class="form-group">
-                  <label for="">Date the group</label>
-                  <input type="text" class="form-control" name="created_at" disabled value="{{ $list->created_at }}" placeholder="">
-               </div>
-               <div class="form-group">
-                  <label for="">Remarks</label>
-                  <input type="text" class="form-control" name="remark" disabled value="{{ $list->remark }}" placeholder="">
-               </div>
-               <div class="form-group">
-                  <label for="">Number of users</label>
-                  <input type="text" class="form-control" name="number_users" disabled value="{{ $list->number_users }}" placeholder="">
-               </div>
+              <thead>
+                <tr>
+                  <th>Group name</th>
+                  <th>Date the group</th>
+                  <th>Remarks</th>
+                  <th>Number of users</th>
+                  <th width="auto">The list of users</th>
+                </tr>
+               </thead>
+               <tbody>
+                 @foreach($groups as $list)
+                  <tr>
+                    <td>{{ $list->group_name }}</td>
+                    <td>{{ $list->created_at }}</td>
+                    <td>{{ $list->remark }}</td>
+                    <td>{{ $list->number_users }}</td>
+                    <td class="text-left">
+                      <ul>
+                        <li> {{ $list->ic }} </li>
+                        <li> {{ $list->user_name }} </li>
+                        <li> {{ $list->group }} </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  @endforeach
+                </tbody>
                 <div class="form-group">
-                  <label for="">The list of users</label>
-                  <input type="text" class="form-control" name="group" disabled value="" placeholder="">
-               </div>
-               <br>
-               <br>
-               <div class="form-group">
-                <a href="/group/edit/{{ $list->id }}"" class="btn btn-primary" role="button">Add</a>
-               </div>
-            </div>
-            @endforeach
+                  <a href="/group/edit/{{ $list->id }}" class="btn btn-primary" role="button">Edit</a>
+                </div>
             </table>
+            </div>
           </div>
         </div>
       </div>

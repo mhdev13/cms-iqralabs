@@ -97,6 +97,14 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
+                  <a href="/user/add" class="nav-link">
+                    <i class="fas fa fa-plus-circle nav-icon"></i>
+                    <p>Add User</p>
+                  </a>
+                </li>
+              </ul>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
                   <a href="/user/" class="nav-link">
                     <i class="fas fa-search-plus nav-icon"></i>
                     <p>List User</p>
@@ -112,6 +120,14 @@
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="/group/add" class="nav-link">
+                    <i class="fas fa fa-plus-circle nav-icon"></i>
+                    <p>Add Group</p>
+                  </a>
+                </li>
+              </ul>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="/group" class="nav-link">
@@ -156,41 +172,17 @@
                     <form action="/group/store" method="post" enctype="multipart/form-data">
                       {{ csrf_field() }}
                       <div class="form-group">
-                        <label for="">IC</label>
-                        <input type="text" class="form-control" name="ic">
+                        <label for="">Group Name</label>
+                        <input type="text" class="form-control" name="group_name" required="required">
                       </div>
                       <div class="form-group">
-                        <label for="">User Name</label>
-                        <input type="text" class="form-control" name="user_name" required="required">
+                        <label for="">Number Users</label>
+                        <input type="text" class="form-control" name="number_users">
                       </div>
                       <div class="form-group">
-                        <p><b>Gender:</b></p>
-                        <label class="radio-inline">
-                          <input type="radio" value="male" name="gender">Male
-                        </label>
-                        <label class="radio-inline">
-                          <input type="radio" value="female" name="gender">Female
-                        </label>
-                      </div>
-                      <div class="form-group">
-                        <label>Join Date:</label>
-                        <div class="input-group">
-                          <div class="input-group-prepend">
-                            <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
-                          </div>
-                          <input type="text" name="join_date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <div class="form-check">
-                          <input type="checkbox" name="group" class="form-check-input" id="1">
-                          <label class="form-check-label" for="exampleCheck1"><b>Group</b></label>
-                        </div>
-                      </div>
-                      <div class="custom-file mb-3">
-                        <input type="file" class="custom-file-input" id="customFile" name="fileimage">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
-                      </div>
+                          <label for="">Remark</label>
+                          <textarea class="form-control" name="remark" rows="3"></textarea>
+                       </div>
                       <div class="form-group">
                       <button type="submit" class="btn btn-primary">Save</button>
                       </div>

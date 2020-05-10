@@ -229,6 +229,9 @@
         <div class="card">
           <div class="card-body">
             <table class="table table-bordered">
+              <?php
+              // var_dump($users);exit;
+              ?>
               @foreach($users as $list)
                <div class="form-group">
                   <label for="">IC</label>
@@ -265,7 +268,7 @@
                <br>
                <br>
                <div class="form-group">
-                <a href="/user/edit/{{ $list->id }}"" class="btn btn-primary" role="button">Add</a>
+                <a href="/user/edit/{{ $list->id }}" class="btn btn-primary" role="button">Edit</a>
                </div>
             </div>
             @endforeach
