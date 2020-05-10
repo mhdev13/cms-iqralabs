@@ -113,7 +113,7 @@ class User extends Controller
                 'user_name' => 'required',
             ]);
         }
-        var_dump($request);exit;
+
         $input['ic'] = Input::get('ic');
 
         $rules = array('ic' => 'unique:users,ic');
