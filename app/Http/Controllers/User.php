@@ -113,19 +113,29 @@ class User extends Controller
                 'user_name' => 'required',
             ]);
         }
+        var_dump($request);exit;
+        $input['ic'] = Input::get('ic');
 
-        DB::table('users')
-            ->leftJoin('groups', 'users.id', '=', 'groups.id')
-            ->where('users.id',$request->id)
-            ->update([
-            'ic' => $request->ic,
-            'user_name' => $request->user_name,
-            'gender' => $request->gender,
-            'join_date' => $request->join_date,
-            'group' => $request->group,
-            'image' => $image_name,
-            'remark' => $request->remark
-        ]);
+        $rules = array('ic' => 'unique:users,ic');
+        $validator = Validator::make($input, $rules);
+
+        if ($validator->fails()) {
+            Session::flash('failed',' failed edit data, ic already exist');
+            return redirect('/user/edit/'.$request->id.'');
+        } else {
+                 DB::table('users')
+                ->leftJoin('groups', 'users.id', '=', 'groups.id')
+                ->where('users.id',$request->id)
+                ->update([
+                'ic' => $request->ic,
+                'user_name' => $request->user_name,
+                'gender' => $request->gender,
+                'join_date' => $request->join_date,
+                'group' => $request->group,
+                'image' => $image_name,
+                'remark' => $request->remark
+            ]);
+        }
 
         return redirect('/user');
     }
