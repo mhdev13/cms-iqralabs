@@ -115,8 +115,8 @@ class User extends Controller
         }
 
         $input['ic'] = Input::get('ic');
+        $rules = array('ic' =>'unique:users,ic,'.$request->id.'');
 
-        $rules = array('ic' => 'unique:users,ic');
         $validator = Validator::make($input, $rules);
 
         if ($validator->fails()) {
