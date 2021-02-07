@@ -251,6 +251,7 @@
                   <th>Alamat</th>
                   <th>No Handphone</th>
                   <th>Status</th>
+                  <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -268,6 +269,14 @@
                   <td>{{ $list->address }}</td>
                   <td>{{ $list->phone_number }}</td>
                   <td>{{ $list->status }}</td>
+                  <td width="500">
+											<a href=""
+											 class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
+                       <br>
+                       <br>
+											<a onclick="deleteConfirm('')"
+											 href="#!" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
+										</td>
                 </tr>
                 @endforeach
                 </tbody>
@@ -325,5 +334,11 @@
     });
   });
 </script>
+<script>
+	function deleteConfirm(url){
+		$('#btn-delete').attr('href', url);
+		$('#deleteModal').modal();
+	}
+	</script>
 </body>
 </html>
