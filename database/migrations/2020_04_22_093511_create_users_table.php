@@ -15,12 +15,17 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('ic');
-            $table->string('user_name')->nullable();
+            $table->string('fullname');
+            $table->string('no_identity')->nullable();
             $table->enum('gender', ['male', 'female'])->nullable();
-            $table->string('join_date')->nullable();
-            $table->string('group')->nullable();
-            $table->string('image')->nullable();
+            $table->enum('religion', ['muslim', 'non_muslim']);
+            $table->string('birthdate')->nullable();
+            $table->string('email')->nullable();
+            $table->enum('education', ['sd','smp','sma','s1', 'other'])->nullable();
+            $table->string('address')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->enum('status', ['active', 'pending','inactive']);
+            // $table->string('image')->nullable();
             $table->timestamps();
         });
     }

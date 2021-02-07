@@ -218,12 +218,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>List Users</h1>
+            <h1>Army List</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">List Users</li>
+              <li class="breadcrumb-item active">Army List</li>
             </ol>
           </div>
         </div>
@@ -240,35 +240,50 @@
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>IC</th>
-                  <th>User Name</th>
-                  <th>Gender</th>
-                  <th>Join Date</th>
-                  <th>Group</th>
-                  <th>Image</th>
+                  <th>No</th>
+                  <th>Nomor Identitas</th>
+                  <th>Nama Lengkap</th>
+                  <th>Jenis Kelamin</th>
+                  <th>Agama</th>
+                  <th>Tanggal Lahir</th>
+                  <th>Email</th>
+                  <th>Pendidikan</th>
+                  <th>Alamat</th>
+                  <th>No Handphone</th>
+                  <th>Status</th>
                 </tr>
                 </thead>
                 <tbody>
+                <?php
+                // dd($user);exit;
+                ?>
                 @foreach($user as $list)  
+                
                 <tr>
-                  <td>{{ $list->ic }}</td>
-                  <td><a href="/user/detail/{{ $list->id }}">{{ $list->user_name }}</a></td>
+                  <td>{{ $list->id }}</td>
+                  <td>{{ $list->no_identity }}</td>
+                  <td><a href="/user/detail/{{ $list->id }}">{{ $list->fullname }}</a></td>
                   <td>{{ $list->gender }}</td>
-                  <td>{{ $list->join_date }}</td>
-                  <td>{{ $list->group }}</td>
-                  <td><img src="{{ URL::asset('images/' . $list->image) }}" width="100px;" height="100px;" alt="image"></td>
+                  <td>{{ $list->religion }}</td>
+                  <td>{{ $list->birthdate }}</td>
+                  <!-- <td><img src="{{ URL::asset('images/' . $list->image) }}" width="100px;" height="100px;" alt="image"></td> -->
+                  <td>{{ $list->email }}</td>
+                  <td>{{ $list->education }}</td>
+                  <td>{{ $list->address }}</td>
+                  <td>{{ $list->phone_number }}</td>
+                  <td>{{ $list->status }}</td>
                 </tr>
                 @endforeach
                 </tbody>
                 <tfoot>
-                <tr>
+                <!-- <tr>
                   <th>IC</th>
                   <th>User Name</th>
                   <th>Gender</th>
                   <th>Join Date</th>
                   <th>Group</th>
                   <th>Image</th>
-                </tr>
+                </tr> -->
                 </tfoot>
               </table>
             </div>

@@ -246,40 +246,48 @@
           <div class="card-body">
             <table class="table table-bordered">
               <?php
-              // var_dump($users);exit;
+              // dd($users);exit;
               ?>
               @foreach($users as $list)
                <div class="form-group">
-                  <label for="">IC</label>
-                  <input type="text" class="form-control" name="ic" disabled value="{{ $list->ic }}" placeholder="">
+                  <label for="">Nomor Identitas</label>
+                  <input type="text" class="form-control" name="no_identity" disabled value="{{ $list->no_identity }}" placeholder="">
                </div>
                <div class="form-group">
-                  <label for="">User Name</label>
-                  <input type="text" class="form-control" name="user_name" disabled value="{{ $list->user_name }}" placeholder="">
+                  <label for="">Nama Lengkap</label>
+                  <input type="text" class="form-control" name="fullname" disabled value="{{ $list->fullname }}" placeholder="">
                </div>
                <div class="form-group">
-                  <label for="">Gender</label>
+                  <label for="">Jenis Kelamin</label>
                   <input type="text" class="form-control" name="gender" disabled value="{{ $list->gender }}" placeholder="">
                </div>
                <div class="form-group">
-                  <label for="">Join Date</label>
-                  <input type="text" class="form-control" name="join_date" disabled value="{{ $list->join_date }}" placeholder="">
+                  <label for="">Agama</label>
+                  <input type="text" class="form-control" name="religion" disabled value="{{ $list->religion }}" placeholder="">
                </div>
                <div class="form-group">
-                  <label for="">The Groups</label>
-                  <input type="text" class="form-control" name="group" disabled value="{{ $list->group }}" placeholder="">
-               </div>
-                <div class="form-group">
-                  <label for="">The number of groups</label>
-                  <input type="text" class="form-control" name="group" disabled value="{{ $list->number_users }}" placeholder="">
+                  <label for="">Tanggal Lahir</label>
+                  <input type="text" class="form-control" name="birthdate" disabled value="{{ $list->birthdate }}" placeholder="">
                </div>
                <div class="form-group">
-                  <label for="">Remark</label>
-                  <textarea class="form-control" name="remark" disabled value="" rows="3">{{ $list->remark }}</textarea>
+                  <label for="">Email</label>
+                  <input type="text" class="form-control" name="email" disabled value="{{ $list->email }}" placeholder="">
                </div>
                <div class="form-group">
-                  <label for="">Image</label>
-                  <tr><img src="{{ URL::asset('images/' . $list->image) }}" width="100px;" height="100px;" alt="image"></tr>
+                  <label for="">Pendidikan</label>
+                  <input type="text" class="form-control" name="education" disabled value="{{ $list->education }}" placeholder="">
+               </div>
+               <div class="form-group">
+                  <label for="">Alamat</label>
+                  <input type="text" class="form-control" name="address" disabled value="{{ $list->address }}" placeholder="">
+               </div>
+               <div class="form-group">
+                  <label for="">No Handphone</label>
+                  <input type="text" class="form-control" name="phone_number" disabled value="{{ $list->phone_number }}" placeholder="">
+               </div>
+               <div class="form-group">
+                  <label for="">Status</label>
+                  <input type="text" class="form-control" name="status" disabled value="{{ $list->status }}" placeholder="">
                </div>
                <br>
                <br>
