@@ -245,9 +245,6 @@
         <div class="card">
           <div class="card-body">
             <table class="table table-bordered">
-              <?php
-              // dd($users);exit;
-              ?>
               @foreach($users as $list)
                <div class="form-group">
                   <label for="">Nomor Identitas</label>

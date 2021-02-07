@@ -254,9 +254,6 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php
-                // dd($user);exit;
-                ?>
                 @foreach($user as $list)  
                 
                 <tr>
@@ -266,7 +263,6 @@
                   <td>{{ $list->gender }}</td>
                   <td>{{ $list->religion }}</td>
                   <td>{{ $list->birthdate }}</td>
-                  <!-- <td><img src="{{ URL::asset('images/' . $list->image) }}" width="100px;" height="100px;" alt="image"></td> -->
                   <td>{{ $list->email }}</td>
                   <td>{{ $list->education }}</td>
                   <td>{{ $list->address }}</td>
@@ -275,16 +271,6 @@
                 </tr>
                 @endforeach
                 </tbody>
-                <tfoot>
-                <!-- <tr>
-                  <th>IC</th>
-                  <th>User Name</th>
-                  <th>Gender</th>
-                  <th>Join Date</th>
-                  <th>Group</th>
-                  <th>Image</th>
-                </tr> -->
-                </tfoot>
               </table>
             </div>
             <!-- /.card-body -->
