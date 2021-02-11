@@ -38,25 +38,8 @@
       <li class="nav-item">
         <a class="nav-link" data-widget="pushmenu" href="#"><i class="fas fa-bars"></i></a>
       </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="../../index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
     </ul>
 
-    <!-- SEARCH FORM -->
-    <form class="form-inline ml-3">
-      <div class="input-group input-group-sm">
-        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-        <div class="input-group-append">
-          <button class="btn btn-navbar" type="submit">
-            <i class="fas fa-search"></i>
-          </button>
-        </div>
-      </div>
-    </form>
   </nav>
   <!-- /.navbar -->
 
@@ -151,12 +134,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Add User</h1>
+            <h1>Add Army</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Add User</li>
+              <li class="breadcrumb-item active">Add Army</li>
             </ol>
           </div>
         </div>
@@ -177,15 +160,15 @@
                     <form action="/user/store" method="post" enctype="multipart/form-data">
                       {{ csrf_field() }}
                       <div class="form-group">
-                        <label for="">Nomor Identitias</label>
+                        <label for="">Identity Number</label>
                         <input type="text" class="form-control" name="no_identity">
                       </div>
                       <div class="form-group">
-                        <label for="">Nama Lengkap</label>
+                        <label for="">Full Name</label>
                         <input type="text" class="form-control" name="fullname" required="required">
                       </div>
                       <div class="form-group">
-                        <p><b>Jenis Kelamin</b></p>
+                        <p><b>Gender</b></p>
                         <label class="radio-inline" style="padding-right:5px">
                           <input type="radio" value="male" name="gender">Male
                         </label>
@@ -194,7 +177,7 @@
                         </label>
                       </div>
                       <div class="form-group">
-                        <p><b>Agama</b></p>
+                        <p><b>Religion</b></p>
                         <label class="radio-inline" style="padding-right:5px">
                           <input type="radio" value="muslim" name="religion">Muslim
                         </label>
@@ -203,7 +186,7 @@
                         </label>
                       </div>
                       <div class="form-group">
-                        <label>Tanggal Lahir</label>
+                        <label>Birthdate</label>
                         <div class="input-group">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
@@ -212,7 +195,7 @@
                         </div>
                       </div>
                       <div class="form-group">
-                        <label for="">Email</label>
+                        <label for="">Education</label>
                         <input type="email" class="form-control" name="email" required="required">
                       </div>
                       <div class="form-group">
@@ -226,11 +209,11 @@
                         </select>
                       </div>
                       <div class="form-group">
-                        <label for="">Alamat</label>
+                        <label for="">Address</label>
                         <textarea class="form-control" id="address" rows="3" name="address"></textarea>
                       </div>
                       <div class="form-group">
-                        <label for="">No Handphone</label>
+                        <label for="">Phone Number</label>
                         <input type="text" class="form-control" name="phone_number" required="required">
                       </div>
                       <div class="form-group">
