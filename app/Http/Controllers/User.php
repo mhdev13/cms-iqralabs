@@ -28,43 +28,51 @@ class User extends Controller
 
     public function store(Request $request)
     {
-        $image_name = $request->image;
-        $image = $request->file('image');
+        // dd($request);exit;
+        // $image_name = $request->image;
+        // $image = $request->file('image');
 
-        if($image != '')
-        {
-            $request->validate([
-                'user_name' => 'required',
-                'image' => 'image|max:2084'
-            ]);
+        // if($image != '')
+        // {
+        //     $request->validate([
+        //         'user_name' => 'required',
+        //         'image' => 'image|max:2084'
+        //     ]);
 
-            $image_name = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $image_name);
-        } else {
-            $request->validate([
-                'user_name' => 'required',
-            ]);
-        }
+        //     $image_name = time() . '.' . $image->getClientOriginalExtension();
+        //     $image->move(public_path('images'), $image_name);
+        // } else {
+        //     $request->validate([
+        //         'user_name' => 'required',
+        //     ]);
+        // }
 
-        $input['ic'] = Input::get('ic');
+        $input['no_identity'] = Input::get('no_identity');
 
         $rules = array('ic' => 'unique:users,ic');
         $validator = Validator::make($input, $rules);
 
         if ($validator->fails()) {
-            Session::flash('failed',' failed add data, ic already use');
+            Session::flash('failed',' failed add data, number identity already use');
             return redirect('/user/add/'.$request->id.'');
         } else {
             DB::table('users')->insert([
-                'ic' => $request->ic,
-                'user_name' => $request->user_name,
+                'no_identity' => $request->no_identity,
+                'fullname' => $request->fullname,
                 'gender' => $request->gender,
-                'join_date' => $request->join_date,
-                'group' => $request->group,
-                'image' => $image_name
+                'religion' => $request->religion,
+                'birthdate' => $request->birthdate,
+                'email' => $request->email,
+                'fullname' => $request->fullname,
+                'education' => $request->education,
+                'address' => $request->address,
+                'phone_number' => $request->phone_number,
+                'status' => $request->status,
             ]);
         }
-        
+
+        Session::flash('flash_message','successfully saved.');
+
         return redirect('/user');
     }
 

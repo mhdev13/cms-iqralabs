@@ -177,16 +177,16 @@
                     <form action="/user/store" method="post" enctype="multipart/form-data">
                       {{ csrf_field() }}
                       <div class="form-group">
-                        <label for="">IC</label>
-                        <input type="text" class="form-control" name="ic">
+                        <label for="">Nomor Identitias</label>
+                        <input type="text" class="form-control" name="no_identity">
                       </div>
                       <div class="form-group">
-                        <label for="">User Name</label>
-                        <input type="text" class="form-control" name="user_name" required="required">
+                        <label for="">Nama Lengkap</label>
+                        <input type="text" class="form-control" name="fullname" required="required">
                       </div>
                       <div class="form-group">
-                        <p><b>Gender:</b></p>
-                        <label class="radio-inline">
+                        <p><b>Jenis Kelamin</b></p>
+                        <label class="radio-inline" style="padding-right:5px">
                           <input type="radio" value="male" name="gender">Male
                         </label>
                         <label class="radio-inline">
@@ -194,23 +194,52 @@
                         </label>
                       </div>
                       <div class="form-group">
-                        <label>Join Date:</label>
+                        <p><b>Agama</b></p>
+                        <label class="radio-inline" style="padding-right:5px">
+                          <input type="radio" value="muslim" name="religion">Muslim
+                        </label>
+                        <label class="radio-inline">
+                          <input type="radio" value="other" name="religion">Other
+                        </label>
+                      </div>
+                      <div class="form-group">
+                        <label>Tanggal Lahir</label>
                         <div class="input-group">
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                           </div>
-                          <input type="text" name="join_date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                          <input type="text" name="birthdate" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                         </div>
                       </div>
                       <div class="form-group">
-                        <div class="form-check">
-                          <input type="checkbox" name="group" class="form-check-input" id="1">
-                          <label class="form-check-label" for="exampleCheck1"><b>Group</b></label>
-                        </div>
+                        <label for="">Email</label>
+                        <input type="email" class="form-control" name="email" required="required">
                       </div>
-                      <div class="custom-file mb-3">
-                        <input type="file" class="custom-file-input" id="image" name="image">
-                        <label class="custom-file-label" for="customFile">Choose file</label>
+                      <div class="form-group">
+                        <label for="education">Pendidikan:</label>
+                        <select class="form-control" id="education" name="education">
+                          <option value="sd">SD</option>
+                          <option value="smp">SMP</option>
+                          <option value="sma">SMA</option>
+                          <option value="s1">S1</option>
+                          <option value="other">OTHER</option>
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="">Alamat</label>
+                        <textarea class="form-control" id="address" rows="3" name="address"></textarea>
+                      </div>
+                      <div class="form-group">
+                        <label for="">No Handphone</label>
+                        <input type="text" class="form-control" name="phone_number" required="required">
+                      </div>
+                      <div class="form-group">
+                        <label for="status">Status</label>
+                        <select class="form-control" id="status" name="status">
+                          <option value="active">Active</option>
+                          <option value="pending">Pending</option>
+                          <option value="inactive">Inactive</option>
+                        </select>
                       </div>
                       <div class="form-group">
                       <button type="submit" class="btn btn-primary">Save</button>

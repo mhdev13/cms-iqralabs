@@ -237,6 +237,9 @@
           <div class="card">
             <!-- /.card-header -->
             <div class="card-body">
+              @if(Session::has('flash_message'))
+                  <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
+              @endif
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
