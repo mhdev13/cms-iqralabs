@@ -17,6 +17,7 @@ Route::get('/', function () {
 
 //route users
 Route::get('/user','User@index');
+Route::get('/user/export_excel', 'User@export_excel');
 
 Route::get('/user/add','User@add');
 

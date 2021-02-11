@@ -12,6 +12,9 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Session;
+use App\Exports\UserExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
 
 class User extends Controller
 {
@@ -24,6 +27,11 @@ class User extends Controller
 
     	return view('user',['user' => $users]);
     }
+
+    public function export_excel()
+	{
+		return Excel::download(new UserExport, 'user.xlsx');
+	}
 
     public function add(){
     	return view('add');
