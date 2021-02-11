@@ -28,6 +28,8 @@ Route::post('/user/update','User@update');
 
 Route::get('/user/detail/{id}','User@detail');
 
+Route::get('/user/delete/{id}','User@delete');
+
 //route groups
 Route::get('/group','Group@index');
 

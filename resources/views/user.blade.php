@@ -243,6 +243,7 @@
               @if(Session::has('flash_message'))
                   <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
               @endif
+              
               <table id="table-datatables" class="table table-bordered table-striped">
                 <thead>
                 <tr>
@@ -261,10 +262,10 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($user as $list)  
+                @foreach($user as $index => $list)  
                 
                 <tr>
-                  <td>{{ $list->id }}</td>
+                  <td>{{ $index +1 }}</td>
                   <td>{{ $list->no_identity }}</td>
                   <td><a href="/user/detail/{{ $list->id }}">{{ $list->fullname }}</a></td>
                   <td>{{ $list->gender }}</td>
@@ -280,8 +281,7 @@
 											 class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
                        <br>
                        <br>
-											<a onclick="deleteConfirm('')"
-											 href="#!" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
+											<a href="/user/delete/{{ $list->id }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
 										</td>
                 </tr>
                 @endforeach

@@ -103,51 +103,32 @@ class User extends Controller
 
     public function update(Request $request)
     {   
-        // $image_name = $request->image;
-        // $image = $request->file('image');
+        DB::table('users')
+            ->where('users.id',$request->id)
+            ->update([
+            'no_identity' => $request->no_identity,
+            'fullname' => $request->fullname,
+            'gender' => $request->gender,
+            'religion' => $request->religion,
+            'birthdate' => $request->birthdate,
+            'email' => $request->email,
+            'education' => $request->education,
+            'address' => $request->address,
+            'phone_number' => $request->phone_number,
+            'status' => $request->status
+        ]);
 
-        // if($image != '')
-        // {
-        //     $request->validate([
-        //         'user_name' => 'required',
-        //         'image' => 'image|max:2084'
-        //     ]);
-
-        //     $image_name = time() . '.' . $image->getClientOriginalExtension();
-        //     $image->move(public_path('images'), $image_name);
-        // } else {
-        //     $request->validate([
-        //         'user_name' => 'required',
-        //     ]);
-        // }
-
-        $input['no_identity'] = Input::get('no_identity');
-        $rules = array('no_identity' =>'unique:users,no_identity,'.$request->no_identity.'');
-
-        $validator = Validator::make($input, $rules);
-
-        if ($validator->fails()) {
-            Session::flash('failed',' failed edit data, no_identity already exist');
-            return redirect('/user/edit/'.$request->id.'');
-        } else {
-                 DB::table('users')
-                ->where('users.id',$request->id)
-                ->update([
-                'no_identity' => $request->no_identity,
-                'fullname' => $request->fullname,
-                'gender' => $request->gender,
-                'religion' => $request->religion,
-                'birthdate' => $request->birthdate,
-                'email' => $request->email,
-                'education' => $request->education,
-                'address' => $request->address,
-                'phone_number' => $request->phone_number,
-                'status' => $request->status
-            ]);
-        }
-        
         Session::flash('flash_message','successfully saved.');
 
+        return redirect('/user');
+    }
+
+    public function delete($id)
+    {
+        DB::table('users')->where('id',$id)->delete();
+
+        Session::flash('flash_message','successfully delete.');
+            
         return redirect('/user');
     }
 }
