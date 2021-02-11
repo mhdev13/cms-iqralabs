@@ -286,11 +286,6 @@
                   <label for="">Status</label>
                   <input type="text" class="form-control" name="status" disabled value="{{ $list->status }}" placeholder="">
                </div>
-               <br>
-               <br>
-               <div class="form-group">
-                <a href="/user/edit/{{ $list->id }}" class="btn btn-primary" role="button">Edit</a>
-               </div>
             </div>
             @endforeach
             </table>

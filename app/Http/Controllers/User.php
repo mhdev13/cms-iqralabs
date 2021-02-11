@@ -49,7 +49,7 @@ class User extends Controller
 
         $input['no_identity'] = Input::get('no_identity');
 
-        $rules = array('ic' => 'unique:users,ic');
+        $rules = array('no_identity' => 'unique:users,no_identity');
         $validator = Validator::make($input, $rules);
 
         if ($validator->fails()) {
@@ -93,57 +93,60 @@ class User extends Controller
     {
         //mengambil data user berdasarkan id yang dipilih
         $users = DB::table('users')
-            ->select('users.*','groups.*')
-            ->leftJoin('groups', 'users.id', '=', 'groups.id')
-            ->where('users.id',$id)
+            ->select('*')
+            ->where('id',$id)
             ->get();
-
+        
         // passing data edit user yang didapat ke view edit.blade.php
         return view('edit',['users' => $users]);
     }
 
     public function update(Request $request)
     {   
-        $image_name = $request->image;
-        $image = $request->file('image');
+        // $image_name = $request->image;
+        // $image = $request->file('image');
 
-        if($image != '')
-        {
-            $request->validate([
-                'user_name' => 'required',
-                'image' => 'image|max:2084'
-            ]);
+        // if($image != '')
+        // {
+        //     $request->validate([
+        //         'user_name' => 'required',
+        //         'image' => 'image|max:2084'
+        //     ]);
 
-            $image_name = time() . '.' . $image->getClientOriginalExtension();
-            $image->move(public_path('images'), $image_name);
-        } else {
-            $request->validate([
-                'user_name' => 'required',
-            ]);
-        }
+        //     $image_name = time() . '.' . $image->getClientOriginalExtension();
+        //     $image->move(public_path('images'), $image_name);
+        // } else {
+        //     $request->validate([
+        //         'user_name' => 'required',
+        //     ]);
+        // }
 
-        $input['ic'] = Input::get('ic');
-        $rules = array('ic' =>'unique:users,ic,'.$request->id.'');
+        $input['no_identity'] = Input::get('no_identity');
+        $rules = array('no_identity' =>'unique:users,no_identity,'.$request->no_identity.'');
 
         $validator = Validator::make($input, $rules);
 
         if ($validator->fails()) {
-            Session::flash('failed',' failed edit data, ic already exist');
+            Session::flash('failed',' failed edit data, no_identity already exist');
             return redirect('/user/edit/'.$request->id.'');
         } else {
                  DB::table('users')
-                ->leftJoin('groups', 'users.id', '=', 'groups.id')
                 ->where('users.id',$request->id)
                 ->update([
-                'ic' => $request->ic,
-                'user_name' => $request->user_name,
+                'no_identity' => $request->no_identity,
+                'fullname' => $request->fullname,
                 'gender' => $request->gender,
-                'join_date' => $request->join_date,
-                'group' => $request->group,
-                'image' => $image_name,
-                'remark' => $request->remark
+                'religion' => $request->religion,
+                'birthdate' => $request->birthdate,
+                'email' => $request->email,
+                'education' => $request->education,
+                'address' => $request->address,
+                'phone_number' => $request->phone_number,
+                'status' => $request->status
             ]);
         }
+        
+        Session::flash('flash_message','successfully saved.');
 
         return redirect('/user');
     }

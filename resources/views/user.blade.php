@@ -276,7 +276,7 @@
                   <td>{{ $list->phone_number }}</td>
                   <td>{{ $list->status }}</td>
                   <td width="500">
-											<a href=""
+											<a href="/user/edit/{{ $list->id }}"
 											 class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
                        <br>
                        <br>
@@ -303,7 +303,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.0.2
     </div>
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
+    <strong>Copyright &copy; 2021 <a href="http://adminlte.io">AdminLTE.io</a>.</strong> All rights
     reserved.
   </footer>
 

@@ -187,7 +187,7 @@
                 </li>
               </ul>
             </li>
-            <li class="nav-item has-treeview menu-open">
+            <!-- <li class="nav-item has-treeview menu-open">
               <a href="/user" class="nav-link active">
                 <i class="nav-icon fas fa-user-friends"></i>
                 <p>
@@ -211,7 +211,7 @@
                   </a>
                 </li>
               </ul>
-            </li>
+            </li> -->
           </ul>
         </ul>
       </nav>
@@ -255,16 +255,16 @@
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{ $list->id }}"> <br/>
                 <div class="form-group">
-                  <label for="">IC</label>
-                  <input type="text" class="form-control" name="ic" value="{{ $list->ic }}">
+                  <label for="">Nomor Identitias</label>
+                  <input type="text" class="form-control" name="no_identity" value="{{ $list->no_identity }}">
                 </div>
                 <div class="form-group">
-                  <label for="">User Name</label>
-                  <input type="text" class="form-control" name="user_name" value="{{ $list->user_name }}" required="required">
+                  <label for="">Nama Lengkap</label>
+                  <input type="text" class="form-control" name="fullname" value="{{ $list->fullname }}" required="required">
                 </div>
                 <div class="form-group">
-                  <p><b>Gender:</b></p>
-                  <label class="radio-inline">
+                  <p><b>Jenis Kelamin</b></p>
+                  <label class="radio-inline" style="padding-right:5px">
                     <input type="radio" name="gender" value="male" {{ $list->gender == "male" ? 'checked' : '' }}>male
                   </label>
                   <label class="radio-inline">
@@ -272,31 +272,52 @@
                   </label>
                 </div>
                 <div class="form-group">
-                <label>Join Date:</label>
+                  <p><b>Agama</b></p>
+                  <label class="radio-inline" style="padding-right:5px">
+                    <input type="radio" name="religion" value="muslim" {{ $list->religion == "muslim" ? 'checked' : '' }}>muslim
+                  </label>
+                  <label class="radio-inline">
+                    <input type="radio" name="religion" value="non_muslim" {{ $list->religion == "non_muslim" ? 'checked' : '' }}>other
+                  </label>
+                </div>
+                <div class="form-group">
+                <label>Tanggal Lahir</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                     </div>
-                    <input type="text" value="{{ $list->join_date }}" name="join_date" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                    <input type="text" value="{{ $list->birthdate }}" name="birthdate" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
                   </div>
                 </div>
                 <div class="form-group">
-                  <div class="form-check">
-                    <input type="checkbox" name="group" class="form-check-input" value="on" {{ $list->group == "on" ? 'checked' : '' }}>
-                    <label class="form-check-label" for="exampleCheck1"><b>Group</b></label>
-                  </div>
-                 </div>
-                 <div class="form-group">
-                    <label for="">Remark</label>
-                    <textarea class="form-control" name="remark" rows="3">{{ $list->remark }}</textarea>
-                 </div>        
-                 <div class="form-group">
-                 <img src="{{ URL::asset('images/' . $list->image) }}" width="100" height="100">     
-                    <div class="custom-file">
-                        <br>
-                        <input type="hidden" value="{{ $list->image }}" class="custom-file-input" id="image" name="image">
-                        <input type="file" name="image" value="{{ $list->image }}"/>
-                    </div>
+                  <label for="">Email</label>
+                  <input type="email" value="{{$list->email}}" class="form-control" name="email">
+                </div>
+                <div class="form-group">
+                  <label for="education">Pendidikan:</label>
+                  <select class="form-control" id="education" name="education">
+                  <option value="sd" {{ $list->education == "sd" ? 'selected' : '' }}>SD</option>
+                  <option value="smp" {{ $list->education == "smp" ? 'selected' : '' }}>SMP</option>
+                  <option value="sma" {{ $list->education == "sma" ? 'selected' : '' }}>SMA</option>
+                  <option value="s1" {{ $list->education == "s1" ? 'selected' : '' }}>S1</option>
+                  <option value="other" {{ $list->education == "other" ? 'selected' : '' }}>OTHER</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="">Alamat</label>
+                  <textarea class="form-control" value="address" id="address" rows="3" name="address">{{$list->address}}</textarea>
+                </div>
+                <div class="form-group">
+                  <label for="">No Handphone</label>
+                  <input type="text" value="{{$list->phone_number}}" class="form-control" name="phone_number">
+                </div>
+                <div class="form-group">
+                  <label for="status">Status</label>
+                  <select class="form-control" id="status" name="status">
+                    <option value="active" {{ $list->status == "active" ? 'selected' : ''}}>Active</option>
+                    <option value="pending" {{ $list->status == "pending" ? 'selected' : ''}}>Pending</option>
+                    <option value="inactive" {{$list->status == "inactive" ? 'selected' : ''}}>Inactive</option>
+                  </select>
                 </div>
                 <br>
                 <div class="form-group">
