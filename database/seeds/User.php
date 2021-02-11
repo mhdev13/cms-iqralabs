@@ -22,7 +22,7 @@ class User extends Seeder
     			'fullname' => $faker->name,
     			'no_identity' => $faker->randomDigit,
     			'gender' => $faker->randomElement(['male', 'female']),
-    			'religion' => $faker->randomElement(['muslim', 'non_muslim']),
+    			'religion' => $faker->randomElement(['muslim', 'other']),
                 'birthdate' => $faker->date($format = 'Y-m-d', $max = 'now'),
     			'email' => $faker->safeEmail,
     			'education' => $faker->randomElement(['sd','smp','sma','s1','other']),

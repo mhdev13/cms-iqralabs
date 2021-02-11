@@ -161,7 +161,7 @@
                       {{ csrf_field() }}
                       <div class="form-group">
                         <label for="">Identity Number</label>
-                        <input type="text" class="form-control" name="no_identity">
+                        <input type="text" class="form-control" name="no_identity" required="required">
                       </div>
                       <div class="form-group">
                         <label for="">Full Name</label>
@@ -170,19 +170,19 @@
                       <div class="form-group">
                         <p><b>Gender</b></p>
                         <label class="radio-inline" style="padding-right:5px">
-                          <input type="radio" value="male" name="gender">Male
+                          <input type="radio" value="male" name="gender" required="required"> Male
                         </label>
                         <label class="radio-inline">
-                          <input type="radio" value="female" name="gender">Female
+                          <input type="radio" value="female" name="gender" required="required"> Female
                         </label>
                       </div>
                       <div class="form-group">
                         <p><b>Religion</b></p>
                         <label class="radio-inline" style="padding-right:5px">
-                          <input type="radio" value="muslim" name="religion">Muslim
+                          <input type="radio" value="muslim" name="religion" required="required"> Muslim
                         </label>
                         <label class="radio-inline">
-                          <input type="radio" value="other" name="religion">Other
+                          <input type="radio" value="other" name="religion" required="required"> Other
                         </label>
                       </div>
                       <div class="form-group">
@@ -191,7 +191,7 @@
                           <div class="input-group-prepend">
                             <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                           </div>
-                          <input type="text" name="birthdate" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                          <input type="text" name="birthdate" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask required="required">
                         </div>
                       </div>
                       <div class="form-group">
@@ -200,7 +200,7 @@
                       </div>
                       <div class="form-group">
                         <label for="education">Pendidikan:</label>
-                        <select class="form-control" id="education" name="education">
+                        <select class="form-control" id="education" name="education" required="required">
                           <option value="sd">SD</option>
                           <option value="smp">SMP</option>
                           <option value="sma">SMA</option>
@@ -210,7 +210,7 @@
                       </div>
                       <div class="form-group">
                         <label for="">Address</label>
-                        <textarea class="form-control" id="address" rows="3" name="address"></textarea>
+                        <textarea class="form-control" id="address" rows="3" name="address" required="required"></textarea>
                       </div>
                       <div class="form-group">
                         <label for="">Phone Number</label>
@@ -218,7 +218,7 @@
                       </div>
                       <div class="form-group">
                         <label for="status">Status</label>
-                        <select class="form-control" id="status" name="status">
+                        <select class="form-control" id="status" name="status" required="required">
                           <option value="active">Active</option>
                           <option value="pending">Pending</option>
                           <option value="inactive">Inactive</option>

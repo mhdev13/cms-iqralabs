@@ -256,7 +256,7 @@
                 <input type="hidden" name="id" value="{{ $list->id }}"> <br/>
                 <div class="form-group">
                   <label for="">Identity Number</label>
-                  <input type="text" class="form-control" name="no_identity" value="{{ $list->no_identity }}">
+                  <input type="text" class="form-control" name="no_identity" value="{{ $list->no_identity }}" required="required">
                 </div>
                 <div class="form-group">
                   <label for="">Full Name</label>
@@ -265,19 +265,19 @@
                 <div class="form-group">
                   <p><b>Gender</b></p>
                   <label class="radio-inline" style="padding-right:5px">
-                    <input type="radio" name="gender" value="male" {{ $list->gender == "male" ? 'checked' : '' }}>male
+                    <input type="radio" name="gender" required="required" value="male" {{ $list->gender == "male" ? 'checked' : '' }}> male
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="gender" value="female" {{ $list->gender == "female" ? 'checked' : '' }}>female
+                    <input type="radio" name="gender" required="required" value="female" {{ $list->gender == "female" ? 'checked' : '' }}> female
                   </label>
                 </div>
                 <div class="form-group">
                   <p><b>Religion</b></p>
                   <label class="radio-inline" style="padding-right:5px">
-                    <input type="radio" name="religion" value="muslim" {{ $list->religion == "muslim" ? 'checked' : '' }}>muslim
+                    <input type="radio" name="religion" required="required" value="muslim" {{ $list->religion == "muslim" ? 'checked' : '' }}> muslim
                   </label>
                   <label class="radio-inline">
-                    <input type="radio" name="religion" value="non_muslim" {{ $list->religion == "non_muslim" ? 'checked' : '' }}>other
+                    <input type="radio" name="religion" required="required" value="other" {{ $list->religion == "other" ? 'checked' : '' }}> other
                   </label>
                 </div>
                 <div class="form-group">
@@ -286,16 +286,16 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
                     </div>
-                    <input type="text" value="{{ $list->birthdate }}" name="birthdate" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                    <input type="text" value="{{ $list->birthdate }}" name="birthdate" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask required="required">
                   </div>
                 </div>
                 <div class="form-group">
                   <label for="">Email</label>
-                  <input type="email" value="{{$list->email}}" class="form-control" name="email">
+                  <input type="email" value="{{$list->email}}" class="form-control" name="email" required="required">
                 </div>
                 <div class="form-group">
                   <label for="education">Education</label>
-                  <select class="form-control" id="education" name="education">
+                  <select class="form-control" id="education" name="education" required="required">
                   <option value="sd" {{ $list->education == "sd" ? 'selected' : '' }}>SD</option>
                   <option value="smp" {{ $list->education == "smp" ? 'selected' : '' }}>SMP</option>
                   <option value="sma" {{ $list->education == "sma" ? 'selected' : '' }}>SMA</option>
@@ -305,15 +305,15 @@
                 </div>
                 <div class="form-group">
                   <label for="">Address</label>
-                  <textarea class="form-control" value="address" id="address" rows="3" name="address">{{$list->address}}</textarea>
+                  <textarea class="form-control" value="address" id="address" rows="3" name="address" required="required">{{$list->address}}</textarea>
                 </div>
                 <div class="form-group">
                   <label for="">Phone Number</label>
-                  <input type="text" value="{{$list->phone_number}}" class="form-control" name="phone_number">
+                  <input type="text" value="{{$list->phone_number}}" class="form-control" name="phone_number" required="required">
                 </div>
                 <div class="form-group">
                   <label for="status">Status</label>
-                  <select class="form-control" id="status" name="status">
+                  <select class="form-control" id="status" name="status" required="required">
                     <option value="active" {{ $list->status == "active" ? 'selected' : ''}}>Active</option>
                     <option value="pending" {{ $list->status == "pending" ? 'selected' : ''}}>Pending</option>
                     <option value="inactive" {{$list->status == "inactive" ? 'selected' : ''}}>Inactive</option>
@@ -334,7 +334,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+    <strong>Copyright &copy; 2021 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.0.2
