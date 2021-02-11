@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html style="height: auto;width: 120%;">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -248,15 +248,15 @@
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Nomor Identitas</th>
-                  <th>Nama Lengkap</th>
-                  <th>Jenis Kelamin</th>
-                  <th>Agama</th>
-                  <th>Tanggal Lahir</th>
+                  <th>Identity Number</th>
+                  <th>Full Name</th>
+                  <th>Gender</th>
+                  <th>Religion</th>
+                  <th>Birthdate</th>
                   <th>Email</th>
-                  <th>Pendidikan</th>
-                  <th>Alamat</th>
-                  <th>No Handphone</th>
+                  <th>Education</th>
+                  <th>Address</th>
+                  <th>Phone Number</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
@@ -281,7 +281,7 @@
 											 class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
                        <br>
                        <br>
-											<a href="/user/delete/{{ $list->id }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Hapus</a>
+											<a href="/user/delete/{{ $list->id }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
 										</td>
                 </tr>
                 @endforeach

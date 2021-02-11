@@ -247,23 +247,23 @@
             <table class="table table-bordered">
               @foreach($users as $list)
                <div class="form-group">
-                  <label for="">Nomor Identitas</label>
+                  <label for="">Identity Number</label>
                   <input type="text" class="form-control" name="no_identity" disabled value="{{ $list->no_identity }}" placeholder="">
                </div>
                <div class="form-group">
-                  <label for="">Nama Lengkap</label>
+                  <label for="">Full Name</label>
                   <input type="text" class="form-control" name="fullname" disabled value="{{ $list->fullname }}" placeholder="">
                </div>
                <div class="form-group">
-                  <label for="">Jenis Kelamin</label>
+                  <label for="">Gender</label>
                   <input type="text" class="form-control" name="gender" disabled value="{{ $list->gender }}" placeholder="">
                </div>
                <div class="form-group">
-                  <label for="">Agama</label>
+                  <label for="">Religion</label>
                   <input type="text" class="form-control" name="religion" disabled value="{{ $list->religion }}" placeholder="">
                </div>
                <div class="form-group">
-                  <label for="">Tanggal Lahir</label>
+                  <label for="">Birthdate</label>
                   <input type="text" class="form-control" name="birthdate" disabled value="{{ $list->birthdate }}" placeholder="">
                </div>
                <div class="form-group">
@@ -271,15 +271,15 @@
                   <input type="text" class="form-control" name="email" disabled value="{{ $list->email }}" placeholder="">
                </div>
                <div class="form-group">
-                  <label for="">Pendidikan</label>
+                  <label for="">Education</label>
                   <input type="text" class="form-control" name="education" disabled value="{{ $list->education }}" placeholder="">
                </div>
                <div class="form-group">
-                  <label for="">Alamat</label>
+                  <label for="">Address</label>
                   <input type="text" class="form-control" name="address" disabled value="{{ $list->address }}" placeholder="">
                </div>
                <div class="form-group">
-                  <label for="">No Handphone</label>
+                  <label for="">Phone Number</label>
                   <input type="text" class="form-control" name="phone_number" disabled value="{{ $list->phone_number }}" placeholder="">
                </div>
                <div class="form-group">

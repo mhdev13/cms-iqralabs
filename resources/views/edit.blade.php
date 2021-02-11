@@ -255,15 +255,15 @@
                 {{ csrf_field() }}
                 <input type="hidden" name="id" value="{{ $list->id }}"> <br/>
                 <div class="form-group">
-                  <label for="">Nomor Identitias</label>
+                  <label for="">Identity Number</label>
                   <input type="text" class="form-control" name="no_identity" value="{{ $list->no_identity }}">
                 </div>
                 <div class="form-group">
-                  <label for="">Nama Lengkap</label>
+                  <label for="">Full Name</label>
                   <input type="text" class="form-control" name="fullname" value="{{ $list->fullname }}" required="required">
                 </div>
                 <div class="form-group">
-                  <p><b>Jenis Kelamin</b></p>
+                  <p><b>Gender</b></p>
                   <label class="radio-inline" style="padding-right:5px">
                     <input type="radio" name="gender" value="male" {{ $list->gender == "male" ? 'checked' : '' }}>male
                   </label>
@@ -272,7 +272,7 @@
                   </label>
                 </div>
                 <div class="form-group">
-                  <p><b>Agama</b></p>
+                  <p><b>Religion</b></p>
                   <label class="radio-inline" style="padding-right:5px">
                     <input type="radio" name="religion" value="muslim" {{ $list->religion == "muslim" ? 'checked' : '' }}>muslim
                   </label>
@@ -281,7 +281,7 @@
                   </label>
                 </div>
                 <div class="form-group">
-                <label>Tanggal Lahir</label>
+                <label>Birthdate</label>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
@@ -294,7 +294,7 @@
                   <input type="email" value="{{$list->email}}" class="form-control" name="email">
                 </div>
                 <div class="form-group">
-                  <label for="education">Pendidikan:</label>
+                  <label for="education">Education</label>
                   <select class="form-control" id="education" name="education">
                   <option value="sd" {{ $list->education == "sd" ? 'selected' : '' }}>SD</option>
                   <option value="smp" {{ $list->education == "smp" ? 'selected' : '' }}>SMP</option>
@@ -304,11 +304,11 @@
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="">Alamat</label>
+                  <label for="">Address</label>
                   <textarea class="form-control" value="address" id="address" rows="3" name="address">{{$list->address}}</textarea>
                 </div>
                 <div class="form-group">
-                  <label for="">No Handphone</label>
+                  <label for="">Phone Number</label>
                   <input type="text" value="{{$list->phone_number}}" class="form-control" name="phone_number">
                 </div>
                 <div class="form-group">

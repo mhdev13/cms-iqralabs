@@ -17,7 +17,10 @@ class User extends Controller
 {
     public function index(){
     	
-    	$users = Users::get(); 
+    	$users = DB::table('users')
+        ->select('*')
+        ->orderBy('fullname', 'ASC')
+        ->get();
 
     	return view('user',['user' => $users]);
     }
