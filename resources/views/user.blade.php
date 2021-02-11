@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html style="height: auto;width: 120%;">
+<html style="height: auto;width: 115%;">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
