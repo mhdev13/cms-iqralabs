@@ -18,7 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('fullname');
             $table->string('no_identity')->nullable();
             $table->enum('gender', ['male', 'female'])->nullable();
-            $table->enum('religion', ['muslim', 'non_muslim']);
+            $table->enum('religion', ['muslim', 'other']);
             $table->string('birthdate')->nullable();
             $table->string('email')->nullable();
             $table->enum('education', ['sd','smp','sma','s1', 'other'])->nullable();
