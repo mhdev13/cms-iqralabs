@@ -243,7 +243,7 @@
               @if(Session::has('flash_message'))
                   <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
               @endif
-              <a href="/user/export_excel" class="btn btn-success my-3" target="_blank">EXPORT EXCEL</a>
+              <a href="/user/export_excel" class="btn btn-success my-3" target="_blank"><i class="fa fa-download"></i> Download </a>
 
               <table id="table-datatables" class="table table-bordered table-striped">
                 <thead>
