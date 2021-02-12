@@ -223,9 +223,6 @@
                             <input type="file" class="custom-file-input" id="image" name="image">
                             <label class="custom-file-label" for="image">Choose file</label>
                           </div>
-                          <!-- <div class="input-group-append">
-                            <span class="input-group-text" id="">Upload</span>
-                          </div> -->
                         </div>
                       </div>
                       <div class="form-group">
