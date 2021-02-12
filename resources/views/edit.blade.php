@@ -262,7 +262,7 @@
                   <label for="">Full Name</label>
                   <input type="text" class="form-control" name="fullname" value="{{ $list->fullname }}" required="required">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <p><b>Gender</b></p>
                   <label class="radio-inline" style="padding-right:5px">
                     <input type="radio" name="gender" required="required" value="male" {{ $list->gender == "male" ? 'checked' : '' }}> male
@@ -288,12 +288,12 @@
                     </div>
                     <input type="text" value="{{ $list->birthdate }}" name="birthdate" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask required="required">
                   </div>
-                </div>
+                </div> -->
                 <div class="form-group">
                   <label for="">Email</label>
                   <input type="email" value="{{$list->email}}" class="form-control" name="email" required="required">
                 </div>
-                <div class="form-group">
+                <!-- <div class="form-group">
                   <label for="education">Education</label>
                   <select class="form-control" id="education" name="education" required="required">
                   <option value="sd" {{ $list->education == "sd" ? 'selected' : '' }}>SD</option>
@@ -302,14 +302,38 @@
                   <option value="s1" {{ $list->education == "s1" ? 'selected' : '' }}>S1</option>
                   <option value="other" {{ $list->education == "other" ? 'selected' : '' }}>OTHER</option>
                   </select>
+                </div> -->
+                <div class="form-group">
+                  <label for="">Phone Number</label>
+                  <input type="text" value="{{$list->phone_number}}" class="form-control" name="phone_number" required="required">
+                </div>
+                <div class="form-group">
+                  <label for="">Agent Code</label>
+                  <input type="text" value="{{$list->agent_code}}" class="form-control" name="agent_code" required="required">
+                </div>
+                <div class="form-group">
+                  <label for="image">Image</label>
+                  <div class="input-group">
+                    <div class="col-md-12">
+                    <img src="/images/{{ $list->photo }}" id="profile-img-tag" height="100" width="100">
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="image" name="image">
+                      <label class="custom-file-label" for="image">Choose file</label>
+                    </div>
+                    <!-- <div class="input-group-append">
+                      <span class="input-group-text" id="">Upload</span>
+                    </div> -->
+                  </div>
                 </div>
                 <div class="form-group">
                   <label for="">Address</label>
                   <textarea class="form-control" value="address" id="address" rows="3" name="address" required="required">{{$list->address}}</textarea>
-                </div>
-                <div class="form-group">
-                  <label for="">Phone Number</label>
-                  <input type="text" value="{{$list->phone_number}}" class="form-control" name="phone_number" required="required">
                 </div>
                 <div class="form-group">
                   <label for="status">Status</label>

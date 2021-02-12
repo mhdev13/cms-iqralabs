@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html style="height: auto;width: 120%;">
+<!-- <html style="height: auto;width: 120%;"> -->
+<html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -116,11 +117,11 @@
 
       @guest
           <li class="nav-item">
-              <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+              <!-- <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> -->
           </li>
           @if (Route::has('register'))
               <li class="nav-item">
-                  <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                  <!-- <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> -->
               </li>
           @endif
       @else
@@ -245,12 +246,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Army List</h1>
+            <h1>Army</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Army List</li>
+              <li class="breadcrumb-item active">Army</li>
             </ol>
           </div>
         </div>
@@ -275,31 +276,46 @@
                   <th>No</th>
                   <th>Identity Number</th>
                   <th>Full Name</th>
-                  <th>Gender</th>
-                  <th>Religion</th>
-                  <th>Birthdate</th>
+                  <!-- <th>Gender</th> -->
+                  <!-- <th>Religion</th> -->
+                  <!-- <th>Birthdate</th> -->
                   <th>Email</th>
-                  <th>Education</th>
-                  <th>Address</th>
+                  <!-- <th>Education</th> -->
                   <th>Phone Number</th>
+                  <th>Photo</th>
+                  <th>Agent Code</th>
+                  <th>Address</th>
                   <th>Status</th>
                   <th>Action</th>
                 </tr>
                 </thead>
                 <tbody>
+                <?php
+                // dd($user);exit;
+                ?>
                 @foreach($user as $index => $list)  
                 
                 <tr>
                   <td>{{ $index +1 }}</td>
                   <td>{{ $list->no_identity }}</td>
                   <td><a href="/user/detail/{{ $list->id }}">{{ $list->fullname }}</a></td>
-                  <td>{{ $list->gender }}</td>
-                  <td>{{ $list->religion }}</td>
-                  <td>{{ $list->birthdate }}</td>
+                  <!-- <td>{{ $list->gender }}</td> -->
+                  <!-- <td>{{ $list->religion }}</td> -->
+                  <!-- <td>{{ $list->birthdate }}</td> -->
                   <td>{{ $list->email }}</td>
-                  <td>{{ $list->education }}</td>
-                  <td>{{ $list->address }}</td>
+                  <!-- <td>{{ $list->education }}</td> -->
                   <td>{{ $list->phone_number }}</td>
+                  <?php if($list->photo == '') : ?>
+                    <td><img src="../../images/image_not_found.png" width="100%" height="auto"></td>
+                  <?php else : ?>
+                    <td><img src="/images/{{ $list->photo }}" width="100%" height="auto"></td>
+                  <?php endif; ?>
+                  <?php if($list->agent_code == '') : ?>
+                    <td>-</td>
+                  <?php else : ?>
+                    <td>{{ $list->agent_code }}</td>
+                  <?php endif; ?>
+                  <td>{{ $list->address }}</td>
                   <td>{{ $list->status }}</td>
                   <td width="500">
 											<a href="/user/edit/{{ $list->id }}"

@@ -167,7 +167,7 @@
                         <label for="">Full Name</label>
                         <input type="text" class="form-control" name="fullname" required="required">
                       </div>
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <p><b>Gender</b></p>
                         <label class="radio-inline" style="padding-right:5px">
                           <input type="radio" value="male" name="gender" required="required"> Male
@@ -175,8 +175,8 @@
                         <label class="radio-inline">
                           <input type="radio" value="female" name="gender" required="required"> Female
                         </label>
-                      </div>
-                      <div class="form-group">
+                      </div> -->
+                      <!-- <div class="form-group">
                         <p><b>Religion</b></p>
                         <label class="radio-inline" style="padding-right:5px">
                           <input type="radio" value="muslim" name="religion" required="required"> Muslim
@@ -184,8 +184,8 @@
                         <label class="radio-inline">
                           <input type="radio" value="other" name="religion" required="required"> Other
                         </label>
-                      </div>
-                      <div class="form-group">
+                      </div> -->
+                      <!-- <div class="form-group">
                         <label>Birthdate</label>
                         <div class="input-group">
                           <div class="input-group-prepend">
@@ -193,12 +193,12 @@
                           </div>
                           <input type="text" name="birthdate" class="form-control" data-inputmask-alias="datetime" data-inputmask-inputformat="dd/mm/yyyy" data-mask required="required">
                         </div>
-                      </div>
+                      </div> -->
                       <div class="form-group">
-                        <label for="">Education</label>
+                        <label for="">email</label>
                         <input type="email" class="form-control" name="email" required="required">
                       </div>
-                      <div class="form-group">
+                      <!-- <div class="form-group">
                         <label for="education">Pendidikan:</label>
                         <select class="form-control" id="education" name="education" required="required">
                           <option value="sd">SD</option>
@@ -207,14 +207,30 @@
                           <option value="s1">S1</option>
                           <option value="other">OTHER</option>
                         </select>
+                      </div> -->
+                      <div class="form-group">
+                        <label for="">Phone Number</label>
+                        <input type="text" class="form-control" name="phone_number" required="required">
+                      </div>
+                      <div class="form-group">
+                        <label for="">Agent Code</label>
+                        <input type="text" class="form-control" name="agent_code" required="required">
+                      </div>
+                      <div class="form-group">
+                        <label for="image">image</label>
+                        <div class="input-group">
+                          <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="image" name="image">
+                            <label class="custom-file-label" for="image">Choose file</label>
+                          </div>
+                          <!-- <div class="input-group-append">
+                            <span class="input-group-text" id="">Upload</span>
+                          </div> -->
+                        </div>
                       </div>
                       <div class="form-group">
                         <label for="">Address</label>
                         <textarea class="form-control" id="address" rows="3" name="address" required="required"></textarea>
-                      </div>
-                      <div class="form-group">
-                        <label for="">Phone Number</label>
-                        <input type="text" class="form-control" name="phone_number" required="required">
                       </div>
                       <div class="form-group">
                         <label for="status">Status</label>
@@ -225,7 +241,7 @@
                         </select>
                       </div>
                       <div class="form-group">
-                      <button type="submit" class="btn btn-primary">Save</button>
+                      <button type="submit" class="btn btn-primary" >Save</button>
                       </div>
                     </form>
                   </table>

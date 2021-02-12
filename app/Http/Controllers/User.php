@@ -41,15 +41,15 @@ class User extends Controller
 
     public function store(Request $request)
     {
-        // dd($request);exit;
+       
         $image_name = $request->image;
         $image = $request->file('image');
-
+        
         if($image != '')
         {
             $request->validate([
-                'user_name' => 'required',
-                'image' => 'image|max:2084'
+                'no_identity' => 'required',
+                'image' => 'mimes:jpeg,jpg,png,gif|required|max:500000'
             ]);
 
             $image_name = time() . '.' . $image->getClientOriginalExtension();
@@ -72,14 +72,15 @@ class User extends Controller
             DB::table('users')->insert([
                 'no_identity' => $request->no_identity,
                 'fullname' => $request->fullname,
-                'gender' => $request->gender,
-                'religion' => $request->religion,
-                'birthdate' => $request->birthdate,
+                // 'gender' => $request->gender,
+                // 'religion' => $request->religion,
+                // 'birthdate' => $request->birthdate,
                 'email' => $request->email,
-                'fullname' => $request->fullname,
-                'education' => $request->education,
-                'address' => $request->address,
                 'phone_number' => $request->phone_number,
+                'agent_code' => $request->agent_code,
+                // 'education' => $request->education,
+                'address' => $request->address,
+                'photo' => $image_name,
                 'status' => $request->status,
             ]);
         }
@@ -116,19 +117,35 @@ class User extends Controller
 
     public function update(Request $request)
     {   
+        $image_name = $request->image;
+        $image = $request->file('image');
+        
+        if($image != '') {
+            $request->validate([
+                'no_identity' => 'required',
+                'image' => 'mimes:jpeg,jpg,png,gif|required|max:500000'
+            ]);
+
+            $image_name = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $image_name);
+
+        } 
+        
         DB::table('users')
             ->where('users.id',$request->id)
             ->update([
-            'no_identity' => $request->no_identity,
-            'fullname' => $request->fullname,
-            'gender' => $request->gender,
-            'religion' => $request->religion,
-            'birthdate' => $request->birthdate,
-            'email' => $request->email,
-            'education' => $request->education,
-            'address' => $request->address,
-            'phone_number' => $request->phone_number,
-            'status' => $request->status
+                'no_identity' => $request->no_identity,
+                'fullname' => $request->fullname,
+                // 'gender' => $request->gender,
+                // 'religion' => $request->religion,
+                // 'birthdate' => $request->birthdate,
+                'email' => $request->email,
+                'phone_number' => $request->phone_number,
+                'agent_code' => $request->agent_code,
+                // 'education' => $request->education,
+                'address' => $request->address,
+                'photo' => $image_name,
+                'status' => $request->status,
         ]);
 
         Session::flash('flash_message','successfully saved.');

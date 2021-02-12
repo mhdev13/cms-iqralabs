@@ -27,6 +27,29 @@
   <link rel="stylesheet" href="{{ URL::asset('plugins/summernote/summernote-bs4.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <style>
+      body{
+        margin-top:20px;
+        background:#f5f7fa;
+    }
+    .panel.panel-default {
+        border-top-width: 3px;
+    }
+    .panel {
+        box-shadow: 0 3px 1px -2px rgba(0,0,0,.14),0 2px 2px 0 rgba(0,0,0,.098),0 1px 5px 0 rgba(0,0,0,.084);
+        border: 0;
+        border-radius: 4px;
+        margin-bottom: 16px;
+    }
+    .thumb96 {
+        width: 96px!important;
+        height: 96px!important;
+    }
+    .thumb48 {
+        width: 48px!important;
+        height: 48px!important;
+    }
+  </style>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -230,8 +253,6 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Detail Users</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -241,67 +262,98 @@
 
     <!-- Main content -->
     <section class="content">
-      <div class="container">
-        <div class="card">
-          <div class="card-body">
-            <table class="table table-bordered">
-              @foreach($users as $list)
-               <div class="form-group">
-                  <label for="">Identity Number</label>
-                  <input type="text" class="form-control" name="no_identity" disabled value="{{ $list->no_identity }}" placeholder="">
-               </div>
-               <div class="form-group">
-                  <label for="">Full Name</label>
-                  <input type="text" class="form-control" name="fullname" disabled value="{{ $list->fullname }}" placeholder="">
-               </div>
-               <div class="form-group">
-                  <label for="">Gender</label>
-                  <input type="text" class="form-control" name="gender" disabled value="{{ $list->gender }}" placeholder="">
-               </div>
-               <div class="form-group">
-                  <label for="">Religion</label>
-                  <input type="text" class="form-control" name="religion" disabled value="{{ $list->religion }}" placeholder="">
-               </div>
-               <div class="form-group">
-                  <label for="">Birthdate</label>
-                  <input type="text" class="form-control" name="birthdate" disabled value="{{ $list->birthdate }}" placeholder="">
-               </div>
-               <div class="form-group">
-                  <label for="">Email</label>
-                  <input type="text" class="form-control" name="email" disabled value="{{ $list->email }}" placeholder="">
-               </div>
-               <div class="form-group">
-                  <label for="">Education</label>
-                  <input type="text" class="form-control" name="education" disabled value="{{ $list->education }}" placeholder="">
-               </div>
-               <div class="form-group">
-                  <label for="">Address</label>
-                  <input type="text" class="form-control" name="address" disabled value="{{ $list->address }}" placeholder="">
-               </div>
-               <div class="form-group">
-                  <label for="">Phone Number</label>
-                  <input type="text" class="form-control" name="phone_number" disabled value="{{ $list->phone_number }}" placeholder="">
-               </div>
-               <div class="form-group">
-                  <label for="">Status</label>
-                  <input type="text" class="form-control" name="status" disabled value="{{ $list->status }}" placeholder="">
-               </div>
-            </div>
-            @endforeach
-            </table>
+    <div class="container bootstrap snippets bootdey">
+    @foreach($users as $list)
+      <div class="row ng-scope">
+          <div class="col-md-4">
+              <div class="panel panel-default">
+                  <div class="panel-body text-center">
+                      <div class="pv-lg">
+                        <?php if($list->photo == '') : ?>
+                          <td><img src="../../images/image_not_found.png" width="100%" height="auto"></td>
+                        <?php else : ?>
+                          <img class="center-block img-responsive img-circle img-thumbnail thumb96" src="/images/{{ $list->photo }}" alt="Photo">
+                        <?php endif; ?>
+                      </div>
+                      <h3 class="m0 text-bold">{{ $list->fullname }}</h3>
+                      <div class="mv-lg">
+                          <p><b>Agent Code : {{ $list->agent_code }}</b></p>
+                      </div>
+                      <div class="mv-lg">
+                          <p>Email : {{ $list->email }}</p>
+                      </div>
+                      <br>
+                    
+                  </div>
+              </div>
           </div>
-        </div>
+          <div class="col-md-8">
+              <div class="panel panel-default">
+                  <div class="panel-body">
+                      <br>
+                      <div class="h4 text-center">Detail Army</div>
+                      <div class="row pv-lg">
+                          <div class="col-lg-2"></div>
+                          <div class="col-lg-8">
+                              <form class="form-horizontal ng-pristine ng-valid">
+                                  <div class="form-group">
+                                      <label class="col-sm-44 control-label" for="inputContact3">No Identity</label>
+                                      <div class="col-sm-10">
+                                          <input class="form-control" id="inputContact3" type="text" value="{{ $list->no_identity }}">
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label" for="inputContact3">Mobile</label>
+                                      <div class="col-sm-10">
+                                          <input class="form-control" id="inputContact3" type="text" value="{{ $list->phone_number }}">
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label" for="inputContact3">Status</label>
+                                      <div class="col-sm-10">
+                                          <input class="form-control" id="inputContact3" type="text" value="{{ $list->status }}">
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-2 control-label" for="inputContact6">Address</label>
+                                      <div class="col-sm-10">
+                                          <textarea class="form-control" id="inputContact6" row="4">{{ $list->address }}</textarea>
+                                      </div>
+                                  </div>
+                                  <br>
+                                  <br>
+                                  <!-- <div class="form-group">
+                                      <div class="col-sm-offset-2 col-sm-10">
+                                          <div class="checkbox">
+                                              <label>
+                                                  <input type="checkbox"> Favorite contact?</label>
+                                          </div>
+                                      </div>
+                                  </div> -->
+                                  <!-- <div class="form-group">
+                                      <div class="col-sm-offset-2 col-sm-10">
+                                          <a href="/user/edit/{{ $list->no_identity }}" class="btn btn-info"><i class="fas fa-edit"></i>Edit</a>
+                                      </div>
+                                  </div> -->
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
+    @endforeach
+    </div>
     </section>
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
+    <!-- <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
     All rights reserved.
     <div class="float-right d-none d-sm-inline-block">
       <b>Version</b> 3.0.2
-    </div>
+    </div> -->
   </footer>
 
   <!-- Control Sidebar -->
