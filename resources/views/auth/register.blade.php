@@ -90,7 +90,7 @@
       <form method="POST" action="{{ route('register') }}">
         @csrf
         <div class="input-group mb-3">
-          <input type="text" class="form-control @error('name') is-invalid @enderror" name="fullname" value="{{ old('fullname') }}" required autocomplete="name" autofocus placeholder="Full name">
+          <input type="text" class="form-control @error('name') is-invalid @enderror" name="fullname" value="{{ old('fullname') }}" required autocomplete="name" autofocus placeholder="Name">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -98,7 +98,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="email">
+          <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>

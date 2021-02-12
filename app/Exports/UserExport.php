@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Users;
+use App\Armys;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -14,11 +14,11 @@ class UserExport implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return Users::all();
+        return Armys::select("fullname","no_identity","email","agent_code","address","phone_number")->get();
     }
 
     public function headings() :array
     {
-        return ["id","Full Name", "Identity Number", "gender","religion", "birthdate","email","education","address","phone number","status", "created"];
+        return ["Name","Number Identity","Email","Agent Code","Address", "Phone Number"];
     }
 }

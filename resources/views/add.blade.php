@@ -164,7 +164,7 @@
                         <input type="text" class="form-control" name="no_identity" required="required">
                       </div>
                       <div class="form-group">
-                        <label for="">Full Name</label>
+                        <label for="">Name</label>
                         <input type="text" class="form-control" name="fullname" required="required">
                       </div>
                       <!-- <div class="form-group">
@@ -195,7 +195,7 @@
                         </div>
                       </div> -->
                       <div class="form-group">
-                        <label for="">email</label>
+                        <label for="">Email</label>
                         <input type="email" class="form-control" name="email" required="required">
                       </div>
                       <!-- <div class="form-group">

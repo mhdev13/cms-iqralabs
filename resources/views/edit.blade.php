@@ -259,7 +259,7 @@
                   <input type="text" class="form-control" name="no_identity" value="{{ $list->no_identity }}" required="required">
                 </div>
                 <div class="form-group">
-                  <label for="">Full Name</label>
+                  <label for="">Name</label>
                   <input type="text" class="form-control" name="fullname" value="{{ $list->fullname }}" required="required">
                 </div>
                 <!-- <div class="form-group">
