@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Session;
 use App\Exports\UserExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
 
 class User extends Controller
 {
@@ -40,23 +42,23 @@ class User extends Controller
     public function store(Request $request)
     {
         // dd($request);exit;
-        // $image_name = $request->image;
-        // $image = $request->file('image');
+        $image_name = $request->image;
+        $image = $request->file('image');
 
-        // if($image != '')
-        // {
-        //     $request->validate([
-        //         'user_name' => 'required',
-        //         'image' => 'image|max:2084'
-        //     ]);
+        if($image != '')
+        {
+            $request->validate([
+                'user_name' => 'required',
+                'image' => 'image|max:2084'
+            ]);
 
-        //     $image_name = time() . '.' . $image->getClientOriginalExtension();
-        //     $image->move(public_path('images'), $image_name);
-        // } else {
-        //     $request->validate([
-        //         'user_name' => 'required',
-        //     ]);
-        // }
+            $image_name = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $image_name);
+        } else {
+            $request->validate([
+                'no_identity' => 'required',
+            ]);
+        }
 
         $input['no_identity'] = Input::get('no_identity');
 

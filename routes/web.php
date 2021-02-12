@@ -12,7 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return view('auth/login');
 });
 
 //route users
@@ -44,6 +45,9 @@ Route::post('/group/update','Group@update');
 
 Route::get('/group/detail/{id}','Group@detail');
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
