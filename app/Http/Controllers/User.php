@@ -161,4 +161,18 @@ class User extends Controller
             
         return redirect('/user');
     }
+
+    public function getUser(){
+        $data = array(
+            "status" =>200,
+            "response" => "success",
+            "data" =>DB::table('users')
+            ->select('*')
+            ->whereNotNull('photo')
+            ->orderBy('fullname', 'ASC')
+            ->get()
+        );
+
+        return $data;
+    }
 }

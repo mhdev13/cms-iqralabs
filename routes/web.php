@@ -18,6 +18,7 @@ Route::get('/', function () {
 
 //route users
 Route::get('/user','User@index');
+
 Route::get('/user/export_excel', 'User@export_excel');
 
 Route::get('/user/add','User@add');
@@ -51,3 +52,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//route api users
+Route::get('/user/getUser','User@getUser');
