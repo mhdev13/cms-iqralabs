@@ -66,4 +66,51 @@ class Testimoni extends Controller
 
         return redirect('/testimoni');
     }
+
+    public function detail($id)
+    {
+        $testimoni = DB::table('testimoni')
+            ->select('*')
+            ->where('id', $id)
+            ->get();
+        
+        return view('detail', ['testimoni' => $testimoni]);
+    }
+
+    public function edit($id)
+    {
+        $testimoni = DB::table('testimoni')
+            ->select('*')
+            ->where('id', $id)
+            ->get();
+
+        return view('edit_testimoni', ['testimoni' => $testimoni]);
+    }
+
+    public function update(Request $request){
+
+        $image_name = $request->image;
+        $image = $request->file('image');
+        
+        $request->validate([
+            'image' => 'mimes:jpeg,jpg,png,gif|required|max:500000'
+        ]);
+
+        $image_name = time() . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('images'), $image_name);
+
+        DB::table('testimoni')
+            ->where('id', $request->id)
+            ->update([
+                'fullname' => $request->fullname,
+                'photo' => $image_name,
+                'comment' => $request->comment,
+                'from_who' => $request->from_who,
+            ]);
+
+        Session::flash('flash_message','successfully saved.');
+
+        return redirect('/testimoni');
+    }
+
 }

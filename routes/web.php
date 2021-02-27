@@ -42,7 +42,7 @@ Route::post('/testimoni/store', 'Testimoni@store');
 
 Route::get('/testimoni/edit/{id}','Testimoni@edit');
 
-Route::get('/testimoni/update','Testimoni@update');
+Route::post('/testimoni/update','Testimoni@update');
 
 Route::get('/testimoni/detail/{id}','Testimoni@detail');
 
