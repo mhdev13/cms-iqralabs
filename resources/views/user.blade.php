@@ -207,40 +207,14 @@
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/testimoni/" class="nav-link">
-                    <i class="fas fa-search-plus nav-icon"></i>
-                    <p>List Testimoni</p>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
-            <!-- <li class="nav-item has-treeview menu-open">
-              <a href="/user" class="nav-link active">
-                <i class="nav-icon fas fa-user-friends"></i>
-                <p>
-                  Group
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/group/add" class="nav-link">
-                    <i class="fas fa fa-plus-circle nav-icon"></i>
-                    <p>Add Group</p>
-                  </a>
-                </li>
-              </ul> -->
-              <!-- <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/group" class="nav-link">
-                    <i class="fas fa-search-plus nav-icon"></i>
-                    <p>List Group</p>
-                  </a>
-                </li>
-              </ul> -->
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/testimoni/" class="nav-link">
+                      <i class="fas fa-search-plus nav-icon"></i>
+                      <p>List Testimoni</p>
+                    </a>
+                  </li>
+                </ul>
             </li>
           </ul>
         </ul>
@@ -288,11 +262,7 @@
                   <th>No</th>
                   <th>Identity Number</th>
                   <th>Full Name</th>
-                  <!-- <th>Gender</th> -->
-                  <!-- <th>Religion</th> -->
-                  <!-- <th>Birthdate</th> -->
                   <th>Email</th>
-                  <!-- <th>Education</th> -->
                   <th>Phone Number</th>
                   <th>Photo</th>
                   <th>Agent Code</th>
@@ -302,20 +272,12 @@
                 </tr>
                 </thead>
                 <tbody>
-                <?php
-                // dd($user);exit;
-                ?>
                 @foreach($user as $index => $list)  
-                
                 <tr>
                   <td>{{ $index +1 }}</td>
                   <td>{{ $list->no_identity }}</td>
                   <td><a href="/user/detail/{{ $list->id }}">{{ $list->fullname }}</a></td>
-                  <!-- <td>{{ $list->gender }}</td> -->
-                  <!-- <td>{{ $list->religion }}</td> -->
-                  <!-- <td>{{ $list->birthdate }}</td> -->
                   <td>{{ $list->email }}</td>
-                  <!-- <td>{{ $list->education }}</td> -->
                   <td>{{ $list->phone_number }}</td>
                   <?php if($list->photo == '') : ?>
                     <td><img src="../../images/image_not_found.png" width="100%" height="auto"></td>

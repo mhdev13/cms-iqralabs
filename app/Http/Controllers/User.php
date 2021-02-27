@@ -139,13 +139,9 @@ class User extends Controller
             ->update([
                 'no_identity' => $request->no_identity,
                 'fullname' => $request->fullname,
-                // 'gender' => $request->gender,
-                // 'religion' => $request->religion,
-                // 'birthdate' => $request->birthdate,
                 'email' => $request->email,
                 'phone_number' => $request->phone_number,
                 'agent_code' => $request->agent_code,
-                // 'education' => $request->education,
                 'address' => $request->address,
                 'photo' => $image_name,
                 'status' => $request->status,
