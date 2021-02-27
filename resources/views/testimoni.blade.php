@@ -209,38 +209,13 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="/testimoni/" class="nav-link">
+                  <a href="/user/" class="nav-link">
                     <i class="fas fa-search-plus nav-icon"></i>
                     <p>List Testimoni</p>
                   </a>
                 </li>
               </ul>
             </li>
-
-            <!-- <li class="nav-item has-treeview menu-open">
-              <a href="/user" class="nav-link active">
-                <i class="nav-icon fas fa-user-friends"></i>
-                <p>
-                  Group
-                  <i class="fas fa-angle-left right"></i>
-                </p>
-              </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/group/add" class="nav-link">
-                    <i class="fas fa fa-plus-circle nav-icon"></i>
-                    <p>Add Group</p>
-                  </a>
-                </li>
-              </ul> -->
-              <!-- <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/group" class="nav-link">
-                    <i class="fas fa-search-plus nav-icon"></i>
-                    <p>List Group</p>
-                  </a>
-                </li>
-              </ul> -->
             </li>
           </ul>
         </ul>
@@ -257,12 +232,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Army</h1>
+            <h1>Testimoni</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Army</li>
+              <li class="breadcrumb-item active">Testimoni</li>
             </ol>
           </div>
         </div>
@@ -279,63 +254,45 @@
               @if(Session::has('flash_message'))
                   <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
               @endif
-              <a href="/user/export_excel" class="btn btn-success my-3" target="_blank"><i class="fa fa-download"></i> Download </a>
-              <a href="/user/add" class="btn btn-success my-3" target="_blank"><i class="fas fa fa-plus-circle nav-icon"></i> Add Army </a>
+              <a href="/testimoni/add" class="btn btn-success my-3" target="_blank"><i class="fas fa fa-plus-circle nav-icon"></i> Add Testimoni </a>
 
               <table id="table-datatables" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>No</th>
-                  <th>Identity Number</th>
                   <th>Full Name</th>
-                  <!-- <th>Gender</th> -->
-                  <!-- <th>Religion</th> -->
-                  <!-- <th>Birthdate</th> -->
-                  <th>Email</th>
-                  <!-- <th>Education</th> -->
-                  <th>Phone Number</th>
                   <th>Photo</th>
-                  <th>Agent Code</th>
-                  <th>Address</th>
-                  <th>Status</th>
-                  <th>Action</th>
+                  <th>Comment</th>
+                  <th>from</th>
                 </tr>
                 </thead>
                 <tbody>
-                <?php
-                // dd($user);exit;
-                ?>
-                @foreach($user as $index => $list)  
-                
+                @foreach($testimoni as $index => $list)  
                 <tr>
                   <td>{{ $index +1 }}</td>
-                  <td>{{ $list->no_identity }}</td>
-                  <td><a href="/user/detail/{{ $list->id }}">{{ $list->fullname }}</a></td>
-                  <!-- <td>{{ $list->gender }}</td> -->
-                  <!-- <td>{{ $list->religion }}</td> -->
-                  <!-- <td>{{ $list->birthdate }}</td> -->
-                  <td>{{ $list->email }}</td>
-                  <!-- <td>{{ $list->education }}</td> -->
-                  <td>{{ $list->phone_number }}</td>
+                  <td><a href="/testimoni/detail/{{ $list->id }}">{{ $list->fullname }}</a></td>
                   <?php if($list->photo == '') : ?>
                     <td><img src="../../images/image_not_found.png" width="100%" height="auto"></td>
                   <?php else : ?>
                     <td><img src="/images/{{ $list->photo }}" width="100%" height="auto"></td>
                   <?php endif; ?>
-                  <?php if($list->agent_code == '') : ?>
+                  <?php if($list->comment == '') : ?>
                     <td>-</td>
                   <?php else : ?>
-                    <td>{{ $list->agent_code }}</td>
+                    <td>{{ $list->comment }}</td>
                   <?php endif; ?>
-                  <td>{{ $list->address }}</td>
-                  <td>{{ $list->status }}</td>
+                  <?php if($list->from_who == '') : ?>
+                    <td>-</td>
+                  <?php else : ?>
+                    <td>{{ $list->from_who }}</td>
+                  <?php endif; ?>
                   <td width="500">
-											<a href="/user/edit/{{ $list->id }}"
-											 class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
-                       <br>
-                       <br>
-											<a href="/user/delete/{{ $list->id }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
-										</td>
+                    <a href="/testimoni/edit/{{ $list->id }}"
+                        class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
+                        <br>
+                        <br>
+                    <a href="/testimoni/delete/{{ $list->id }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
+                 </td>
                 </tr>
                 @endforeach
                 </tbody>

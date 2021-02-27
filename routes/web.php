@@ -38,7 +38,7 @@ Route::get('/testimoni','Testimoni@index');
 
 Route::get('/testimoni/add', 'Testimoni@add');
 
-Route::get('/testimoni/store', 'Testimoni@store');
+Route::post('/testimoni/store', 'Testimoni@store');
 
 Route::get('/testimoni/edit/{id}','Testimoni@edit');
 

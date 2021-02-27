@@ -8,6 +8,7 @@ use App\File;
 use App\UploadedFile;
 use App\Users;
 use App\Groups;
+use Carbon\Carbon;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
@@ -82,6 +83,8 @@ class User extends Controller
                 'address' => $request->address,
                 'photo' => $image_name,
                 'status' => $request->status,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
             ]);
         }
 
