@@ -70,3 +70,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //route api users
 Route::get('/user/getUser','User@getUser');
+
+//route api testimoni
+Route::get('/testimoni/getTestimoni','Testimoni@getTestimoni');

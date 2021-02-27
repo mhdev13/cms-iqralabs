@@ -95,31 +95,25 @@
                 </li>
               </ul>
             </li>
-            <!-- <li class="nav-item has-treeview menu-open">
+            
+            <li class="nav-item has-treeview menu-open">
               <a href="/user" class="nav-link active">
-                <i class="nav-icon fas fa-user-friends"></i>
+                <i class="nav-icon fas fa-comment-alt"></i>
                 <p>
-                  Group
+                  Testimoni
                   <i class="fas fa-angle-left right"></i>
                 </p>
               </a>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/group/add" class="nav-link">
-                    <i class="fas fa fa-plus-circle nav-icon"></i>
-                    <p>Add Group</p>
-                  </a>
-                </li>
-              </ul>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
-                  <a href="/group" class="nav-link">
-                    <i class="fas fa-search-plus nav-icon"></i>
-                    <p>List Group</p>
-                  </a>
-                </li>
-              </ul>
-            </li> -->
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="/testimoni/" class="nav-link">
+                      <i class="fas fa-search-plus nav-icon"></i>
+                      <p>List Testimoni</p>
+                    </a>
+                  </li>
+                </ul>
+            </li>
+            
           </ul>
         </ul>
       </nav>

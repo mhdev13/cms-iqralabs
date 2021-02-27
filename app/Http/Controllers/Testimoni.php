@@ -74,7 +74,7 @@ class Testimoni extends Controller
             ->where('id', $id)
             ->get();
         
-        return view('detail', ['testimoni' => $testimoni]);
+        return view('detail_testimoni', ['testimoni' => $testimoni]);
     }
 
     public function edit($id)
@@ -111,6 +111,29 @@ class Testimoni extends Controller
         Session::flash('flash_message','successfully saved.');
 
         return redirect('/testimoni');
+    }
+
+    public function delete($id){
+
+        DB::table('testimoni')->where('id',$id)->delete();
+
+        Session::flash('flash_message', 'successfully delete.');
+
+        return redirect('testimoni');
+    }
+
+    public function getTestimoni(){
+        $data = array(
+            "status" =>200,
+            "response" => "success",
+            "data" =>DB::table('testimoni')
+            ->select('*')
+            ->whereNotNull('photo')
+            ->orderBy('fullname', 'ASC')
+            ->get()
+        );
+
+        return $data;
     }
 
 }
