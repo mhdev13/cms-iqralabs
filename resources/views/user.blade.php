@@ -191,14 +191,6 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="/user/add" class="nav-link">
-                    <i class="fas fa fa-plus-circle nav-icon"></i>
-                    <p>Add Army</p>
-                  </a>
-                </li>
-              </ul>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
                   <a href="/user/" class="nav-link">
                     <i class="fas fa-search-plus nav-icon"></i>
                     <p>List Army</p>
@@ -269,6 +261,7 @@
                   <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
               @endif
               <a href="/user/export_excel" class="btn btn-success my-3" target="_blank"><i class="fa fa-download"></i> Download </a>
+              <a href="/user/add" class="btn btn-success my-3" target="_blank"><i class="fas fa fa-plus-circle nav-icon"></i> Add Army </a>
 
               <table id="table-datatables" class="table table-bordered table-striped">
                 <thead>
