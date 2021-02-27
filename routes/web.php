@@ -64,6 +64,7 @@ Route::get('/group/detail/{id}','Group@detail');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
