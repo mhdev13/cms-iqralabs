@@ -33,6 +33,21 @@ Route::get('/user/detail/{id}','User@detail');
 
 Route::get('/user/delete/{id}','User@delete');
 
+//route testimoni
+Route::get('/testimoni','Testimoni@index');
+
+Route::get('/testimoni/add', 'Testimoni@add');
+
+Route::get('/testimoni/store', 'Testimoni@store');
+
+Route::get('/testimoni/edit/{id}','Testimoni@edit');
+
+Route::get('/testimoni/update','Testimoni@update');
+
+Route::get('/testimoni/detail/{id}','Testimoni@detail');
+
+Route::get('/testimoni/delete/{id}','Testimoni@delete');
+
 //route groups
 Route::get('/group','Group@index');
 
