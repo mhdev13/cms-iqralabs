@@ -192,7 +192,7 @@
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="/user/" class="nav-link">
-                    <i class="fas fa-search-plus nav-icon"></i>
+                    <i class=""></i>
                     <p>List Army</p>
                   </a>
                 </li>
@@ -210,7 +210,7 @@
               <ul class="nav nav-treeview">
                 <li class="nav-item">
                   <a href="/user/" class="nav-link">
-                    <i class="fas fa-search-plus nav-icon"></i>
+                    <i class=""></i>
                     <p>List Testimoni</p>
                   </a>
                 </li>
