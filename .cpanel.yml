@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/maungaji/laravel/public/
+    - /bin/cp -R images $DEPLOYPATH
