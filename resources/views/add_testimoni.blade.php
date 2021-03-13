@@ -80,14 +80,6 @@
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="/user/add" class="nav-link">
-                    <i class="fas fa fa-plus-circle nav-icon"></i>
-                    <p>Add Army</p>
-                  </a>
-                </li>
-              </ul>
-              <ul class="nav nav-treeview">
-                <li class="nav-item">
                   <a href="/user/" class="nav-link">
                     <i class=""></i>
                     <p>List Army</p>
