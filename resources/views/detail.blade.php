@@ -297,9 +297,15 @@
                           <div class="col-lg-8">
                               <form class="form-horizontal ng-pristine ng-valid">
                                   <div class="form-group">
-                                      <label class="col-sm-44 control-label" for="inputContact3">No Identity</label>
+                                      <label class="col-sm-4 control-label" for="inputContact3">No Identity</label>
                                       <div class="col-sm-10">
                                           <input class="form-control" id="inputContact3" type="text" value="{{ $list->no_identity }}">
+                                      </div>
+                                  </div>
+                                  <div class="form-group">
+                                      <label class="col-sm-4 control-label" for="inputContact3">Referal Code</label>
+                                      <div class="col-sm-10">
+                                          <input class="form-control" id="inputContact3" type="text" value="{{ $list->referal_code }}">
                                       </div>
                                   </div>
                                   <div class="form-group">

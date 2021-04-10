@@ -266,6 +266,7 @@
                   <th>Phone Number</th>
                   <th>Photo</th>
                   <th>Agent Code</th>
+                  <th>Referal Code</th>
                   <th>Address</th>
                   <th>Status</th>
                   <th>Action</th>
@@ -288,6 +289,11 @@
                     <td>-</td>
                   <?php else : ?>
                     <td>{{ $list->agent_code }}</td>
+                  <?php endif; ?>
+                  <?php if($list->referal_code == '') : ?>
+                    <td>-</td>
+                  <?php else : ?>
+                    <td>{{ $list->referal_code }}</td>
                   <?php endif; ?>
                   <td>{{ $list->address }}</td>
                   <td>{{ $list->status }}</td>

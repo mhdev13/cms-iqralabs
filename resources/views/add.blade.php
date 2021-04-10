@@ -217,6 +217,10 @@
                         <input type="text" class="form-control" name="agent_code" required="required">
                       </div>
                       <div class="form-group">
+                        <label for="">Referal Code</label>
+                        <input type="text" class="form-control" name="referal_code">
+                      </div>
+                      <div class="form-group">
                         <label for="image">image</label>
                         <div class="input-group">
                           <div class="custom-file">

@@ -312,6 +312,10 @@
                   <input type="text" value="{{$list->agent_code}}" class="form-control" name="agent_code" required="required">
                 </div>
                 <div class="form-group">
+                  <label for="">Referal Code</label>
+                  <input type="text" value="{{$list->referal_code}}" class="form-control" name="referal_code">
+                </div>
+                <div class="form-group">
                   <label for="image">Image</label>
                   <div class="input-group">
                     <div class="col-md-12">
