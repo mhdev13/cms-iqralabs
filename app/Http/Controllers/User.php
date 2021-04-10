@@ -166,6 +166,7 @@ class User extends Controller
             "data" =>DB::table('users')
             ->select('*')
             ->whereNotNull('photo')
+            ->where('Status', 'Active')
             ->orderBy('fullname', 'ASC')
             ->get()
         );
