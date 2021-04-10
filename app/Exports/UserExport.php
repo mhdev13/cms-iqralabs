@@ -14,11 +14,11 @@ class UserExport implements FromCollection, WithHeadings
     */
     public function collection()
     {
-        return Armys::select("fullname","no_identity","email","agent_code","address","phone_number")->get();
+        return Armys::select("fullname","no_identity","email","agent_code","referal_code","address","phone_number")->get();
     }
 
     public function headings() :array
     {
-        return ["Name","Number Identity","Email","Agent Code","Address", "Phone Number"];
+        return ["Name","Number Identity","Email","Agent Code","Referal Code","Address", "Phone Number"];
     }
 }
