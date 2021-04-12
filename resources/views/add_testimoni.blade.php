@@ -160,7 +160,9 @@
                       </div>
                       <div class="form-group">
                         <label for="">Comment</label>
-                        <textarea class="form-control" id="Comment" rows="3" name="Comment" required="required"></textarea>
+                        <!-- <textarea class="form-control" id="Comment" rows="3" name="Comment" required="required"></textarea> -->
+                        <textarea id="comment" class="form-control" name="Comment" rows="10" cols="50"></textarea>
+
                       </div>
                       <div class="form-group">
                         <label for="from_who">From</label>
@@ -234,6 +236,14 @@ $(".custom-file-input").on("change", function() {
   var fileName = $(this).val().split("\\").pop();
   $(this).siblings(".custom-file-label").addClass("selected").html(fileName);
 });
+</script>
+<script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+<script>
+   var comment = document.getElementById("comment");
+     CKEDITOR.replace(comment,{
+     language:'en-gb'
+   });
+   CKEDITOR.config.allowedContent = true;
 </script>
 </body>
 </html>

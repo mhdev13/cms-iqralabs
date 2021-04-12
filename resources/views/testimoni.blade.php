@@ -268,7 +268,13 @@
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($testimoni as $index => $list)  
+                @foreach($testimoni as $index => $list)
+                <?php
+
+                  //remove html tag first
+                  $comment = strip_tags($list->comment);
+                  
+                ?>    
                 <tr>
                   <td>{{ $index +1 }}</td>
                   <td><a href="/testimoni/detail/{{ $list->id }}">{{ $list->fullname }}</a></td>
@@ -280,7 +286,7 @@
                   <?php if($list->comment == '') : ?>
                     <td>-</td>
                   <?php else : ?>
-                    <td>{{ $list->comment }}</td>
+                    <td>{{ $comment }}</td>
                   <?php endif; ?>
                   <?php if($list->from_who == '') : ?>
                     <td>-</td>
