@@ -257,6 +257,11 @@
     <section class="content">
     <div class="container bootstrap snippets bootdey">
     @foreach($testimoni as $list)
+
+      <?php
+      //remove html tag first
+      $comment = strip_tags($list->comment);
+      ?>    
       <div class="row ng-scope">
           <div class="col-md-4">
               <div class="panel panel-default">
@@ -291,7 +296,7 @@
                                   <div class="form-group">
                                       <label class="col-sm-2 control-label" for="inputContact6">Comment</label>
                                       <div class="col-sm-10">
-                                          <textarea class="form-control" id="inputContact6" row="4">{{ $list->comment }}</textarea>
+                                          <textarea class="form-control" id="inputContact6" row="4">{{ $comment }}</textarea>
                                       </div>
                                   </div>
                                   <br>
@@ -310,11 +315,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <!-- <strong>Copyright &copy; 2014-2019 <a href="http://adminlte.io">AdminLTE.io</a>.</strong>
-    All rights reserved.
-    <div class="float-right d-none d-sm-inline-block">
-      <b>Version</b> 3.0.2
-    </div> -->
+    
   </footer>
 
   <!-- Control Sidebar -->

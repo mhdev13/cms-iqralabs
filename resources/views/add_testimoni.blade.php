@@ -160,7 +160,6 @@
                       </div>
                       <div class="form-group">
                         <label for="">Comment</label>
-                        <!-- <textarea class="form-control" id="Comment" rows="3" name="Comment" required="required"></textarea> -->
                         <textarea id="comment" class="form-control" name="Comment" rows="10" cols="50"></textarea>
 
                       </div>
