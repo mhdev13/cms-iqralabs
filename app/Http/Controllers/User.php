@@ -42,7 +42,7 @@ class User extends Controller
 
     public function store(Request $request)
     {
-       
+        
         $image_name = $request->image;
         $image = $request->file('image');
         
@@ -60,7 +60,7 @@ class User extends Controller
                 'no_identity' => 'required',
             ]);
         }
-
+        
         $input['no_identity'] = Input::get('no_identity');
 
         $rules = array('no_identity' => 'unique:users,no_identity');
