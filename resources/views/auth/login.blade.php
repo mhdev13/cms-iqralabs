@@ -60,7 +60,7 @@
                     <button type="submit" class="btn btn-primary btn-block">{{ __('Login') }}</button>
                     </div>
                     <hr>
-                    <a href="index.html" class="btn btn-google btn-block">
+                    <!-- <a href="index.html" class="btn btn-google btn-block">
                       <i class="fab fa-google fa-fw"></i> Login with Google
                     </a>
                     <a href="index.html" class="btn btn-facebook btn-block">
@@ -72,7 +72,7 @@
                     <a class="font-weight-bold small" href="register.html">Create an Account!</a>
                   </div>
                   <div class="text-center">
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
