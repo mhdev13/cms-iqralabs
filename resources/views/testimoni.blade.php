@@ -19,7 +19,7 @@
   <div id="wrapper">
     <!-- Sidebar -->
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon">
           <img src="img/logo/logo2.png">
         </div>
@@ -27,7 +27,7 @@
       </a>
       <hr class="sidebar-divider my-0">
       <li class="nav-item">
-        <a class="nav-link" href="index.html">
+        <a class="nav-link" href="#">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
@@ -223,7 +223,7 @@
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <img class="img-profile rounded-circle" src="img/boy.png" style="max-width: 60px">
-                <span class="ml-2 d-none d-lg-inline text-white small">Maman Ketoprak</span>
+                <span class="ml-2 d-none d-lg-inline text-white small">admin</span>
               </a>
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="#">
@@ -292,7 +292,8 @@
                     ?>    
                     <tr>
                       <td>{{ $index +1 }}</td>
-                      <td><a href="/testimoni/detail/{{ $list->id }}">{{ $list->fullname }}</a></td>
+                      <!-- <td><a href="/testimoni/detail/{{ $list->id }}">{{ $list->fullname }}</a></td> -->
+                      <td><a href="">{{ $list->fullname }}</a></td>
                       <?php if($list->photo == '') : ?>
                         <td><img src="../../images/image_not_found.png" width="100%" height="auto"></td>
                       <?php else : ?>

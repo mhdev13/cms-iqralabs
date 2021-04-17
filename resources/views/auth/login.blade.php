@@ -60,10 +60,10 @@
                     <button type="submit" class="btn btn-primary btn-block">{{ __('Login') }}</button>
                     </div>
                     <hr>
-                    <!-- <a href="index.html" class="btn btn-google btn-block">
+                    <!-- <a href="#" class="btn btn-google btn-block">
                       <i class="fab fa-google fa-fw"></i> Login with Google
                     </a>
-                    <a href="index.html" class="btn btn-facebook btn-block">
+                    <a href="#" class="btn btn-facebook btn-block">
                       <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                     </a>
                   </form>
