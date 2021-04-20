@@ -303,7 +303,7 @@
                       <label for="image">Image</label>
                       <div class="input-group">
                         <div class="col-md-12">
-                          <img src="/images/{{ $list->photo }}" id="profile-img-tag" height="100" width="100">
+                            <img src="/images/{{ $list->photo }}" id="image" name="image" height="100" width="100">
                         </div>
                         <br>
                         <br>
@@ -311,7 +311,8 @@
                         <br>
                         <br>
                         <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="image" name="image">
+                          <input type="file" class="custom-file-input" name="image"/> 
+                          <input type="hidden" name="image" value="{{ $list->photo }}" /> 
                           <label class="custom-file-label" for="image">Choose file</label>
                         </div>
                       </div>
