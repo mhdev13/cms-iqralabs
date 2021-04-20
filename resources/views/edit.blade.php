@@ -274,6 +274,7 @@
                 @foreach($users as $list)
                 <form action="/user/update" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
+                    <input type="hidden" name="id" value="{{ $list->id }}"> <br/>
                     <div class="form-group">
                       <label for="exampleInputEmail1">No Identity</label>
                       <input type="text" class="form-control" name="no_identity" value="{{ $list->no_identity }}" required="required">
@@ -299,41 +300,38 @@
                           <input type="text" value="{{$list->referal_code}}" class="form-control" name="referal_code">
                     </div>
                     <div class="form-group">
-                    <label for="image">Image</label>
-                    <div class="input-group">
-                      <div class="col-md-12">
-                      <img src="/images/{{ $list->photo }}" id="profile-img-tag" height="100" width="100">
+                      <label for="image">Image</label>
+                      <div class="input-group">
+                        <div class="col-md-12">
+                          <img src="/images/{{ $list->photo }}" id="profile-img-tag" height="100" width="100">
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="image" name="image">
+                          <label class="custom-file-label" for="image">Choose file</label>
+                        </div>
                       </div>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="image" name="image">
-                        <label class="custom-file-label" for="image">Choose file</label>
-                      </div>
-                      <!-- <div class="input-group-append">
-                        <span class="input-group-text" id="">Upload</span>
-                      </div> -->
                     </div>
-                  </div>
-                  <div class="form-group">
+                    <div class="form-group">
                     <label for="">Address</label>
                     <textarea class="form-control" value="address" id="address" rows="3" name="address" required="required">{{$list->address}}</textarea>
-                  </div>
-                  <div class="form-group">
+                    </div>
+                    <div class="form-group">
                     <label for="status">Status</label>
                     <select class="form-control" id="status" name="status" required="required">
                       <option value="active" {{ $list->status == "active" ? 'selected' : ''}}>Active</option>
                       <option value="pending" {{ $list->status == "pending" ? 'selected' : ''}}>Pending</option>
                       <option value="inactive" {{$list->status == "inactive" ? 'selected' : ''}}>Inactive</option>
                     </select>
-                  </div>
-                  <br>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Save</button>
-                </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Save</button>
+                    </div>
                   </form>
                   @endforeach
                 </div>

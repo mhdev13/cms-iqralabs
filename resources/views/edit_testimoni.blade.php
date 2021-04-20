@@ -280,19 +280,20 @@
                     <input type="text" class="form-control" name="fullname" value="{{ $list->fullname }}" required="required">
                   </div>
                   <div class="form-group">
-                    <label for="image">Image</label>
-                    <div class="input-group">
-                      <div class="col-md-12">
-                      <img src="/images/{{ $list->photo }}" id="profile-img-tag" height="100" width="100">
-                      </div>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <br>
-                      <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="image" name="image">
-                        <label class="custom-file-label" for="image">Choose file</label>
+                      <label for="image">Image</label>
+                      <div class="input-group">
+                        <div class="col-md-12">
+                          <img src="/images/{{ $list->photo }}" id="profile-img-tag" height="100" width="100">
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" id="image" name="image">
+                          <label class="custom-file-label" for="image">Choose file</label>
+                        </div>
                       </div>
                   </div>
                   <br>
