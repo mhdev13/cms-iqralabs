@@ -16,8 +16,6 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::get('logout', 'Auth\LoginController@logout');
-
 //route users
 Route::get('/user','User@index');
 
@@ -62,10 +60,6 @@ Route::get('/group/edit/{id}', 'Group@edit');
 Route::post('/group/update','Group@update');
 
 Route::get('/group/detail/{id}','Group@detail');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Auth::routes();
 
