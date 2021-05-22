@@ -292,7 +292,7 @@
                     <tr>
                       <td>{{ $index +1 }}</td>
                       <td>{{ $list->no_identity }}</td>
-                      <td><a href="/user/detail/{{ $list->id }}">{{ $list->fullname }}</a></td>
+                      <td>{{ $list->fullname }}</td>
                       <td>{{ $list->email }}</td>
                       <td>{{ $list->phone_number }}</td>
                       <?php if($list->photo == '') : ?>

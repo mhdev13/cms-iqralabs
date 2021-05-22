@@ -292,8 +292,7 @@
                     ?>    
                     <tr>
                       <td>{{ $index +1 }}</td>
-                      <!-- <td><a href="/testimoni/detail/{{ $list->id }}">{{ $list->fullname }}</a></td> -->
-                      <td><a href="">{{ $list->fullname }}</a></td>
+                      <td>{{ $list->fullname }}</td>
                       <?php if($list->photo == '') : ?>
                         <td><img src="../../images/image_not_found.png" width="100%" height="auto"></td>
                       <?php else : ?>
