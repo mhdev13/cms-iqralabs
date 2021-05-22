@@ -92,12 +92,16 @@ class Testimoni extends Controller
         $image_name = $request->image;
         $image = $request->file('image');
         
-        $request->validate([
-            'image' => 'mimes:jpeg,jpg,png,gif|required|max:500000'
-        ]);
+        if($image != '') {
+            $request->validate([
+                'no_identity' => 'required',
+                'image' => 'mimes:jpeg,jpg,png,gif|required|max:500000'
+            ]);
 
-        $image_name = time() . '.' . $image->getClientOriginalExtension();
-        $image->move(public_path('images'), $image_name);
+            $image_name = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $image_name);
+
+        } 
 
         DB::table('testimoni')
             ->where('id', $request->id)
