@@ -16,6 +16,9 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
+Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
+
+
 //route users
 Route::get('/user','User@index');
 

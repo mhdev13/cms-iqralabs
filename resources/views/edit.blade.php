@@ -253,7 +253,7 @@
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Edit Army</h1>
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="./">Home</a></li>
+              <li class="breadcrumb-item">Home</a></li>
               <li class="breadcrumb-item">Army</li>
               <li class="breadcrumb-item active" aria-current="page">Edit Army</li>
             </ol>
@@ -357,7 +357,7 @@
                 </div>
                 <div class="modal-footer">
                   <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
-                  <a href="login.html" class="btn btn-primary">Logout</a>
+                  <a href="/logout" class="btn btn-primary">Logout</a>
                 </div>
               </div>
             </div>
