@@ -14,7 +14,13 @@
   <link href="css/ruang-admin.min.css" rel="stylesheet">
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
-
+<style>
+.centerphoto {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+</style>
 <body id="page-top">
   <div id="wrapper">
     <!-- Sidebar -->
@@ -292,7 +298,7 @@
                     <tr>
                       <td>{{ $index +1 }}</td>
                       <td>{{ $list->no_identity }}</td>
-                      <td>{{ $list->fullname }}</td>
+                      <td><a href="#" data-toggle="modal" id="detail-army" data-target="#detailModal{{ $list->id }}"> {{ $list->fullname }} </a></td>
                       <td>{{ $list->email }}</td>
                       <td>{{ $list->phone_number }}</td>
                       <?php if($list->photo == '') : ?>
@@ -320,6 +326,55 @@
                           <a href="/user/delete/{{ $list->id }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
                         </td>
                     </tr>
+                   
+                    <!-- Modal Detail -->
+                    <div class="modal fade" id="detailModal{{ $list->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelDetail"
+                      aria-hidden="true">
+                      <div class="modal-dialog modal-lg">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabelLogout">
+                            <?php if($list->photo): ?>
+                              <div class="text-left">
+                              <img src="/images/{{ $list->photo }}" style="width:50%;">
+                              </div>
+                          <?php endif; ?>
+                            </h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="col-md-12">
+                            <div class="modal-body">
+                              <div class="col-md-6" style="margin-top: 20px">
+                                  <p style="text-align:justify;font-family: Poppins;font-style: normal;font-size: 15px;line-height: 26px;color: #263238;">
+                                      Identity Number : <b>{{ $list->no_identity }}</b>
+                                  </p>
+                                  <p style="text-align:justify;font-family: Poppins;font-style: normal;font-size: 15px;line-height: 26px;color: #263238;">
+                                      Email : <b>{{ $list->email }}</b>
+                                  </p>
+                                  <p style="text-align:justify;font-family: Poppins;font-style: normal;font-size: 15px;line-height: 26px;color: #263238;">
+                                      Phone Number : <b>{{ $list->phone_number }}</b>
+                                  </p>
+                              </div>
+                              <div class="col-md-6" style="margin-top: 20px">
+                                  <p style="text-align:justify;font-family: Poppins;font-style: normal;font-size: 15px;line-height: 26px;color: #263238;">
+                                      Agent Code : <b>{{ $list->agent_code }}</b>
+                                  </p>
+                                  <p style="text-align:justify;font-family: Poppins;font-style: normal;font-size: 15px;line-height: 26px;color: #263238;">
+                                      Referal Code : <b>{{ $list->referal_code }}</b>
+                                  </p>
+                                  <p style="text-align:justify;font-family: Poppins;font-style: normal;font-size: 15px;line-height: 26px;color: #263238;">
+                                      Address : <b>{{ $list->address }}</b>
+                                  </p>
+                              </div>
+                            </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                     @endforeach
                   </table>
                 </div>
