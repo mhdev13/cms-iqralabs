@@ -12,12 +12,10 @@
 */
 
 Route::get('/', function () {
-    // return view('welcome');
     return view('auth/login');
 });
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
-
 
 //route users
 Route::get('/user','User@index');
@@ -83,8 +81,15 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+//--- API ---//
+
 //route api users
 Route::get('/user/getUser','User@getUser');
 
-//route api testimonis
+//route api testimoni
 Route::get('/testimoni/getTestimoni','Testimoni@getTestimoni');
+
+//route api faq
+Route::get('/faq/getFaq','Faq@getFaq');
+
+// -- END --//

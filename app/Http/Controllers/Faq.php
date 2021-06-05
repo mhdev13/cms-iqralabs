@@ -132,4 +132,17 @@ class Faq extends Controller
 
         return redirect('/faq');
     }
+
+    public function getFaq()
+    {
+        $data = array(
+            "status" => 200,
+            "response" => "success",
+            "data" => DB::table('cms_faq')
+            ->select("*")
+            ->get()
+        );
+
+        return $data;
+    }
 }
