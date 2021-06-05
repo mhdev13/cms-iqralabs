@@ -3,6 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\File;
+use App\UploadedFile;
+use App\Users;
+use App\Groups;
+use Carbon\Carbon;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Session;
+use App\Exports\UserExport;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Faq extends Controller
 {
@@ -13,7 +27,12 @@ class Faq extends Controller
      */
     public function index()
     {
-        //
+        $faq = DB::table('cms_faq')
+        ->select('*')
+        ->orderBy('id','ASC')
+        ->get();
+
+        return view('faq/faq',['faq' => $faq]);
     }
 
     /**
@@ -23,7 +42,7 @@ class Faq extends Controller
      */
     public function create()
     {
-        //
+        return view('faq/add_faq');
     }
 
     /**
@@ -34,7 +53,18 @@ class Faq extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->_token != ''){
+            DB::table('cms_faq')->insert([
+                'question' => $request->question,
+                'answer' => $request->answer,
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now()
+            ]);
+
+            Session::flash('flash_message', 'succesfully saved.');
+
+            return redirect('/faq');
+        }
     }
 
     /**
@@ -56,7 +86,12 @@ class Faq extends Controller
      */
     public function edit($id)
     {
-        //
+        $faq = DB::table('cms_faq')
+            ->Select('*')
+            ->where('id', $id)
+            ->get();
+
+        return view('faq/edit_faq', ['faq' => $faq]);
     }
 
     /**
@@ -66,9 +101,21 @@ class Faq extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        if($request->_token != ''){
+            DB::table('cms_faq')
+                ->where('id', $request->id)
+                ->update([
+                    'question' => $request->question,
+                    'answer' => $request->answer,
+                    'updated_at' => carbon::now()
+                ]);
+
+            Session::flash('flash_message','successfully update.');
+
+            return redirect('/faq');
+        }
     }
 
     /**
@@ -79,6 +126,10 @@ class Faq extends Controller
      */
     public function destroy($id)
     {
-        //
+        DB::table('cms_faq')->where('id', $id)->delete();
+
+        Session::flash('flash_message', 'successfully delete.');
+
+        return redirect('/faq');
     }
 }

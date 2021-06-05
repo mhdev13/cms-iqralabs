@@ -28,7 +28,7 @@ class User extends Controller
         ->orderBy('fullname', 'ASC')
         ->get();
 
-    	return view('user',['user' => $users]);
+    	return view('army/user',['user' => $users]);
     }
 
     public function export_excel()
@@ -37,7 +37,7 @@ class User extends Controller
 	}
 
     public function add(){
-    	return view('add');
+    	return view('army/add');
     }
 
     public function store(Request $request)
@@ -68,7 +68,7 @@ class User extends Controller
 
         if ($validator->fails()) {
             Session::flash('failed',' failed add data, number identity already use');
-            return redirect('/user/add/'.$request->id.'');
+            return redirect('/user'.$request->id.'');
         } else {
             DB::table('users')->insert([
                 'no_identity' => $request->no_identity,
@@ -112,7 +112,7 @@ class User extends Controller
             ->get();
         
         // passing data edit user yang didapat ke view edit.blade.php
-        return view('edit',['users' => $users]);
+        return view('/army/edit',['users' => $users]);
     }
 
     public function update(Request $request)

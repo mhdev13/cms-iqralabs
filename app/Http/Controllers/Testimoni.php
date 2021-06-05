@@ -26,11 +26,11 @@ class Testimoni extends Controller
         ->orderBy('fullname', 'ASC')
         ->get();
 
-        return view('testimoni',['testimoni' => $testimoni]);
+        return view('testimoni/testimoni',['testimoni' => $testimoni]);
     }
 
     public function add(){
-        return view('add_testimoni');
+        return view('testimoni/add_testimoni');
     }
 
     public function store(Request $request){
@@ -84,7 +84,7 @@ class Testimoni extends Controller
             ->where('id', $id)
             ->get();
 
-        return view('edit_testimoni', ['testimoni' => $testimoni]);
+        return view('testimoni/edit_testimoni', ['testimoni' => $testimoni]);
     }
 
     public function update(Request $request){
@@ -112,7 +112,7 @@ class Testimoni extends Controller
                 'from_who' => $request->from_who,
             ]);
 
-        Session::flash('flash_message','successfully saved.');
+        Session::flash('flash_message','successfully update.');
 
         return redirect('/testimoni');
     }
@@ -123,7 +123,7 @@ class Testimoni extends Controller
 
         Session::flash('flash_message', 'successfully delete.');
 
-        return redirect('testimoni');
+        return redirect('/testimoni');
     }
 
     public function getTestimoni(){

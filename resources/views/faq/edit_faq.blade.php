@@ -9,18 +9,18 @@
   <meta name="author" content="">
   <link href="img/logo/logo2.png" rel="icon">
   <title>Maungaji - CMS</title>
-  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-  <link href="css/ruang-admin.min.css" rel="stylesheet">
-  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <link href="../../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="../../css/ruang-admin.min.css" rel="stylesheet">
 </head>
+
 <body id="page-top">
   <div id="wrapper">
     <!-- Sidebar -->
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon">
-          <img src="img/logo/logo2.png">
+          <img src="../../img/logo/logo2.png">
         </div>
         <div class="sidebar-brand-text mx-3">Maungaji</div>
       </a>
@@ -31,20 +31,18 @@
           <span>Dashboard</span></a>
       </li>
       <hr class="sidebar-divider">
-
       <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
           aria-controls="collapseTable">
-          <i class="fas fa-fw fa-comment"></i>
-          <span>Testimoni</span>
+          <i class="fas fa-fw fa-answer"></i>
+          <span>faq</span>
         </a>
         <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="/testimoni">User Testimoni</a>
+            <a class="collapse-item active" href="/faq">User faq</a>
           </div>
         </div>
       </li>
-
       <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
           aria-controls="collapseTable">
@@ -57,33 +55,6 @@
           </div>
         </div>
       </li>
-    
-      <li class="nav-item active">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
-          aria-controls="collapseTable">
-          <i class="fas fa-money-bill-alt"></i>
-          <span>Price & Package</span>
-        </a>
-        <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="/user">Price & Package List</a>
-          </div>
-        </div>
-      </li>
-
-      <li class="nav-item active">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
-          aria-controls="collapseTable">
-          <i class="fas fa-question-circle"></i>
-          <span>Faq</span>
-        </a>
-        <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="/user">Faq List</a>
-          </div>
-        </div>
-      </li>
-      
       <hr class="sidebar-divider">
       <div class="version" id="version-ruangadmin"></div>
     </ul>
@@ -250,7 +221,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <img class="img-profile rounded-circle" src="img/boy.png" style="max-width: 60px">
+                <img class="img-profile rounded-circle" src="../../img/boy.png" style="max-width: 60px">
                 <span class="ml-2 d-none d-lg-inline text-white small">admin</span>
               </a>
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -276,132 +247,49 @@
           </ul>
         </nav>
         <!-- Topbar -->
+
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Army</h1>
+            <h1 class="h3 mb-0 text-gray-800">Edit faq</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item">Home</a></li>
-              <li class="breadcrumb-item">Army</li>
-              <li class="breadcrumb-item active" aria-current="page">Army List</li>
+              <li class="breadcrumb-item">faq</li>
+              <li class="breadcrumb-item active" aria-current="page">Edit faq</li>
             </ol>
           </div>
 
-          <!-- Row -->
           <div class="row">
-            <!-- Datatables -->
             <div class="col-lg-12">
+              <!-- Form Basic -->
               <div class="card mb-4">
-                <div class="card-header">
-                  @if(Session::has('flash_message'))
-                  <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
-                  @endif
-                  <a href="/user/export_excel" class="btn btn-success" target="_blank"><i class="fa fa-download"></i> Download </a>
-                  <a href="/user/add" class="btn btn-success" target="_blank"><i class="fas fa fa-plus-circle nav-icon"></i> Add Army </a>
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                 </div>
-                <div class="table-responsive p-3">
-                  <table class="table align-items-center table-flush" id="dataTable">
-                    <thead class="thead-light">
-                      <tr>
-                        <th>No</th>
-                        <th>Identity Number</th>
-                        <th>Full Name</th>
-                        <th>Email</th>
-                        <th>Phone Number</th>
-                        <th>Photo</th>
-                        <th>Agent Code</th>
-                        <th>Referal Code</th>
-                        <th>Address</th>
-                        <th>Status</th>
-                        <th>Action</th>
-                      </tr>
-                    </thead>
-                    @foreach($user as $index => $list)  
-                    <tr>
-                      <td>{{ $index +1 }}</td>
-                      <td>{{ $list->no_identity }}</td>
-                      <td><a href="#" data-toggle="modal" id="detail-army" data-target="#detailModal{{ $list->id }}"> {{ $list->fullname }} </a></td>
-                      <td>{{ $list->email }}</td>
-                      <td>{{ $list->phone_number }}</td>
-                      <?php if($list->photo == '') : ?>
-                        <td><img src="../../images/image_not_found.png" width="100%" height="auto"></td>
-                      <?php else : ?>
-                        <td><img src="/images/{{ $list->photo }}" width="100%" height="auto"></td>
-                      <?php endif; ?>
-                      <?php if($list->agent_code == '') : ?>
-                        <td>-</td>
-                      <?php else : ?>
-                        <td>{{ $list->agent_code }}</td>
-                      <?php endif; ?>
-                      <?php if($list->referal_code == '') : ?>
-                        <td>-</td>
-                      <?php else : ?>
-                        <td>{{ $list->referal_code }}</td>
-                      <?php endif; ?>
-                      <td>{{ $list->address }}</td>
-                      <td>{{ $list->status }}</td>
-                      <td width="500">
-                          <a href="/user/edit/{{ $list->id }}"
-                          class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
-                          <br>
-                          <br>
-                          <a href="/user/delete/{{ $list->id }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
-                        </td>
-                    </tr>
-                   
-                    <!-- Modal Detail -->
-                    <div class="modal fade" id="detailModal{{ $list->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelDetail"
-                      aria-hidden="true">
-                      <div class="modal-dialog modal-lg">
-                        <div class="modal-content">
-                          <div class="modal-header" style="background: #3597D4;">
-                            <h5 class="modal-title" id="exampleModalLabelLogout">
-                            <?php if($list->photo): ?>
-                              <div class="text-left">
-                              <img src="/images/{{ $list->photo }}" style="width: 200px; height: 200px; background-size: cover !important; background-position: center !important;border-radius: 250px;">
-                              </div>
-                            <?php endif; ?>
-                            </h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                            </button>
-                          </div>
-                          <div class="col-md-12">
-                            <div class="modal-body">
-                              <div class="col-md-6" style="margin-top: 20px">
-                                  <p style="text-align:justify;font-family: Poppins;font-style: normal;font-size: 15px;line-height: 26px;color: #263238;">
-                                      Identity Number : <b>{{ $list->no_identity }}</b>
-                                  </p>
-                                  <p style="text-align:justify;font-family: Poppins;font-style: normal;font-size: 15px;line-height: 26px;color: #263238;">
-                                      Name : <b>{{ $list->fullname }}</b>
-                                  </p>
-                                  <p style="text-align:justify;font-family: Poppins;font-style: normal;font-size: 15px;line-height: 26px;color: #263238;">
-                                      Email : <b>{{ $list->email }}</b>
-                                  </p>
-                                  <p style="text-align:justify;font-family: Poppins;font-style: normal;font-size: 15px;line-height: 26px;color: #263238;">
-                                      Phone Number : <b>{{ $list->phone_number }}</b>
-                                  </p>
-                              </div>
-                              <div class="col-md-6" style="margin-top: 20px">
-                                  <p style="text-align:justify;font-family: Poppins;font-style: normal;font-size: 15px;line-height: 26px;color: #263238;">
-                                      Agent Code : <b>{{ $list->agent_code }}</b>
-                                  </p>
-                                  <p style="text-align:justify;font-family: Poppins;font-style: normal;font-size: 15px;line-height: 26px;color: #263238;">
-                                      Referal Code : <b>{{ $list->referal_code }}</b>
-                                  </p>
-                                  <p style="text-align:justify;font-family: Poppins;font-style: normal;font-size: 15px;line-height: 26px;color: #263238;">
-                                      Address : <b>{{ $list->address }}</b>
-                                  </p>
-                              </div>
-                            </div>
-                          <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Cancel</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    @endforeach
-                  </table>
+                @if ($message = Session::get('failed'))
+                  <div class="alert alert-danger" role="alert">
+                  {{ $message }}
+                  </div>
+                @endif
+                <div class="card-body">
+                @foreach($faq as $list)
+                  <form action="/faq/update" method="post" enctype="multipart/form-data">
+                  {{ csrf_field() }}
+                  <input type="hidden" name="id" value="{{ $list->id }}"> <br/>
+                  <div class="form-group">
+                    <label for="">Question</label>
+                    <input type="text" class="form-control" name="question" value="{{ $list->question }}" required="required">
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="">Answer</label>
+                    <textarea id="answer" class="form-control" value="answer" id="answer" rows="3" name="answer" required="required">{{$list->answer}}</textarea>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                      <button type="submit" class="btn btn-primary">Save</button>
+                  </div>
+                  </form>
+                  @endforeach
                 </div>
               </div>
             </div>
@@ -433,12 +321,11 @@
         </div>
         <!---Container Fluid-->
       </div>
-
       <!-- Footer -->
       <footer class="sticky-footer bg-white">
         <div class="container my-auto">
           <div class="copyright text-center my-auto">
-            <span>copyright &copy; <script> document.write(new Date().getFullYear()); </script> 
+            <span>copyright &copy; <script> document.write(new Date().getFullYear()); </script>
             </span>
           </div>
         </div>
@@ -456,16 +343,14 @@
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
   <script src="js/ruang-admin.min.js"></script>
-  <!-- Page level plugins -->
-  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
-  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-  <!-- Page level custom scripts -->
+  <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
   <script>
-    $(document).ready(function () {
-      $('#dataTable').DataTable(); // ID From dataTable 
-      $('#dataTableHover').DataTable(); // ID From dataTable with Hover
+    var answer = document.getElementById("answer");
+      CKEDITOR.replace(answer,{
+      language:'en-gb'
     });
+    CKEDITOR.config.allowedContent = true;
   </script>
 
 </body>

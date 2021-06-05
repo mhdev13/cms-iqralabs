@@ -51,6 +51,21 @@ Route::get('/testimoni/detail/{id}','Testimoni@detail');
 
 Route::get('/testimoni/delete/{id}','Testimoni@delete');
 
+//route faq
+Route::get('/faq','Faq@index');
+
+Route::get('/faq/create', 'Faq@create');
+
+Route::post('/faq/store', 'Faq@store');
+
+Route::get('/faq/edit/{id}','Faq@edit');
+
+Route::post('/faq/update','Faq@update');
+
+Route::get('/faq/detail/{id}','Faq@detail');
+
+Route::get('/faq/destroy/{id}','Faq@destroy');
+
 //route groups
 Route::get('/group','Group@index');
 
