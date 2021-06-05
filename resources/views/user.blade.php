@@ -14,13 +14,6 @@
   <link href="css/ruang-admin.min.css" rel="stylesheet">
   <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 </head>
-<style>
-.centerphoto {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-</style>
 <body id="page-top">
   <div id="wrapper">
     <!-- Sidebar -->
@@ -332,13 +325,13 @@
                       aria-hidden="true">
                       <div class="modal-dialog modal-lg">
                         <div class="modal-content">
-                          <div class="modal-header">
+                          <div class="modal-header" style="background: #3597D4;">
                             <h5 class="modal-title" id="exampleModalLabelLogout">
                             <?php if($list->photo): ?>
                               <div class="text-left">
-                              <img src="/images/{{ $list->photo }}" style="width:50%;">
+                              <img src="/images/{{ $list->photo }}" style="width: 200px; height: 200px; background-size: cover !important; background-position: center !important;border-radius: 250px;">
                               </div>
-                          <?php endif; ?>
+                            <?php endif; ?>
                             </h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                               <span aria-hidden="true">&times;</span>
@@ -349,6 +342,9 @@
                               <div class="col-md-6" style="margin-top: 20px">
                                   <p style="text-align:justify;font-family: Poppins;font-style: normal;font-size: 15px;line-height: 26px;color: #263238;">
                                       Identity Number : <b>{{ $list->no_identity }}</b>
+                                  </p>
+                                  <p style="text-align:justify;font-family: Poppins;font-style: normal;font-size: 15px;line-height: 26px;color: #263238;">
+                                      Name : <b>{{ $list->fullname }}</b>
                                   </p>
                                   <p style="text-align:justify;font-family: Poppins;font-style: normal;font-size: 15px;line-height: 26px;color: #263238;">
                                       Email : <b>{{ $list->email }}</b>
