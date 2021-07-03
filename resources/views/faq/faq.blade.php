@@ -59,7 +59,7 @@
         </div>
       </li>
     
-      <li class="nav-item active">
+      <!-- <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
           aria-controls="collapseTable">
           <i class="fas fa-money-bill-alt"></i>
@@ -70,7 +70,7 @@
             <a class="collapse-item active" href="#">Price & Package List</a>
           </div>
         </div>
-      </li>
+      </li> -->
 
       <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
