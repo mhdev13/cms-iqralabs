@@ -349,6 +349,7 @@
                     </div>
                     <div class="form-group">
                       <button type="submit" class="btn btn-primary" >Save</button>
+                      <a href="{{ URL::previous() }}" class="btn btn-success">Back</a>
                     </div>
                   </form>
                 </div>
