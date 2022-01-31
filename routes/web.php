@@ -64,6 +64,21 @@ Route::get('/faq/detail/{id}','Faq@detail');
 
 Route::get('/faq/destroy/{id}','Faq@destroy');
 
+//route price
+Route::get('/price','Price@index');
+
+Route::get('/price/create', 'Price@create');
+
+Route::post('/price/store', 'Price@store');
+
+Route::get('/price/edit/{id}','Price@edit');
+
+Route::post('/price/update','Price@update');
+
+Route::get('/price/detail/{id}','Price@detail');
+
+Route::get('/price/destroy/{id}','Price@destroy');
+
 //route groups
 Route::get('/group','Group@index');
 

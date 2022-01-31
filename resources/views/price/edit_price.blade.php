@@ -16,7 +16,7 @@
           <span>Dashboard</span></a>
       </li>
       <hr class="sidebar-divider">
-
+      
       <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
           aria-controls="collapseTable">
@@ -43,7 +43,7 @@
         </div>
       </li>
     
-      <li class="nav-item active">
+      <!-- <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
           aria-controls="collapseTable">
           <i class="fas fa-money-bill-alt"></i>
@@ -51,10 +51,10 @@
         </a>
         <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="/price">Price & Package List</a>
+            <a class="collapse-item active" href="#">Price & Package List</a>
           </div>
         </div>
-      </li>
+      </li> -->
 
       <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
@@ -68,7 +68,7 @@
           </div>
         </div>
       </li>
-
+      
       <hr class="sidebar-divider">
       <div class="version" id="version-ruangadmin"></div>
     </ul>
@@ -265,11 +265,11 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Add faq</h1>
+            <h1 class="h3 mb-0 text-gray-800">Edit faq</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item">Home</a></li>
               <li class="breadcrumb-item">faq</li>
-              <li class="breadcrumb-item active" aria-current="page">Add faq</li>
+              <li class="breadcrumb-item active" aria-current="page">Edit faq</li>
             </ol>
           </div>
 
@@ -285,27 +285,32 @@
                   </div>
                 @endif
                 <div class="card-body">
-                <form action="/faq/store" method="post" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <div class="form-group">
-                        <label for="">Question</label>
-                        <input type="text" class="form-control" name="question" required="required">
-                      </div>
-                      <div class="form-group">
-                        <label for="">Answer</label>
-                        <textarea id="answer" class="form-control" name="answer" rows="10" cols="50"></textarea>
-                      </div>
-                      <div class="form-group">
-                      <button type="submit" class="btn btn-primary">Save</button>
-                      <a href="{{ URL::previous() }}" class="btn btn-success">Back</a>
-                      </div>
+                @foreach($faq as $list)
+                  <form action="/faq/update" method="post" enctype="multipart/form-data">
+                  {{ csrf_field() }}
+                  <input type="hidden" name="id" value="{{ $list->id }}"> <br/>
+                  <div class="form-group">
+                    <label for="">Question</label>
+                    <input type="text" class="form-control" name="question" value="{{ $list->question }}" required="required">
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <label for="">Answer</label>
+                    <textarea id="answer" class="form-control" value="answer" id="answer" rows="3" name="answer" required="required">{{$list->answer}}</textarea>
+                  </div>
+                  <br>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a href="{{ URL::previous() }}" class="btn btn-success">Back</a>
+                  </div>
                   </form>
+                  @endforeach
                 </div>
               </div>
             </div>
           </div>
           <!--Row-->
-          
+
           <!-- Modal Logout -->
           <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
             aria-hidden="true">

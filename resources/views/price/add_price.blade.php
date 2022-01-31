@@ -43,7 +43,7 @@
         </div>
       </li>
     
-      <li class="nav-item active">
+      <!-- <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
           aria-controls="collapseTable">
           <i class="fas fa-money-bill-alt"></i>
@@ -51,20 +51,20 @@
         </a>
         <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="/price">Price & Package List</a>
+            <a class="collapse-item active" href="#">Price & Package List</a>
           </div>
         </div>
-      </li>
+      </li> -->
 
       <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
           aria-controls="collapseTable">
           <i class="fas fa-question-circle"></i>
-          <span>Faq</span>
+          <span>price</span>
         </a>
         <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="/faq">Faq List</a>
+            <a class="collapse-item active" href="/price">price List</a>
           </div>
         </div>
       </li>
@@ -265,11 +265,11 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Add faq</h1>
+            <h1 class="h3 mb-0 text-gray-800">Add Price</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item">Home</a></li>
-              <li class="breadcrumb-item">faq</li>
-              <li class="breadcrumb-item active" aria-current="page">Add faq</li>
+              <li class="breadcrumb-item">Price</li>
+              <li class="breadcrumb-item active" aria-current="page">Add Price</li>
             </ol>
           </div>
 
@@ -285,21 +285,44 @@
                   </div>
                 @endif
                 <div class="card-body">
-                <form action="/faq/store" method="post" enctype="multipart/form-data">
+                <form action="/price/store" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <label for="">Question</label>
-                        <input type="text" class="form-control" name="question" required="required">
-                      </div>
-                      <div class="form-group">
-                        <label for="">Answer</label>
-                        <textarea id="answer" class="form-control" name="answer" rows="10" cols="50"></textarea>
-                      </div>
-                      <div class="form-group">
-                      <button type="submit" class="btn btn-primary">Save</button>
-                      <a href="{{ URL::previous() }}" class="btn btn-success">Back</a>
-                      </div>
-                  </form>
+                    <label for="package_name">Package Name</label>
+                    <select class="form-control" id="package_name" name="package_name" required="required">
+                        <option value="personal">Personal</option>
+                        <option value="family">Family</option>
+                        <option value="group">Group</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                    <label for="">Price</label>
+                    <input type="number" class="form-control" name="price" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="class_type">Class Type</label>
+                        <select class="form-control" id="class_type" name="class_type" required="required">
+                            <option value="offline">Offline</option>
+                            <option value="online">Online</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Max Student</label>
+                        <input type="number" class="form-control" name="max_student" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Learning Duration (minutes)</label>
+                        <input type="number" class="form-control" name="learning_duration" required="required">
+                    </div>
+                    <div class="form-group">
+                    <label for="">Description</label>
+                    <textarea id="description" class="form-control" name="description" rows="10" cols="50"></textarea>
+                    </div>
+                    <div class="form-group">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <a href="{{ URL::previous() }}" class="btn btn-success">Back</a>
+                    </div>
+                </form>
                 </div>
               </div>
             </div>
@@ -341,8 +364,8 @@
 
   <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
   <script>
-    var answer = document.getElementById("answer");
-      CKEDITOR.replace(answer,{
+    var description = document.getElementById("description");
+      CKEDITOR.replace(description,{
       language:'en-gb'
     });
     CKEDITOR.config.allowedContent = true;

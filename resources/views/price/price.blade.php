@@ -1,11 +1,12 @@
 @extends('layout.main')
+
 <body id="page-top">
   <div id="wrapper">
     <!-- Sidebar -->
     <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
         <div class="sidebar-brand-icon">
-          <img src="../../img/logo/logo2.png">
+          <img src="img/logo/logo2.png">
         </div>
         <div class="sidebar-brand-text mx-3">Maungaji</div>
       </a>
@@ -16,7 +17,7 @@
           <span>Dashboard</span></a>
       </li>
       <hr class="sidebar-divider">
-
+      
       <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
           aria-controls="collapseTable">
@@ -43,7 +44,7 @@
         </div>
       </li>
     
-      <li class="nav-item active">
+      <!-- <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
           aria-controls="collapseTable">
           <i class="fas fa-money-bill-alt"></i>
@@ -51,20 +52,20 @@
         </a>
         <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="/price">Price & Package List</a>
+            <a class="collapse-item active" href="#">Price & Package List</a>
           </div>
         </div>
-      </li>
+      </li> -->
 
       <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
           aria-controls="collapseTable">
           <i class="fas fa-question-circle"></i>
-          <span>Faq</span>
+          <span>price</span>
         </a>
         <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="/faq">Faq List</a>
+            <a class="collapse-item active" href="/price">price List</a>
           </div>
         </div>
       </li>
@@ -235,7 +236,7 @@
             <li class="nav-item dropdown no-arrow">
               <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                <img class="img-profile rounded-circle" src="../../img/boy.png" style="max-width: 60px">
+                <img class="img-profile rounded-circle" src="img/boy.png" style="max-width: 60px">
                 <span class="ml-2 d-none d-lg-inline text-white small">admin</span>
               </a>
               <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
@@ -261,51 +262,86 @@
           </ul>
         </nav>
         <!-- Topbar -->
-
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Add faq</h1>
+            <h1 class="h3 mb-0 text-gray-800">Price</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item">Home</a></li>
-              <li class="breadcrumb-item">faq</li>
-              <li class="breadcrumb-item active" aria-current="page">Add faq</li>
+              <li class="breadcrumb-item">Price</li>
+              <li class="breadcrumb-item active" aria-current="page">Price List</li>
             </ol>
           </div>
 
+          <!-- Row -->
           <div class="row">
+            <!-- Datatables -->
             <div class="col-lg-12">
-              <!-- Form Basic -->
               <div class="card mb-4">
-                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <div class="card-header">
+                  @if(Session::has('flash_message'))
+                  <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
+                  @endif
+                  <a href="/price/create" class="btn btn-success"><i class="fas fa fa-plus-circle nav-icon"></i> Add Price </a>
                 </div>
-                @if ($message = Session::get('failed'))
-                  <div class="alert alert-danger" role="alert">
-                  {{ $message }}
-                  </div>
-                @endif
-                <div class="card-body">
-                <form action="/faq/store" method="post" enctype="multipart/form-data">
-                    {{ csrf_field() }}
-                    <div class="form-group">
-                        <label for="">Question</label>
-                        <input type="text" class="form-control" name="question" required="required">
-                      </div>
-                      <div class="form-group">
-                        <label for="">Answer</label>
-                        <textarea id="answer" class="form-control" name="answer" rows="10" cols="50"></textarea>
-                      </div>
-                      <div class="form-group">
-                      <button type="submit" class="btn btn-primary">Save</button>
-                      <a href="{{ URL::previous() }}" class="btn btn-success">Back</a>
-                      </div>
-                  </form>
+                <div class="table-responsive p-3">
+                  <table class="table align-items-center table-flush" id="dataTable">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Package Name</th>
+                      <th>Price (Rp)</th>
+                      <th>Class Type</th>
+                      <th>Max Student</th>
+                      <th>Learning Duration</th>
+                      <th>Desctiption</th>
+                      <th>Action</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($price as $index => $list)
+                    <?php
+
+                      //remove html tag first
+                      $description = strip_tags($list->description);
+                      
+                    ?>    
+                    <tr>
+                      <td>{{ $index +1 }}</td>
+                      <td>{{ $list->package_name }}</td>
+                      <td>{{ $list->price }}</td>
+                      <td>{{ $list->class_type }}</td>
+                      <td>{{ $list->max_student }}</td>
+                      <td>{{ $list->learning_duration }}</td>
+                      <?php if($list->description == '') : ?>
+                        <td>-</td>
+                      <?php else : ?>
+                        <td>{{ $description }}</td>
+                      <?php endif; ?>
+                      <td width="100">
+                        <a href="/price/edit/{{ $list->id }}"
+                            class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
+                            <br>
+                            <br>
+                        <a href="/price/destroy/{{ $list->id }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
+                    </td>
+                    </tr>
+                    @endforeach
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
           </div>
           <!--Row-->
-          
+
+          <!-- Documentation Link -->
+          <div class="row">
+            <div class="col-lg-12">
+              
+            </div>
+          </div>
+
           <!-- Modal Logout -->
           <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
             aria-hidden="true">
@@ -339,13 +375,21 @@
     <i class="fas fa-angle-up"></i>
   </a>
 
-  <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <script src="js/ruang-admin.min.js"></script>
+  <!-- Page level plugins -->
+  <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+  <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+  <!-- Page level custom scripts -->
   <script>
-    var answer = document.getElementById("answer");
-      CKEDITOR.replace(answer,{
-      language:'en-gb'
+    $(document).ready(function () {
+      $('#dataTable').DataTable(); // ID From dataTable 
+      $('#dataTableHover').DataTable(); // ID From dataTable with Hover
     });
-    CKEDITOR.config.allowedContent = true;
   </script>
 
 </body>
+
