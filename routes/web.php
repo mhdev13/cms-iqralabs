@@ -107,4 +107,8 @@ Route::get('/testimoni/getTestimoni','Testimoni@getTestimoni');
 //route api faq
 Route::get('/faq/getFaq','Faq@getFaq');
 
+//route api price
+Route::get('/price/getPrice','Price@getPrice');
+
+
 // -- END --//
