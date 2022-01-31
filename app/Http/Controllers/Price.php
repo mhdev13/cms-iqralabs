@@ -78,12 +78,7 @@ class Price extends Controller
      */
     public function show($id)
     {
-        $price = DB::table('mau_price')
-        ->Select('*')
-        ->where('id', $id)
-        ->get();
-
-        return view('price/edit_price', ['price' => $price]);
+        
     }
 
     /**
@@ -94,7 +89,12 @@ class Price extends Controller
      */
     public function edit($id)
     {
-        //
+        $price = DB::table('mau_price')
+        ->Select('*')
+        ->where('id', $id)
+        ->get();
+
+        return view('price/edit_price', ['price' => $price]);
     }
 
     /**
@@ -104,18 +104,18 @@ class Price extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         if($request->_token != ''){
             DB::table('mau_price')
                 ->where('id', $request->id)
                 ->update([
-                    'package_name' => $request->question,
-                    'price' => $request->answer,
-                    'class_type' => $request->answer,
-                    'max_student' => $request->answer,
-                    'learning_duration' => $request->answer,
-                    'description' => $request->answer,
+                    'package_name' => $request->package_name,
+                    'price' => $request->price,
+                    'class_type' => $request->class_type,
+                    'max_student' => $request->max_student,
+                    'learning_duration' => $request->learning_duration,
+                    'description' => $request->description,
                     'updated_at' => carbon::now()
                 ]);
 

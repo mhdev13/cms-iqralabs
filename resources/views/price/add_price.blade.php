@@ -43,7 +43,7 @@
         </div>
       </li>
     
-      <!-- <li class="nav-item active">
+      <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
           aria-controls="collapseTable">
           <i class="fas fa-money-bill-alt"></i>
@@ -51,10 +51,10 @@
         </a>
         <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="#">Price & Package List</a>
+            <a class="collapse-item active" href="/price">Price & Package List</a>
           </div>
         </div>
-      </li> -->
+      </li>
 
       <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"

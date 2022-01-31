@@ -51,7 +51,7 @@
         </a>
         <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="#">Price & Package List</a>
+            <a class="collapse-item active" href="/price">Price & Package List</a>
           </div>
         </div>
       </li>

@@ -43,7 +43,7 @@
         </div>
       </li>
     
-      <!-- <li class="nav-item active">
+      <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
           aria-controls="collapseTable">
           <i class="fas fa-money-bill-alt"></i>
@@ -51,10 +51,10 @@
         </a>
         <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="#">Price & Package List</a>
+            <a class="collapse-item active" href="/price">Price & Package List</a>
           </div>
         </div>
-      </li> -->
+      </li>
 
       <li class="nav-item active">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
@@ -64,7 +64,7 @@
         </a>
         <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="/faq">Faq List</a>
+            <a class="collapse-item active" href="/faq">price List</a>
           </div>
         </div>
       </li>
@@ -265,11 +265,11 @@
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Edit faq</h1>
+            <h1 class="h3 mb-0 text-gray-800">Edit Price</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item">Home</a></li>
-              <li class="breadcrumb-item">faq</li>
-              <li class="breadcrumb-item active" aria-current="page">Edit faq</li>
+              <li class="breadcrumb-item">Price</li>
+              <li class="breadcrumb-item active" aria-current="page">Edit Price</li>
             </ol>
           </div>
 
@@ -285,24 +285,45 @@
                   </div>
                 @endif
                 <div class="card-body">
-                @foreach($faq as $list)
-                  <form action="/faq/update" method="post" enctype="multipart/form-data">
+                @foreach($price as $list)
+                  <form action="/price/update" method="post" enctype="multipart/form-data">
                   {{ csrf_field() }}
                   <input type="hidden" name="id" value="{{ $list->id }}"> <br/>
                   <div class="form-group">
-                    <label for="">Question</label>
-                    <input type="text" class="form-control" name="question" value="{{ $list->question }}" required="required">
-                  </div>
-                  <br>
-                  <div class="form-group">
-                    <label for="">Answer</label>
-                    <textarea id="answer" class="form-control" value="answer" id="answer" rows="3" name="answer" required="required">{{$list->answer}}</textarea>
-                  </div>
-                  <br>
-                  <div class="form-group">
+                    <label for="package_name">Package Name</label>
+                    <select class="form-control" id="package_name" name="package_name" required="required">
+                        <option value="personal" {{ $list->package_name == "personal" ? 'selected' : ''}}>Personal</option>
+                        <option value="family"  {{  $list->package_name == "family" ? 'selected' : ''}}>Family</option>
+                        <option value="group" {{  $list->package_name == "group" ? 'selected' : ''}}>Group</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                    <label for="">Price</label>
+                    <input type="number" class="form-control" name="price" value="{{ $list->price }}" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="class_type">Class Type</label>
+                        <select class="form-control" id="class_type" name="class_type" required="required">
+                            <option value="offline" {{ $list->class_type == "offline" ? 'selected' : ''}}>Offline</option>
+                            <option value="online" {{ $list->class_type == "online" ? 'selected' : ''}}>Online</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Max Student</label>
+                        <input type="number" class="form-control" name="max_student" value="{{ $list->max_student }}" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Learning Duration (minutes)</label>
+                        <input type="number" class="form-control" name="learning_duration" value="{{ $list->learning_duration }}" required="required">
+                    </div>
+                    <div class="form-group">
+                    <label for="">Description</label>
+                    <textarea id="description" class="form-control" name="description" rows="10" cols="50">{{$list->description}}</textarea>
+                    </div>
+                    <div class="form-group">
                     <button type="submit" class="btn btn-primary">Save</button>
                     <a href="{{ URL::previous() }}" class="btn btn-success">Back</a>
-                  </div>
+                    </div>
                   </form>
                   @endforeach
                 </div>
