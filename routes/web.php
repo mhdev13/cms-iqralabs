@@ -97,7 +97,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //--- API ---//
-
 //route api users
 Route::get('/user/getUser','User@getUser');
 
@@ -109,6 +108,4 @@ Route::get('/faq/getFaq','Faq@getFaq');
 
 //route api price
 Route::get('/price/getPrice','Price@getPrice');
-
-
 // -- END --//
