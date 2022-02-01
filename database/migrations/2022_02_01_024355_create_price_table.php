@@ -20,7 +20,7 @@ class CreatePriceTable extends Migration
             $table->enum('class_type', ['offline',['online']]);	
             $table->integer('max_student');
             $table->integer('learning_duration');	
-            $table->longText('description');	
+            $table->string('description',500);	
             $table->timestamps();
         });
     }
