@@ -60,11 +60,11 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
           aria-controls="collapseTable">
           <i class="fas fa-question-circle"></i>
-          <span>price</span>
+          <span>Faq</span>
         </a>
         <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="/price">price List</a>
+            <a class="collapse-item active" href="/faq">Faq List</a>
           </div>
         </div>
       </li>

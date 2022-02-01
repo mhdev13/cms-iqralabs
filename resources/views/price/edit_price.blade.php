@@ -64,7 +64,7 @@
         </a>
         <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item active" href="/faq">price List</a>
+            <a class="collapse-item active" href="/faq">Faq List</a>
           </div>
         </div>
       </li>
@@ -367,8 +367,8 @@
 
   <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
   <script>
-    var answer = document.getElementById("answer");
-      CKEDITOR.replace(answer,{
+    var description = document.getElementById("description");
+      CKEDITOR.replace(description,{
       language:'en-gb'
     });
     CKEDITOR.config.allowedContent = true;
