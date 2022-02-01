@@ -13,40 +13,30 @@
   <link href="{{ URL::asset('css/ruang-admin.min.css') }}" rel="stylesheet">
   <link href="{{ URL::asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 </head>
-<body>
 
-{{-- @include('partials.navbar') --}}
+  <!-- Footer -->
+  <footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+      <div class="copyright text-center my-auto">
+        <span>copyright &copy; <script> document.write(new Date().getFullYear()); </script>
+        </span>
+      </div>
+    </div>
+  </footer>
+  <!-- Footer -->
 
-<div>
-    @yield('container')
-
-      <!-- Footer -->
-      <footer class="sticky-footer bg-white">
-        <div class="container my-auto">
-          <div class="copyright text-center my-auto">
-            <span>copyright &copy; <script> document.write(new Date().getFullYear()); </script>
-            </span>
-          </div>
-        </div>
-      </footer>
-      <!-- Footer -->
-</div>
-
-<script src="{{ URL::asset('vendor/jquery/jquery.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
-<script src="{{ URL::asset('js/ruang-admin.min.js')}}"></script>
-<!-- Page level plugins -->
-<script src="{{ URL::asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
-<script src="{{ URL::asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
-
-<!-- Page level custom scripts -->
-<script>
-  $(document).ready(function () {
-    $('#dataTable').DataTable(); // ID From dataTable 
-    $('#dataTableHover').DataTable(); // ID From dataTable with Hover
-  });
-</script>
-
-</body>
+  <script src="{{ URL::asset('vendor/jquery/jquery.min.js')}}"></script>
+  <script src="{{ URL::asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ URL::asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
+  <script src="{{ URL::asset('js/ruang-admin.min.js')}}"></script>
+  <!-- Page level plugins -->
+  <script src="{{ URL::asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
+  <script src="{{ URL::asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+  <!-- Page level custom scripts -->
+  <script>
+    $(document).ready(function () {
+      $('#dataTable').DataTable(); // ID From dataTable 
+      $('#dataTableHover').DataTable(); // ID From dataTable with Hover
+    });
+  </script>
 </html>
