@@ -18,85 +18,122 @@ Route::get('/', function () {
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 //route users
-Route::get('/user','User@index');
+Route::get('/user','User@index', function(){
+})->middleware('auth');
 
-Route::get('/user/export_excel', 'User@export_excel');
+Route::get('/user/export_excel', 'User@export_excel', function(){
+})->middleware('auth');
 
-Route::get('/user/add','User@add');
+Route::get('/user/add','User@add', function(){
+})->middleware('auth');
 
-Route::post('/user/store','User@store');
+Route::post('/user/store','User@store',function(){
+})->middleware('auth');
 
-Route::get('/user/edit/{id}', 'User@edit');
+Route::get('/user/edit/{id}', 'User@edit',function(){
+})->middleware('auth');
 
-Route::post('/user/update','User@update');
+Route::post('/user/update','User@update',function(){
+})->middleware('auth');
 
-Route::get('/user/detail/{id}','User@detail');
+Route::get('/user/detail/{id}','User@detail',function(){
+})->middleware('auth');
 
-Route::get('/user/delete/{id}','User@delete');
+Route::get('/user/delete/{id}','User@delete',function(){
+})->middleware('auth');
 
 //route testimoni
-Route::get('/testimoni','Testimoni@index');
+Route::get('/testimoni','Testimoni@index',function(){
+})->middleware('auth');
 
-Route::get('/testimoni/add', 'Testimoni@add');
+Route::get('/testimoni/add', 'Testimoni@add',function(){
+})->middleware('auth');
 
-Route::post('/testimoni/store', 'Testimoni@store');
+Route::post('/testimoni/store', 'Testimoni@store',function(){
+})->middleware('auth');
 
-Route::get('/testimoni/edit/{id}','Testimoni@edit');
+Route::get('/testimoni/edit/{id}','Testimoni@edit',function(){
+})->middleware('auth');
 
-Route::post('/testimoni/update','Testimoni@update');
+Route::post('/testimoni/update','Testimoni@update',function(){
+})->middleware('auth');
 
-Route::get('/testimoni/detail/{id}','Testimoni@detail');
+Route::get('/testimoni/detail/{id}','Testimoni@detail',function(){
+})->middleware('auth');
 
-Route::get('/testimoni/delete/{id}','Testimoni@delete');
+Route::get('/testimoni/delete/{id}','Testimoni@delete',function(){
+})->middleware('auth');
 
 //route faq
-Route::get('/faq','Faq@index');
+Route::get('/faq','Faq@index',function(){
+})->middleware('auth');
 
-Route::get('/faq/create', 'Faq@create');
+Route::get('/faq/create', 'Faq@create',function(){
+})->middleware('auth');
 
-Route::post('/faq/store', 'Faq@store');
+Route::post('/faq/store', 'Faq@store',function(){
+})->middleware('auth');
 
-Route::get('/faq/edit/{id}','Faq@edit');
+Route::get('/faq/edit/{id}','Faq@edit',function(){
+})->middleware('auth');
 
-Route::post('/faq/update','Faq@update');
+Route::post('/faq/update','Faq@update',function(){
+})->middleware('auth');
 
-Route::get('/faq/detail/{id}','Faq@detail');
+Route::get('/faq/detail/{id}','Faq@detail',function(){
+})->middleware('auth');
 
-Route::get('/faq/destroy/{id}','Faq@destroy');
+Route::get('/faq/destroy/{id}','Faq@destroy',function(){
+})->middleware('auth');
 
 //route price
-Route::get('/price','Price@index');
+Route::get('/price','Price@index',function(){
+})->middleware('auth');
 
-Route::get('/price/create', 'Price@create');
+Route::get('/price/create', 'Price@create',function(){
+})->middleware('auth');
 
-Route::post('/price/store', 'Price@store');
+Route::post('/price/store', 'Price@store',function(){
+})->middleware('auth');
 
-Route::get('/price/edit/{id}','Price@edit');
+Route::get('/price/edit/{id}','Price@edit',function(){
+})->middleware('auth');
 
-Route::post('/price/update','Price@update');
+Route::post('/price/update','Price@update',function(){
+})->middleware('auth');
 
-Route::get('/price/detail/{id}','Price@detail');
+Route::get('/price/detail/{id}','Price@detail',function(){
+})->middleware('auth');
 
-Route::get('/price/destroy/{id}','Price@destroy');
+Route::get('/price/destroy/{id}','Price@destroy',function(){
+})->middleware('auth');
 
 //route groups
-Route::get('/group','Group@index');
+Route::get('/group','Group@index',function(){
+})->middleware('auth');
 
-Route::get('/group/add','Group@add');
+Route::get('/group/add','Group@add',function(){
+})->middleware('auth');
 
-Route::post('/group/store','Group@store');
+Route::post('/group/store','Group@store',function(){
+})->middleware('auth');
 
-Route::get('/group/edit/{id}', 'Group@edit');
+Route::get('/group/edit/{id}', 'Group@edit',function(){
+})->middleware('auth');
 
-Route::post('/group/update','Group@update');
+Route::post('/group/update','Group@update',function(){
+})->middleware('auth');
 
-Route::get('/group/detail/{id}','Group@detail');
+Route::get('/group/detail/{id}','Group@detail',function(){
+})->middleware('auth');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home',function(){
+})->middleware('auth');
 
 //--- API ---//
+
 //route api users
 Route::get('/user/getUser','User@getUser');
 
@@ -108,4 +145,6 @@ Route::get('/faq/getFaq','Faq@getFaq');
 
 //route api price
 Route::get('/price/getPrice','Price@getPrice');
+
+
 // -- END --//
