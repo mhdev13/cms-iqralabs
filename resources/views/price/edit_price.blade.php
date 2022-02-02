@@ -56,6 +56,13 @@
                         </select>
                     </div>
                     <div class="form-group">
+                      <label for="session_type">Class Type</label>
+                      <select class="form-control" id="session_type" name="session_type" required="required">
+                          <option value="meeting" {{ $list->session_type == "meeting" ? 'selected' : ''}}>Meeting</option>
+                          <option value="monthly" {{ $list->session_type == "monthly" ? 'selected' : ''}}>Monthly</option>
+                      </select>
+                  </div>
+                    <div class="form-group">
                         <label for="">Max Student</label>
                         <input type="number" class="form-control" name="max_student" value="{{ $list->max_student }}" required="required">
                     </div>

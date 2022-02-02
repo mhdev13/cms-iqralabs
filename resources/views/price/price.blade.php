@@ -40,6 +40,7 @@
                       <th>Package Name</th>
                       <th>Price (Rp)</th>
                       <th>Class Type</th>
+                      <th>Session Type</th>
                       <th>Max Student</th>
                       <th>Learning Duration</th>
                       <th>Desctiption</th>
@@ -59,6 +60,7 @@
                       <td>{{ $list->package_name }}</td>
                       <td>{{ $list->price }}</td>
                       <td>{{ $list->class_type }}</td>
+                      <td>{{ $list->session_type }}</td>
                       <td>{{ $list->max_student }}</td>
                       <td>{{ $list->learning_duration }}</td>
                       <?php if($list->description == '') : ?>

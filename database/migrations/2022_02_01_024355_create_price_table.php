@@ -18,6 +18,7 @@ class CreatePriceTable extends Migration
             $table->enum('package_name', ['personal', 'family','group']);	
             $table->integer('price');
             $table->enum('class_type', ['offline',['online']]);	
+            $table->enum('session_type', ['meeting',['monthly']]);	
             $table->integer('max_student');
             $table->integer('learning_duration');	
             $table->string('description',500);	

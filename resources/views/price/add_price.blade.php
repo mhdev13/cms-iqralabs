@@ -54,6 +54,13 @@
                         </select>
                     </div>
                     <div class="form-group">
+                      <label for="session_type">Session Type</label>
+                      <select class="form-control" id="class_type" name="session_type" required="required">
+                          <option value="meeting">Metting</option>
+                          <option value="monthly">Monthly</option>
+                      </select>
+                  </div>
+                    <div class="form-group">
                         <label for="">Max Student</label>
                         <input type="number" class="form-control" name="max_student" required="required">
                     </div>
