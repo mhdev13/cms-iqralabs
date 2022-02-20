@@ -6,17 +6,17 @@
     <!-- Sidebar -->
     <div id="content-wrapper" class="d-flex flex-column">
       <div id="content">
-
-        @include('layout.navbar')
         
+        @include('layout.navbar')
+
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Add Price</h1>
+            <h1 class="h3 mb-0 text-gray-800">Edit Report</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item">Home</a></li>
-              <li class="breadcrumb-item">Price</li>
-              <li class="breadcrumb-item active" aria-current="page">Add Price</li>
+              <li class="breadcrumb-item">Report</li>
+              <li class="breadcrumb-item active" aria-current="page">Edit Report Monthly</li>
             </ol>
           </div>
 
@@ -32,57 +32,52 @@
                   </div>
                 @endif
                 <div class="card-body">
-                <form action="/price/store" method="post" enctype="multipart/form-data">
-                    {{ csrf_field() }}
+                @foreach($report as $list)
+                  <form action="/report/update" method="post" enctype="multipart/form-data">
+                  {{ csrf_field() }}
+                  <input type="hidden" name="id" value="{{ $list->id }}"> <br/>
                     <div class="form-group">
-                    <label for="package_name">Package Name</label>
-                    <select class="form-control" id="package_name" name="package_name" required="required">
-                        <option value="personal">Personal</option>
-                        <option value="family">Family</option>
-                        <option value="group">Group</option>
+                    <label for="year">Year</label>
+                    <select class="form-control" id="year" name="year" required="required">
+                        <option value="2022" {{ $list->year == "2022" ? 'selected' : ''}}>2022</option>
+                        <option value="2021" {{ $list->year == "2021" ? 'selected' : ''}}>2021</option>
+                        <option value="2020" {{ $list->year == "2020" ? 'selected' : ''}}>2020</option>
+                        <option value="2019" {{ $list->year == "2019" ? 'selected' : ''}}>2019</option>
                     </select>
                     </div>
                     <div class="form-group">
-                    <label for="">Price</label>
-                    <input type="number" class="form-control" name="price" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="class_type">Class Type</label>
-                        <select class="form-control" id="class_type" name="class_type" required="required">
-                            <option value="offline">Offline</option>
-                            <option value="online">Online</option>
+                        <label for="month">month</label>
+                        <select class="form-control" id="month" name="month" required="required">
+                            <option value="1" {{ $list->month == "1" ? 'selected' : ''}}>January</option>
+                            <option value="2" {{ $list->month == "2" ? 'selected' : ''}}>February</option>
+                            <option value="3" {{ $list->month == "3" ? 'selected' : ''}}>March</option>
+                            <option value="4" {{ $list->month == "4" ? 'selected' : ''}}>April</option>
+                            <option value="5" {{ $list->month == "5" ? 'selected' : ''}}>May</option>
+                            <option value="6" {{ $list->month == "6" ? 'selected' : ''}}>June</option>
+                            <option value="7" {{ $list->month == "7" ? 'selected' : ''}}>July</option>
+                            <option value="8" {{ $list->month == "8" ? 'selected' : ''}}>August</option>
+                            <option value="9" {{ $list->month == "9" ? 'selected' : ''}}>September</option>
+                            <option value="10" {{  $list->month == "10" ? 'selected' : ''}}>October</option>
+                            <option value="11" {{  $list->month == "11" ? 'selected' : ''}}>November</option>
+                            <option value="12" {{  $list->month == "12" ? 'selected' : ''}}>December</option>
                         </select>
                     </div>
                     <div class="form-group">
-                      <label for="session_type">Session Type</label>
-                      <select class="form-control" id="class_type" name="session_type" required="required">
-                          <option value="meeting">Metting</option>
-                          <option value="monthly">Monthly</option>
-                      </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Max Student</label>
-                        <input type="number" class="form-control" name="max_student" required="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Learning Duration (minutes)</label>
-                        <input type="number" class="form-control" name="learning_duration" required="required">
-                    </div>
-                    <div class="form-group">
-                    <label for="">Description</label>
-                    <textarea id="description" class="form-control" name="description" rows="10" cols="50"></textarea>
+                    <label for="">Count</label>
+                    <input type="number" class="form-control" name="count" value="{{ $list->count }}" required="required">
                     </div>
                     <div class="form-group">
                     <button type="submit" class="btn btn-primary">Save</button>
                     <a href="{{ URL::previous() }}" class="btn btn-success">Back</a>
                     </div>
-                </form>
+                  </form>
+                  @endforeach
                 </div>
               </div>
             </div>
           </div>
           <!--Row-->
-          
+
           <!-- Modal Logout -->
           <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelLogout"
             aria-hidden="true">

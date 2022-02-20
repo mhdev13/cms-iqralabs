@@ -18,7 +18,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Price extends Controller
+class Report extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,11 +27,11 @@ class Price extends Controller
      */
     public function index()
     {
-        $price = DB::table('mau_monthly_report')
+        $report = DB::table('mau_monthly_report')
         ->select('*')
         ->get();
 
-        return view('price/price',['price' => $price]);
+        return view('report/monthly',['report' => $report]);
     }
 
     /**
@@ -41,7 +41,7 @@ class Price extends Controller
      */
     public function create()
     {
-        return view('price/add_price');
+        return view('report/add_report_monthly');
     }
 
     /**
@@ -53,22 +53,29 @@ class Price extends Controller
     public function store(Request $request)
     {
         if($request->_token != ''){
-            DB::table('mau_price')->insert([
-                'package_name' => $request->package_name,
-                'price' => $request->price,
-                'class_type' => $request->class_type,
-                'session_type' => $request->session_type,
-                'max_student' => $request->max_student,
-                'learning_duration' => $request->learning_duration,
-                'description' => $request->description,
+            DB::table('mau_monthly_report')->insert([
+                'year' => $request->year,
+                'month' => $request->month,
+                'count' => $request->count,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
 
             Session::flash('flash_message', 'succesfully saved.');
 
-            return redirect('/price');
+            return redirect('/report');
         }
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 
     /**
@@ -79,12 +86,12 @@ class Price extends Controller
      */
     public function edit($id)
     {
-        $price = DB::table('mau_price')
+        $report = DB::table('mau_monthly_report')
         ->Select('*')
         ->where('id', $id)
         ->get();
 
-        return view('price/edit_price', ['price' => $price]);
+        return view('report/edit_report_monthly', ['report' => $report]);
     }
 
     /**
@@ -97,23 +104,21 @@ class Price extends Controller
     public function update(Request $request)
     {
         if($request->_token != ''){
-            DB::table('mau_price')
-                ->where('id', $request->id)
-                ->update([
-                    'package_name' => $request->package_name,
-                    'price' => $request->price,
-                    'class_type' => $request->class_type,
-                    'session_type' => $request->session_type,
-                    'max_student' => $request->max_student,
-                    'learning_duration' => $request->learning_duration,
-                    'description' => $request->description,
-                    'updated_at' => carbon::now()
-                ]);
+            DB::table('mau_monthly_report')
+            ->where('id', $request->id)
+            ->update([
+                'year' => $request->year,
+                'month' => $request->month,
+                'count' => $request->count,
+                'updated_at' => carbon::now()
+            ]);
 
-            Session::flash('flash_message','successfully update.');
+        Session::flash('flash_message','successfully update.');
 
-            return redirect('/price');
+        return redirect('/report');
+
         }
+
     }
 
     /**
@@ -124,23 +129,10 @@ class Price extends Controller
      */
     public function destroy($id)
     {
-        DB::table('mau_price')->where('id', $id)->delete();
+        DB::table('mau_monthly_report')->where('id', $id)->delete();
 
         Session::flash('flash_message', 'successfully delete.');
 
-        return redirect('/price');
-    }
-
-    public function getPrice()
-    {
-        $data = array(
-            "status" => 200,
-            "response" => "success",
-            "data" => DB::table('mau_price')
-            ->select("*")
-            ->get()
-        );
-
-        return $data;
+        return redirect('/report');
     }
 }

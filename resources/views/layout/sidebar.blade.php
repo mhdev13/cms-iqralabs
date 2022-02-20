@@ -65,6 +65,19 @@
         </div>
       </div>
     </li>
+
+    <li class="nav-item active">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
+        aria-controls="collapseTable">
+        <i class="fas fa-chart-bar"></i>
+        <span>Report</span>
+      </a>
+      <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item active" href="/report">Monthly</a>
+        </div>
+      </div>
+    </li>
     
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>

@@ -108,6 +108,28 @@ Route::get('/price/detail/{id}','Price@detail',function(){
 Route::get('/price/destroy/{id}','Price@destroy',function(){
 })->middleware('auth');
 
+//report
+Route::get('/report','Report@index',function(){
+})->middleware('auth');
+
+Route::get('/report/create', 'Report@create',function(){
+})->middleware('auth');
+
+Route::post('/report/store', 'Report@store',function(){
+})->middleware('auth');
+
+Route::get('/report/edit/{id}','Report@edit',function(){
+})->middleware('auth');
+
+Route::post('/report/update','Report@update',function(){
+})->middleware('auth');
+
+Route::get('/report/detail/{id}','Report@detail',function(){
+})->middleware('auth');
+
+Route::get('/report/destroy/{id}','Report@destroy',function(){
+})->middleware('auth');
+
 //route groups
 Route::get('/group','Group@index',function(){
 })->middleware('auth');
