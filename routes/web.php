@@ -168,7 +168,7 @@ Route::get('/faq/getFaq','Faq@getFaq');
 //route api price
 Route::get('/price/getPrice','Price@getPrice');
 
-//route api reoort
+//route api report
 Route::get('/report/getReport','Report@getReport');
 
 
