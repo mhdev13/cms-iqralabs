@@ -61,7 +61,7 @@
                         } elseif ($list->month == '7'){
                             $month = 'July';
                         } elseif($list->month == '8'){
-                            $month = 'Augutst';
+                            $month = 'August';
                         } elseif($list->month == '9'){
                             $month = 'September';
                         } elseif( $list->month == '10'){
