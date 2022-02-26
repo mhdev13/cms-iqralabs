@@ -31,6 +31,7 @@
                   <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
                   @endif
                   <a href="/report/create" class="btn btn-success"><i class="fas fa fa-plus-circle nav-icon"></i> Add Report </a>
+                  <span style="margin-left: 20px;"><b>Total : {{ $sum }}</b></span>
                 </div>
                 <div class="table-responsive p-3">
                   <table class="table align-items-center table-flush" id="dataTable">

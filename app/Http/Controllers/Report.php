@@ -31,7 +31,10 @@ class Report extends Controller
         ->select('*')
         ->get();
 
-        return view('report/monthly',['report' => $report]);
+        $sum =  DB::table('mau_monthly_report')
+        ->sum('mau_monthly_report.count');
+
+        return view('report/monthly',['report' => $report, 'sum' => $sum]);
     }
 
     /**
@@ -135,4 +138,18 @@ class Report extends Controller
 
         return redirect('/report');
     }
+
+    public function getReport()
+    {
+        $data = array(
+            "status" => 200,
+            "response" => "success",
+            "data" => DB::table('mau_monthly_report')
+            ->sum('mau_monthly_report.count')
+        );
+
+        return $data;
+    }
 }
+
+
