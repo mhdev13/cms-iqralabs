@@ -27,7 +27,7 @@ class Price extends Controller
      */
     public function index()
     {
-        $price = DB::table('mau_monthly_report')
+        $price = DB::table('mau_price')
         ->select('*')
         ->get();
 
