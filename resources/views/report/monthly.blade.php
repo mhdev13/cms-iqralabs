@@ -34,7 +34,7 @@
                   <span style="margin-left: 20px;"><b>Total : {{ $sum }}</b></span>
                 </div>
                 <div class="table-responsive p-3">
-                  <table class="table align-items-center table-flush" id="dataTable">
+                  <table class="table table-striped table-bordered" id="dataTable">
                   <thead>
                     <tr>
                       <th>No</th>
