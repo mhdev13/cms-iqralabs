@@ -30,7 +30,11 @@
               <div class="col-lg-12">
                 <div class="login-form">
                   <div class="text-center">
-                    <h1 class="h4 text-gray-900 mb-4">Login</h1>
+                    <div class="register-logo">
+                      <img src="../../dist/img/MauNgajiLogo.png"
+                        style="width: 50%">
+                    </div>
+                    {{-- <h1 class="h4 text-gray-900 mb-4">Login</h1> --}}
                   </div>
                   <form class="user" method="POST" action="{{ route('login') }}">
                     @error('password')
@@ -57,7 +61,7 @@
                       </div>
                     </div>
                     <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block">{{ __('Login') }}</button>
+                    <button type="submit" class="btn btn-primary btn-block" style="background-color: #3597d4;">{{ __('Login') }}</button>
                     </div>
                     <hr>
                     <!-- <a href="#" class="btn btn-google btn-block">
