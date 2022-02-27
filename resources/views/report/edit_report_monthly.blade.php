@@ -42,7 +42,6 @@
                         <option value="2022" {{ $list->year == "2022" ? 'selected' : ''}}>2022</option>
                         <option value="2021" {{ $list->year == "2021" ? 'selected' : ''}}>2021</option>
                         <option value="2020" {{ $list->year == "2020" ? 'selected' : ''}}>2020</option>
-                        <option value="2019" {{ $list->year == "2019" ? 'selected' : ''}}>2019</option>
                     </select>
                     </div>
                     <div class="form-group">
@@ -63,7 +62,7 @@
                         </select>
                     </div>
                     <div class="form-group">
-                    <label for="">Count</label>
+                    <label for="">Session</label>
                     <input type="number" class="form-control" name="count" value="{{ $list->count }}" required="required">
                     </div>
                     <div class="form-group">

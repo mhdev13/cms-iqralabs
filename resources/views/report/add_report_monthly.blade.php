@@ -61,7 +61,7 @@
                       </select>
                   </div>
                   <div class="form-group">
-                      <label for="">Count</label>
+                      <label for="">Session</label>
                       <input type="number" class="form-control" name="count" required="required">
                   </div>
                   <div class="form-group">
