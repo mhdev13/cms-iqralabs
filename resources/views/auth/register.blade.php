@@ -77,10 +77,8 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-  <img src="../../dist/img/logo.png"
-    alt="AdminLTE Logo"
-    class="brand-image img-circle elevation-3"
-    style="width: 100px;">
+    <img src="../../dist/img/MauNgajiLogo.png"
+      style="width: 50%">
   </div>
 
   <div class="card">
@@ -132,7 +130,7 @@
           </div> -->
           <!-- /.col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block">Register</button>
+            <button type="submit" class="btn btn-primary btn-block" style="background-color: #3597d4;">Register</button>
           </div>
           <!-- /.col -->
         </div>

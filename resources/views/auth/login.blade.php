@@ -34,7 +34,6 @@
                       <img src="../../dist/img/MauNgajiLogo.png"
                         style="width: 50%">
                     </div>
-                    {{-- <h1 class="h4 text-gray-900 mb-4">Login</h1> --}}
                   </div>
                   <form class="user" method="POST" action="{{ route('login') }}">
                     @error('password')
@@ -71,12 +70,11 @@
                       <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
                     </a>
                   </form>
-                  <hr>
-                  <div class="text-center">
-                    <a class="font-weight-bold small" href="register.html">Create an Account!</a>
-                  </div>
                   <div class="text-center">
                   </div> -->
+                  <div class="text-center">
+                    <a class="font-weight-bold small" href="/register">Create an Account!</a>
+                  </div>
                 </div>
               </div>
             </div>
