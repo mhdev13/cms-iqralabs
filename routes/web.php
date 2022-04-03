@@ -130,6 +130,25 @@ Route::get('/report/detail/{id}','Report@detail',function(){
 Route::get('/report/destroy/{id}','Report@destroy',function(){
 })->middleware('auth');
 
+//partner
+Route::get('/partner','Partner@index',function(){
+})->middleware('auth');
+
+Route::get('/partner/create', 'Partner@create',function(){
+})->middleware('auth');
+
+Route::post('/partner/store', 'Partner@store',function(){
+})->middleware('auth');
+
+Route::get('/partner/edit/{id}','Partner@edit',function(){
+})->middleware('auth');
+
+Route::post('/partner/update','Partner@update',function(){
+})->middleware('auth');
+
+Route::get('/partner/destroy/{id}','Partner@destroy',function(){
+})->middleware('auth');
+
 //route groups
 Route::get('/group','Group@index',function(){
 })->middleware('auth');
@@ -155,7 +174,6 @@ Route::get('/home', 'HomeController@index')->name('home',function(){
 })->middleware('auth');
 
 //--- API ---//
-
 //route api users
 Route::get('/user/getUser','User@getUser');
 
@@ -170,6 +188,4 @@ Route::get('/price/getPrice','Price@getPrice');
 
 //route api report
 Route::get('/report/getReport','Report@getReport');
-
-
 // -- END --//

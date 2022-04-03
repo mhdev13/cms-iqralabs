@@ -43,6 +43,9 @@
         <div class="bg-white py-2 collapse-inner rounded">
           <a class="collapse-item active" href="/testimoni">User Testimoni</a>
         </div>
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item active" href="/partner">Maungaji Partner</a>
+        </div>
       </div>
     </li>
 
