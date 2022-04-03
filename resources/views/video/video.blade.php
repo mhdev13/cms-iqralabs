@@ -65,7 +65,7 @@
                     <?php else : ?>
                     <td>
                     <video controls>
-                    <source src="/images/{{ $list->video }}" type="video/mp4">
+                    <source src="/images/{{ $list->video }}" width="320" height="240" type="video/mp4">
                     </video>
                     </td>
                     
