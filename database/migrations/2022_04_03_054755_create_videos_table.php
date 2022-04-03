@@ -15,6 +15,9 @@ class CreateVideosTable extends Migration
     {
         Schema::create('mau_video', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('title');
+            $table->string('video');
+            $table->string('description',500);
             $table->timestamps();
         });
     }

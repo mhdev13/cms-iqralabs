@@ -149,6 +149,25 @@ Route::post('/partner/update','Partner@update',function(){
 Route::get('/partner/destroy/{id}','Partner@destroy',function(){
 })->middleware('auth');
 
+//partner
+Route::get('/video','Video@index',function(){
+})->middleware('auth');
+
+Route::get('/video/create', 'Video@create',function(){
+})->middleware('auth');
+
+Route::post('/video/store', 'Video@store',function(){
+})->middleware('auth');
+
+Route::get('/video/edit/{id}','Video@edit',function(){
+})->middleware('auth');
+
+Route::post('/video/update','Video@update',function(){
+})->middleware('auth');
+
+Route::get('/video/destroy/{id}','Video@destroy',function(){
+})->middleware('auth');
+
 //route groups
 Route::get('/group','Group@index',function(){
 })->middleware('auth');
@@ -188,4 +207,10 @@ Route::get('/price/getPrice','Price@getPrice');
 
 //route api report
 Route::get('/report/getReport','Report@getReport');
+
+//route api partner
+Route::get('/partner/getPartner','Partner@getPartner');
+
+//route api video
+Route::get('/video/getVideo','Video@getVideo');
 // -- END --//
