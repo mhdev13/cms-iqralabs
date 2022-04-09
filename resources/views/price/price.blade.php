@@ -58,7 +58,10 @@
                     <tr>
                       <td>{{ $index +1 }}</td>
                       <td>{{ $list->package_name }}</td>
-                      <td>{{ $list->price }}</td>
+                      <?php
+                      $num = $list->price ; 
+                      ?>
+                      <td>Rp <?php echo number_format($num, 0, ",", ".") ; ?></td>
                       <td>{{ $list->class_type }}</td>
                       <td>{{ $list->session_type }}</td>
                       <td>{{ $list->max_student }}</td>
