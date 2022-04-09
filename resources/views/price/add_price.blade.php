@@ -43,8 +43,8 @@
                     </select>
                     </div>
                     <div class="form-group">
-                    <label for="">Price</label>
-                    <input type="number" class="form-control" name="price" required="required">
+                    <label for="">Price (Rp)</label>
+                    <input type="number" class="form-control" step="any" name="price" required="required">
                     </div>
                     <div class="form-group">
                         <label for="class_type">Class Type</label>

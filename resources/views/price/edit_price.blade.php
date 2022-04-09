@@ -45,7 +45,7 @@
                     </select>
                     </div>
                     <div class="form-group">
-                    <label for="">Price</label>
+                    <label for="">Price (Rp)</label>
                     <input type="number" class="form-control" name="price" value="{{ $list->price }}" required="required">
                     </div>
                     <div class="form-group">
