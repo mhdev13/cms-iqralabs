@@ -1,6 +1,66 @@
 @extends('layout.main')
 
 <body id="page-top">
+  <style>
+  .card-counter{
+    box-shadow: 2px 2px 10px #DADADA;
+    margin: 5px;
+    padding: 20px 10px;
+    background-color: #fff;
+    height: 100px;
+    border-radius: 5px;
+    transition: .3s linear all;
+  }
+
+  .card-counter:hover{
+    box-shadow: 4px 4px 20px #DADADA;
+    transition: .3s linear all;
+  }
+
+  .card-counter.primary{
+    background-color: #007bff;
+    color: #FFF;
+  }
+
+  .card-counter.danger{
+    background-color: #ef5350;
+    color: #FFF;
+  }  
+
+  .card-counter.success{
+    background-color: #41acef;
+    color: #FFF;
+  }  
+
+  .card-counter.info{
+    background-color: #26c6da;
+    color: #FFF;
+  }  
+
+  .card-counter i{
+    font-size: 5em;
+    opacity: 0.2;
+  }
+
+  .card-counter .count-numbers{
+    position: absolute;
+    right: 35px;
+    top: 20px;
+    font-size: 32px;
+    display: block;
+  }
+
+  .card-counter .count-name{
+    position: absolute;
+    right: 35px;
+    top: 65px;
+    font-style: italic;
+    text-transform: capitalize;
+    opacity: 0.5;
+    display: block;
+    font-size: 18px;
+  }
+  </style>
   <div id="wrapper">
     <!-- Sidebar -->
     @include('layout.sidebar')
@@ -22,15 +82,72 @@
 
           <!-- Row -->
           <div class="row">
-            <div class="col-lg-12">
-              <div class="card mb-4">
-                
+              <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                      <div class="container">
+                        <div class="row">
+                          
+                          <div class="col-md-3">
+                            <div class="card-counter success">
+                              <i class="fa fa-database"></i>
+                              @foreach ($countall as $data)
+                              <?php
+                              $sessionall = $data;
+                              ?>
+                              @endforeach
+                              <span class="count-numbers text-center">{{ $sessionall }}</span>
+                              <span class="count-name">Total All Session</span>
+                            </div>
+                          </div>
+
+                          <div class="col-md-3">
+                            <div class="card-counter primary">
+                              <i class="fa fa-database"></i>
+                              @foreach ($count2022 as $data)
+                              <?php
+                              $session2022 = $data;
+                              ?>
+                              @endforeach
+                              <span class="count-numbers text-center">{{ $session2022 }}</span>
+                              <span class="count-name"> Session 2022</span>
+                            </div>
+                          </div>
+                      
+                          <div class="col-md-3">
+                            <div class="card-counter info">
+                              <i class="fa fa-database"></i>
+                              @foreach ($count2021 as $data)
+                              <?php
+                              $session2021 = $data;
+                              ?>
+                              @endforeach
+                              <span class="count-numbers">{{ $session2021 }}</span>
+                              <span class="count-name"> Session 2021</span>
+                            </div>
+                          </div>
+                    
+                          <div class="col-md-3">
+                            <div class="card-counter">
+                              <i class="fa fa-database"></i>
+                              @foreach ($count2020 as $data)
+                              <?php
+                              $session2020 = $data;
+                              ?>
+                              @endforeach
+                              <span class="count-numbers">{{ $session2020 }}</span>
+                              <span class="count-name"> Session 2020</span>
+                            </div>
+                          </div>
+                      </div>
+                    </div>
+                </div>
               </div>
-            </div>
-            <div class="col-lg-12">
-              <p id="countreport">
-              </p>
-            </div>
+          </div>
+          <div class="col-lg-12">
+            <p id="countreport">
+            </p>
+          </div>
           </div>
           <!--Row-->
 
@@ -69,7 +186,7 @@
         type: 'line'
     },
     title: {
-        text: 'Monthly Report'
+        text: 'Number of session in a month'
     },
     subtitle: {
         // text: 'Source: WorldClimate.com'
@@ -113,8 +230,18 @@
     },
     series: [{
         name: '2022',
-        data: [dashboard[0].count, dashboard[1].count, dashboard[2].count, dashboard[3].count]
-
+        data: [dashboard[0].count, 
+        dashboard[1].count, 
+        dashboard[2].count, 
+        dashboard[3].count, 
+        dashboard[4].count, 
+        dashboard[5].count, 
+        dashboard[6].count, 
+        dashboard[7].count, 
+        dashboard[8].count,
+        dashboard[9].count,
+        dashboard[10].count,
+        dashboard[11].count]
     }]
 });
 </script>

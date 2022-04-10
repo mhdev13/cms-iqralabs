@@ -29,9 +29,10 @@ class Report extends Controller
     {
         $report = DB::table('mau_monthly_report')
         ->select('*')
+        ->orderBy('id','desc')
         ->get();
 
-        $sum =  DB::table('mau_monthly_report')
+        $sum = DB::table('mau_monthly_report')
         ->sum('mau_monthly_report.count');
 
         return view('report/monthly',['report' => $report, 'sum' => $sum]);
