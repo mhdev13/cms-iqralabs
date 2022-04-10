@@ -17,6 +17,9 @@ Route::get('/', function () {
 
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
+Route::get('/dashboard','Dashboard@index', function(){
+})->middleware('auth');
+
 //route users
 Route::get('/user','User@index', function(){
 })->middleware('auth');
