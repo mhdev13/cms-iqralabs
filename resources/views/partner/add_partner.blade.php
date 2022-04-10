@@ -40,7 +40,7 @@
                         <label for="image">Image</label>
                         <div class="input-group">
                           <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="image" name="image">
+                            <input type="file" class="custom-file-input" id="image" name="image" required>
                             <label class="custom-file-label" for="image">Choose file</label>
                           </div>
                         </div>
@@ -51,7 +51,7 @@
                       </div>
                       <div class="form-group">
                         <label for="">Description</label>
-                        <textarea id="desctiption" class="form-control" name="description" rows="10" cols="50"></textarea>
+                        <textarea id="desctiption" class="form-control" name="description" rows="10" cols="50" required></textarea>
                       </div>
                       <div class="form-group">
                       <button type="submit" class="btn btn-primary" >Save</button>

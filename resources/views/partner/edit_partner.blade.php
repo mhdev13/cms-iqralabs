@@ -45,7 +45,7 @@
                         <img src="/images/{{ $list->photo }}" id="image" name="image" height="100" width="100">
                       </div>
                       <div class="custom-file">
-                        <input type="file" class="custom-file-input" name="image"/> 
+                        <input type="file" class="custom-file-input" name="image" required/> 
                         <input type="hidden" name="image" value="{{ $list->photo }}" /> 
                         <label class="custom-file-label" for="image">Choose file</label>
                       </div>
