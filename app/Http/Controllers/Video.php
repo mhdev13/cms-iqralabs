@@ -149,8 +149,6 @@ class Video extends Controller
             "response" => "success",
             "data" =>DB::table('mau_video')
             ->select('*')
-            ->whereNotNull('photo')
-            ->orderBy('fullname', 'ASC')
             ->get()
         );
 

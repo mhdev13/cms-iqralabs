@@ -112,8 +112,6 @@ class Partner extends Controller
             "response" => "success",
             "data" =>DB::table('mau_partner')
             ->select('*')
-            ->whereNotNull('photo')
-            ->orderBy('fullname', 'ASC')
             ->get()
         );
 
