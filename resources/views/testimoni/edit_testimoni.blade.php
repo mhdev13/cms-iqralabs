@@ -63,7 +63,7 @@
                   <br>
                   <div class="form-group">
                     <label for="">Comment</label>
-                    <textarea id="comment" class="form-control" value="comment" id="comment" rows="3" name="comment" required="required">{{$list->comment}}</textarea>
+                    <textarea id="description" class="form-control" value="comment" id="comment" rows="3" name="comment" required="required">{{$list->comment}}</textarea>
                   </div>
                   <div class="form-group">
                   <label for="from_who">From Who</label>
@@ -99,14 +99,5 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
-  <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
-  <script>
-    var comment = document.getElementById("comment");
-      CKEDITOR.replace(comment,{
-      language:'en-gb'
-    });
-    CKEDITOR.config.allowedContent = true;
-  </script>
 
 </body>

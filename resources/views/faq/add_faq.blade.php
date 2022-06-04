@@ -41,7 +41,7 @@
                       </div>
                       <div class="form-group">
                         <label for="">Answer</label>
-                        <textarea id="answer" class="form-control" name="answer" rows="10" cols="50"></textarea>
+                        <textarea id="description" class="form-control" name="answer" rows="10" cols="50" required></textarea>
                       </div>
                       <div class="form-group">
                       <button type="submit" class="btn btn-primary">Save</button>
@@ -68,14 +68,5 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
-  <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
-  <script>
-    var answer = document.getElementById("answer");
-      CKEDITOR.replace(answer,{
-      language:'en-gb'
-    });
-    CKEDITOR.config.allowedContent = true;
-  </script>
 
 </body>

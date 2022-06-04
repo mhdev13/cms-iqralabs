@@ -44,7 +44,7 @@
                   <br>
                   <div class="form-group">
                     <label for="">Answer</label>
-                    <textarea id="answer" class="form-control" value="answer" id="answer" rows="3" name="answer" required="required">{{$list->answer}}</textarea>
+                    <textarea id="description" class="form-control" value="answer" id="answer" rows="3" name="answer" required="required">{{$list->answer}}</textarea>
                   </div>
                   <br>
                   <div class="form-group">
@@ -73,14 +73,5 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
-
-  <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
-  <script>
-    var answer = document.getElementById("answer");
-      CKEDITOR.replace(answer,{
-      language:'en-gb'
-    });
-    CKEDITOR.config.allowedContent = true;
-  </script>
 
 </body>

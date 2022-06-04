@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <head>
+<head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -29,6 +29,12 @@
       <script src="{{ URL::asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
       <script src="{{ URL::asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
       <script src="{{ URL::asset('js/ruang-admin.min.js')}}"></script>
+      
+      <!--ck editor-->
+      <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+      <script src="{{ URL::asset('js/description.js')}}"></script>
+      <!--end-->
+
       <!-- Page level plugins -->
       <script src="{{ URL::asset('vendor/datatables/jquery.dataTables.min.js')}}"></script>
       <script src="{{ URL::asset('vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
