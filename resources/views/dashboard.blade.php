@@ -179,6 +179,7 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 <script type="text/javascript">
+
     var dashboard2022 = <?php echo $dashboard2022?>;
     
     var dashboard2021 = <?php echo $dashboard2021?>;
