@@ -180,54 +180,56 @@
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 <script type="text/javascript">
     var dashboard2022 = <?php echo $dashboard2022?>;
-
+    
     var dashboard2021 = <?php echo $dashboard2021?>;
-  
+
+    var dashboard2020 = <?php echo $dashboard2020?>;
+
     Highcharts.chart('countreport', {
-    chart: {
-        type: 'column'
-    },
-    title: {
-        text: 'Number of session in a month'
-    },
-    subtitle: {
-        text: 'Source: Report'
-    },
-    xAxis: {
-        categories: [
-            'Jan',
-            'Feb',
-            'Mar',
-            'Apr',
-            'May',
-            'Jun',
-            'Jul',
-            'Aug',
-            'Sep',
-            'Oct',
-            'Nov',
-            'Dec'
-        ],
-        crosshair: true
-    },
-    yAxis: {
-        min: 0,
-        title: {
-            text: 'session'
-        }
-    },
-    tooltip: {
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-    },
-    plotOptions: {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
-        }
-    },
-    series: [{
+      chart: {
+          type: 'column'
+      },
+      title: {
+          text: 'Number of session in a month'
+      },
+      subtitle: {
+          text: 'Source: Report'
+      },
+      xAxis: {
+          categories: [
+              'Jan',
+              'Feb',
+              'Mar',
+              'Apr',
+              'May',
+              'Jun',
+              'Jul',
+              'Aug',
+              'Sep',
+              'Oct',
+              'Nov',
+              'Dec'
+          ],
+          crosshair: true
+      },
+      yAxis: {
+          min: 0,
+          title: {
+              text: 'session'
+          }
+      },
+      tooltip: {
+          footerFormat: '</table>',
+          shared: true,
+          useHTML: true
+      },
+      plotOptions: {
+          column: {
+              pointPadding: 0.2,
+              borderWidth: 0
+          }
+      },
+      series: [{
               name: '2022',
               data: [dashboard2022[0].count, 
               dashboard2022[1].count, 
@@ -250,6 +252,22 @@
               dashboard2021[9].count,
               dashboard2021[10].count,
               dashboard2021[11].count]
+            },
+            {
+              name: '2020',
+              data: [
+              '',
+              '',
+              '',
+              '',
+              '',
+              dashboard2020[0].count, 
+              dashboard2020[1].count, 
+              dashboard2020[2].count, 
+              dashboard2020[3].count, 
+              dashboard2020[4].count, 
+              dashboard2020[5].count,
+              dashboard2020[6].count]
             }]
-});
+    });
 </script>

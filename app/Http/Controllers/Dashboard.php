@@ -32,6 +32,12 @@ class Dashboard extends Controller
         ->where('year', '2021')
         ->orderBy('year', 'DESC')
         ->get();
+
+        $dashboard2020 = DB::table('mau_monthly_report')
+        ->select('count')
+        ->where('year', '2020')
+        ->orderBy('year', 'DESC')
+        ->get();
         
         $countall = DB::table('mau_monthly_report')
         ->select(DB::raw('SUM(count) AS count'))
@@ -63,6 +69,7 @@ class Dashboard extends Controller
         return view('dashboard',[
             'dashboard2022' => $dashboard2022,
             'dashboard2021' => $dashboard2021,
+            'dashboard2020' => $dashboard2020,
             'countall'  => $countall,
             'count2022' => $count2022,
             'count2021' => $count2021,
