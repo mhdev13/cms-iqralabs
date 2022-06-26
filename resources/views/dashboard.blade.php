@@ -179,17 +179,19 @@
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 <script type="text/javascript">
-    var dashboard = <?php echo $dashboard?>;
-    
+    var dashboard2022 = <?php echo $dashboard2022?>;
+
+    var dashboard2021 = <?php echo $dashboard2021?>;
+  
     Highcharts.chart('countreport', {
     chart: {
-        type: 'line'
+        type: 'column'
     },
     title: {
         text: 'Number of session in a month'
     },
     subtitle: {
-        // text: 'Source: WorldClimate.com'
+        text: 'Source: Report'
     },
     xAxis: {
         categories: [
@@ -215,9 +217,6 @@
         }
     },
     tooltip: {
-        // headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        // pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-        //     '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
         footerFormat: '</table>',
         shared: true,
         useHTML: true
@@ -229,19 +228,28 @@
         }
     },
     series: [{
-        name: '2022',
-        data: [dashboard[0].count, 
-        dashboard[1].count, 
-        dashboard[2].count, 
-        dashboard[3].count, 
-        dashboard[4].count, 
-        dashboard[5].count, 
-        dashboard[6].count, 
-        dashboard[7].count, 
-        dashboard[8].count,
-        dashboard[9].count,
-        dashboard[10].count,
-        dashboard[11].count]
-    }]
+              name: '2022',
+              data: [dashboard2022[0].count, 
+              dashboard2022[1].count, 
+              dashboard2022[2].count, 
+              dashboard2022[3].count, 
+              dashboard2022[4].count, 
+              dashboard2022[5].count]
+            },
+            {
+              name: '2021',
+              data: [dashboard2021[0].count, 
+              dashboard2021[1].count, 
+              dashboard2021[2].count, 
+              dashboard2021[3].count, 
+              dashboard2021[4].count, 
+              dashboard2021[5].count,
+              dashboard2021[6].count,
+              dashboard2021[7].count,
+              dashboard2021[8].count,
+              dashboard2021[9].count,
+              dashboard2021[10].count,
+              dashboard2021[11].count]
+            }]
 });
 </script>

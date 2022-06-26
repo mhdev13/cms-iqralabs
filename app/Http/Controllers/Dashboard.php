@@ -21,12 +21,18 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Dashboard extends Controller
 {
     public function index(){
-        $dashboard = DB::table('mau_monthly_report')
+        $dashboard2022 = DB::table('mau_monthly_report')
         ->select('count')
         ->where('year', '2022')
         ->orderBy('year', 'DESC')
         ->get();
 
+        $dashboard2021 = DB::table('mau_monthly_report')
+        ->select('count')
+        ->where('year', '2021')
+        ->orderBy('year', 'DESC')
+        ->get();
+        
         $countall = DB::table('mau_monthly_report')
         ->select(DB::raw('SUM(count) AS count'))
         ->get()->toArray();
@@ -53,9 +59,10 @@ class Dashboard extends Controller
         ->get()->toArray();
         
         $count2020 = array_column($count2020, 'count');
-    
+        
         return view('dashboard',[
-            'dashboard' => $dashboard,
+            'dashboard2022' => $dashboard2022,
+            'dashboard2021' => $dashboard2021,
             'countall'  => $countall,
             'count2022' => $count2022,
             'count2021' => $count2021,
