@@ -187,6 +187,72 @@
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 <script type="text/javascript">
 
+    var dashboardyear2022 = <?php echo $dashboardyear2022?>; 
+
+    var dashboardyear2021 = <?php echo $dashboardyear2021?>;
+
+    var dashboardyear2020 = <?php echo $dashboardyear2020?>;
+
+    //year
+    Highcharts.chart('countreportyear', {
+      chart: {
+          type: 'column',
+          width: 1200
+      },
+      title: {
+          text: 'Number of session in a year'
+      },
+      subtitle: {
+          text: 'Source: Report'
+      },
+      xAxis: {
+          categories: [
+              'Jan',
+              'Feb',
+              'Mar',
+              'Apr',
+              'May',
+              'Jun',
+              'Jul',
+              'Aug',
+              'Sep',
+              'Oct',
+              'Nov',
+              'Dec'
+          ],
+          crosshair: true
+      },
+      yAxis: {
+          min: 0,
+          title: {
+              text: 'session'
+          }
+      },
+      tooltip: {
+          footerFormat: '</table>',
+          shared: true,
+          useHTML: true
+      },
+      plotOptions: {
+          column: {
+              pointPadding: 0.2,
+              borderWidth: 0
+          }
+      },
+      series: [{
+              name: '2020',
+              data: [dashboardyear2020]
+              },
+              {
+                name: '2021',
+                data: [dashboardyear2021]
+              },
+              {
+                name: '2022',
+                data: [dashboardyear2022]
+              }]
+    });
+
     var dashboard2022 = <?php echo $dashboard2022?>; 
     
     var dashboard2021 = <?php echo $dashboard2021?>;
@@ -196,7 +262,8 @@
     //month
     Highcharts.chart('countreport', {
       chart: {
-          type: 'column'
+          type: 'column',
+          width: 1200
       },
       title: {
           text: 'Number of session in a month'
@@ -277,69 +344,5 @@
             }]
     });
 
-    var dashboardyear2022 = <?php echo $dashboardyear2022?>; 
-
-    var dashboardyear2021 = <?php echo $dashboardyear2021?>;
-
-    var dashboardyear2020 = <?php echo $dashboardyear2020?>;
-
-    //year
-    Highcharts.chart('countreportyear', {
-      chart: {
-          type: 'column'
-      },
-      title: {
-          text: 'Number of session in a year'
-      },
-      subtitle: {
-          text: 'Source: Report'
-      },
-      xAxis: {
-          categories: [
-              'Jan',
-              'Feb',
-              'Mar',
-              'Apr',
-              'May',
-              'Jun',
-              'Jul',
-              'Aug',
-              'Sep',
-              'Oct',
-              'Nov',
-              'Dec'
-          ],
-          crosshair: true
-      },
-      yAxis: {
-          min: 0,
-          title: {
-              text: 'session'
-          }
-      },
-      tooltip: {
-          footerFormat: '</table>',
-          shared: true,
-          useHTML: true
-      },
-      plotOptions: {
-          column: {
-              pointPadding: 0.2,
-              borderWidth: 0
-          }
-      },
-      series: [{
-              name: '2020',
-              data: [dashboardyear2020]
-              },
-              {
-                name: '2021',
-                data: [dashboardyear2021]
-              },
-              {
-                name: '2022',
-                data: [dashboardyear2022]
-              }]
-    });
 </script>
 
