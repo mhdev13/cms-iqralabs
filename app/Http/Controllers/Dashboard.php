@@ -38,7 +38,22 @@ class Dashboard extends Controller
         ->where('year', '2020')
         ->orderBy('year', 'DESC')
         ->get();
-        
+
+        $dashboardyear2022 = DB::table('mau_monthly_report')
+        ->where('year', '2022')
+        ->orderBy('year', 'DESC')
+        ->sum('count');
+
+        $dashboardyear2021 = DB::table('mau_monthly_report')
+        ->where('year', '2021')
+        ->orderBy('year', 'DESC')
+        ->sum('count');
+
+        $dashboardyear2020 = DB::table('mau_monthly_report')
+        ->where('year', '2020')
+        ->orderBy('year', 'DESC')
+        ->sum('count');
+
         $countall = DB::table('mau_monthly_report')
         ->select(DB::raw('SUM(count) AS count'))
         ->get()->toArray();
@@ -67,6 +82,9 @@ class Dashboard extends Controller
         $count2020 = array_column($count2020, 'count');
         
         return view('dashboard',[
+            'dashboardyear2022' => $dashboardyear2022,
+            'dashboardyear2021' => $dashboardyear2021,
+            'dashboardyear2020' => $dashboardyear2020,
             'dashboard2022' => $dashboard2022,
             'dashboard2021' => $dashboard2021,
             'dashboard2020' => $dashboard2020,
