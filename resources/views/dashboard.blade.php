@@ -187,12 +187,12 @@
 <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 <script type="text/javascript">
 
-    var dashboardyear2022 = <?php echo $dashboardyear2022?>; 
+    var dashboardyear2022 = JSON.parse(`<?php echo $dashboardyear2022 ?>`);
 
-    var dashboardyear2021 = <?php echo $dashboardyear2021?>;
+    var dashboardyear2021 = JSON.parse(`<?php echo $dashboardyear2021 ?>`);
 
-    var dashboardyear2020 = <?php echo $dashboardyear2020?>;
-
+    var dashboardyear2020 = JSON.parse(`<?php echo $dashboardyear2020 ?>`);
+  
     //year
     Highcharts.chart('countreportyear', {
       chart: {
@@ -240,24 +240,24 @@
           }
       },
       series: [{
-              name: '2020',
-              data: [dashboardyear2020]
-              },
-              {
-                name: '2021',
-                data: [dashboardyear2021]
-              },
-              {
-                name: '2022',
-                data: [dashboardyear2022]
-              }]
+        name: '2020',
+        data: [dashboardyear2020]
+        },
+        {
+          name: '2021',
+          data: [dashboardyear2021]
+        },
+        {
+          name: '2022',
+          data: [dashboardyear2022]
+        }]
     });
 
-    var dashboard2022 = <?php echo $dashboard2022?>; 
+    var dashboard2022 = JSON.parse(`<?php echo $dashboard2022 ?>`);
     
-    var dashboard2021 = <?php echo $dashboard2021?>;
+    var dashboard2021 = JSON.parse(`<?php echo $dashboard2021 ?>`);
 
-    var dashboard2020 = <?php echo $dashboard2020?>;
+    var dashboard2020 = JSON.parse(`<?php echo $dashboard2020 ?>`);
 
     //month
     Highcharts.chart('countreport', {
@@ -340,7 +340,8 @@
               dashboard2022[2].count, 
               dashboard2022[3].count, 
               dashboard2022[4].count, 
-              dashboard2022[5].count]
+              dashboard2022[5].count,
+              dashboard2022[6].count]
             }]
     });
 
