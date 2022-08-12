@@ -56,6 +56,7 @@ class Price extends Controller
             DB::table('mau_price')->insert([
                 'package_name' => $request->package_name,
                 'price' => $request->price,
+                'url_woocommerce' => $request->url_woocommerce,
                 'class_type' => $request->class_type,
                 'session_type' => $request->session_type,
                 'max_student' => $request->max_student,
@@ -102,6 +103,7 @@ class Price extends Controller
                 ->update([
                     'package_name' => $request->package_name,
                     'price' => $request->price,
+                    'url_woocommerce' => $request->url_woocommerce,
                     'class_type' => $request->class_type,
                     'session_type' => $request->session_type,
                     'max_student' => $request->max_student,

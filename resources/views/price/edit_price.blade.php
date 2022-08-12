@@ -49,6 +49,10 @@
                     <input type="number" class="form-control" name="price" value="{{ $list->price }}" required="required">
                     </div>
                     <div class="form-group">
+                      <label for="">Url Woocommerce</label>
+                      <input type="text" class="form-control" name="url_woocommerce" value="{{ $list->url_woocommerce }}" required="required">
+                      </div>
+                    <div class="form-group">
                         <label for="class_type">Class Type</label>
                         <select class="form-control" id="class_type" name="class_type" required="required">
                             <option value="offline" {{ $list->class_type == "offline" ? 'selected' : ''}}>Offline</option>

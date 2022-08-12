@@ -39,6 +39,7 @@
                       <th>No</th>
                       <th>Package Name</th>
                       <th>Price (Rp)</th>
+                      <th>Url Woocommerce</th>
                       <th>Class Type</th>
                       <th>Session Type</th>
                       <th>Max Student</th>
@@ -62,6 +63,7 @@
                       $num = $list->price ; 
                       ?>
                       <td>Rp <?php echo number_format($num, 0, ",", ".") ; ?></td>
+                      <td>{{ $list->url_woocommerce }}</td>
                       <td>{{ $list->class_type }}</td>
                       <td>{{ $list->session_type }}</td>
                       <td>{{ $list->max_student }}</td>

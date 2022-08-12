@@ -69,6 +69,10 @@
                         <input type="number" class="form-control" name="learning_duration" required="required">
                     </div>
                     <div class="form-group">
+                      <label for="">Url Woocommerce</label>
+                      <input type="text" class="form-control" name="url_woocommerce" required="required">
+                      </div>
+                    <div class="form-group">
                       <label for="">Description</label>
                       <textarea id="description" class="form-control" name="description" rows="10" cols="50" required></textarea>
                     </div>
