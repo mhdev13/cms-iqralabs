@@ -152,7 +152,7 @@ Route::post('/partner/update','Partner@update',function(){
 Route::get('/partner/destroy/{id}','Partner@destroy',function(){
 })->middleware('auth');
 
-//partner
+//video
 Route::get('/video','Video@index',function(){
 })->middleware('auth');
 
@@ -169,6 +169,10 @@ Route::post('/video/update','Video@update',function(){
 })->middleware('auth');
 
 Route::get('/video/destroy/{id}','Video@destroy',function(){
+})->middleware('auth');
+
+//Order
+Route::get('/Order','Order@getOrder',function(){
 })->middleware('auth');
 
 //route groups
