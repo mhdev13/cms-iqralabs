@@ -43,10 +43,7 @@
                       <div class="form-group">
                         <label for="image">Image</label>
                         <div class="input-group">
-                          <div class="custom-file">
-                            <input type="file" class="custom-file-input" id="image" name="image">
-                            <label class="custom-file-label" for="image">Choose file</label>
-                          </div>
+                            <input type="file" class="form-control" id="image" name="image">
                         </div>
                       </div>
                       <div class="form-group">

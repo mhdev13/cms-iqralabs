@@ -37,21 +37,16 @@
                 <form action="/video/store" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
                     <div class="form-group">
-                    <label for="">Title</label>
-                    <input type="text" class="form-control" name="title" required="required">
+                      <label for="">Title</label>
+                      <input type="file" class="form-control" name="title" required="required">
                     </div>
                     <div class="form-group">
-                    <label for="video">Video</label>
-                    <div class="input-group">
-                        <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="video" name="video" required>
-                        <label class="custom-file-label" for="video">Choose file</label>
-                        </div>
-                    </div>
+                      <label for="video">Video</label>
+                      <input type="file" type="file" class="form-control" id="video" name="video"><br/>
                     </div>
                     <div class="form-group">
-                    <label for="">Description</label>
-                    <textarea id="description" class="form-control" name="description" rows="10" cols="50" required></textarea>
+                      <label for="">Description</label>
+                      <textarea id="description" class="form-control" name="description" rows="10" cols="50" required></textarea>
                     </div>
                     <div class="form-group">
                     <button type="submit" class="btn btn-primary" >Save</button>
