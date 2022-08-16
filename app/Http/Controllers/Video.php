@@ -62,11 +62,11 @@ class Video extends Controller
 
             $video_name = time() . '.' . $video->getClientOriginalExtension();
             $video->move(public_path('images'), $video_name);
-
+            
             DB::table('mau_video')->insert([
-                'title' => $request->title,
+                'title' => $request['title'],
                 'video' => $video_name,
-                'description' => $request->description,
+                'description' => $request['description'],
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
