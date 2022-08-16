@@ -38,7 +38,7 @@
                     {{ csrf_field() }}
                     <div class="form-group">
                       <label for="">Title</label>
-                      <input type="file" class="form-control" name="title" required="required">
+                      <input type="text" class="form-control" name="title" required="required">
                     </div>
                     <div class="form-group">
                       <label for="video">Video</label>
