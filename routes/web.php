@@ -172,7 +172,9 @@ Route::get('/video/destroy/{id}','Video@destroy',function(){
 })->middleware('auth');
 
 //Order
-Route::get('/Order','Order@getOrder',function(){
+Route::get('/order','Orders@getOrder',function(){
+})->middleware('auth');
+Route::get('/order/edit/{id}/{data}','Orders@edit',function(){
 })->middleware('auth');
 
 //route groups

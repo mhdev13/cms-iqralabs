@@ -64,6 +64,19 @@
         </div>
       </div>
     </li>
+
+    <li class="nav-item active">
+      <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
+        aria-controls="collapseTable">
+        <i class="fas fa-money-bill"></i>
+        <span>Transaction</span>
+      </a>
+      <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item active" href="/order">Order</a>
+        </div>
+      </div>
+    </li>
     
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>
