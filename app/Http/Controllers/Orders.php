@@ -14,16 +14,27 @@ class Orders extends Controller
         return view('order/order',['orders' => $orders]);
     }
 
-    public function edit($order_id,$data){
-        
+    public function edit($id){
+        $order_id = $id;
+        $orders = Order::find($order_id);
+       
+        return view('order/edit_order',['orders' => $orders]);
+    }
+
+    public function update(Request $request)
+    {   
+        $order_id = $request['id'];
         $data = array(
-            'status'              => $data,
+            'status'              => $request['status'],
         );
        
-        $orders = Order::update($order_id, $data);
-        // dd($orders);
-        // Session::flash('flash_message','successfully update.');
-        return $orders;
-        
+        $update = Order::update($order_id, $data);
+
+        $orders = json_decode($update, TRUE);
+
+        $orders = 0;
+        Session::flash('flash_message','successfully update.');
+
+        return redirect('/order');
     }
 }

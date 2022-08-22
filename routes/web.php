@@ -174,7 +174,9 @@ Route::get('/video/destroy/{id}','Video@destroy',function(){
 //Order
 Route::get('/order','Orders@getOrder',function(){
 })->middleware('auth');
-Route::get('/order/edit/{id}/{data}','Orders@edit',function(){
+Route::get('/order/edit/{id}','Orders@edit',function(){
+})->middleware('auth');
+Route::post('/order/update','Orders@update',function(){
 })->middleware('auth');
 
 //route groups

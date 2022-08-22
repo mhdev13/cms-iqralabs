@@ -43,54 +43,46 @@
                       <th>Address</th>
                       <th>City</th>
                       <th>Payment Method</th>
-                      <th>Payment Total</th>
-                      <th>Status</th>
-                      <th>Change Status</th>
+                      <th>Payment Total (Rp)</th>
+                      <th>Payment Status</th>
                       <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($orders as $index => $list)
-                    <tr>
-                      <td>{{ $index +1 }}</td>
-                      <td>{{ $list->id }}</td>
-                      <td>{{ $list->billing->first_name }}</td>
-                      <td>{{ $list->billing->last_name }}</td>
-                      <td>{{ $list->billing->phone }}</td>
-                      <td>{{ $list->billing->address_1 }}</td>
-                      <td>{{ $list->billing->city }}</td>
-                      <td>{{ $list->payment_method_title }}</td>
-                      <td>{{ $list->total }}</td>
-                      <td>
-                        <?php
-                            if($list->status == 'completed'){
-                                echo "<span class='badge badge-success'>completed</span>";
-                            } elseif($list->status == 'failed' ) {
-                                echo "<span class='badge badge-danger'>failed</span>";
-                            } elseif($list->status == 'processing' ) {
-                                echo "<span class='badge badge-warning'>processing</span>";
-                            } elseif($list->status == 'cancelled' ) {
-                                echo "<span class='badge badge-primary'>cancelled</span>";
-                            } else {
-                                echo "<span class='badge badge-secondary'>On-hold</span>";
-                            }
-                        ?>
-                      </td>
-                      <td>
-                        <select class="form-control" id="status" name="status">
-                            <option value="processing" {{ $list->status == "processing" ? 'selected' : ''}}>Processing</option>
-                            <option value="on-hold" {{ $list->status == "on-hold" ? 'selected' : ''}}>On-hold</option>
-                            <option value="completed" {{ $list->status == "completed" ? 'selected' : ''}}>Completed</option>
-                            <option value="cancelled" {{ $list->status == "cancelled" ? 'selected' : ''}}>Cancelled</option>
-                            <option value="failed" {{ $list->status == "failed" ? 'selected' : ''}}>Failed</option>
-                        </select>
-                      </td>
-                    <td width="100">
-                        <a href="/order/edit/{{ $list->id}}/processing"
-                        class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Submit</a>
-                    </td>
-                    </tr>
-                    @endforeach
+                      @if($orders)
+                        @foreach($orders as $index => $list)
+                        <tr>
+                          <td>{{ $index +1 }}</td>
+                          <td>{{ $list->id }}</td>
+                          <td>{{ $list->billing->first_name }}</td>
+                          <td>{{ $list->billing->last_name }}</td>
+                          <td>{{ $list->billing->phone }}</td>
+                          <td>{{ $list->billing->address_1 }}</td>
+                          <td>{{ $list->billing->city }}</td>
+                          <td>{{ $list->payment_method_title }}</td>
+                          <td>{{ $list->total }}</td>
+                          <td>
+                            <?php
+                                if($list->status == 'completed'){
+                                    echo "<span class='badge badge-success'>completed</span>";
+                                } elseif($list->status == 'failed' ) {
+                                    echo "<span class='badge badge-danger'>failed</span>";
+                                } elseif($list->status == 'processing' ) {
+                                    echo "<span class='badge badge-warning'>processing</span>";
+                                } elseif($list->status == 'cancelled' ) {
+                                    echo "<span class='badge badge-primary'>cancelled</span>";
+                                } else {
+                                    echo "<span class='badge badge-secondary'>On-hold</span>";
+                                }
+                            ?>
+                          </td>
+                        <td width="100">
+                            <a href="/order/edit/{{$list->id}}"
+                            class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
+                        </td>
+                        </tr>
+                        @endforeach
+                      @endif
                     </tbody>
                   </table>
                 </div>
