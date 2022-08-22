@@ -39,6 +39,7 @@
                       <th>ID</th>
                       <th>Fist Name</th>
                       <th>Last Name</th>
+                      <th>Email</th>
                       <th>Phone</th>
                       <th>Address</th>
                       <th>City</th>
@@ -56,6 +57,7 @@
                           <td>{{ $list->id }}</td>
                           <td>{{ $list->billing->first_name }}</td>
                           <td>{{ $list->billing->last_name }}</td>
+                          <td>{{ $list->billing->email }}</td>
                           <td>{{ $list->billing->phone }}</td>
                           <td>{{ $list->billing->address_1 }}</td>
                           <td>{{ $list->billing->city }}</td>

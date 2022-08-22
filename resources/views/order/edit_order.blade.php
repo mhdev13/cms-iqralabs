@@ -44,6 +44,10 @@
                         <input type="text" class="form-control" name="last_name" value="{{ $orders['billing']->last_name }}">
                     </div>
                     <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control" name="email" value="{{ $orders['billing']->email }}">
+                    </div>
+                    <div class="form-group">
                         <label for="phone">Phone</label>
                         <input type="number" class="form-control" name="phone" value="{{ $orders['billing']->phone }}">
                     </div>
@@ -56,32 +60,32 @@
                         <input type="text" class="form-control" name="city" value="{{ $orders['billing']->city }}">
                     </div>
                     <div class="form-group">
-                        <label for="payment_method">Payment Method Tilte</label>
+                        <label for="payment_method_title">Payment Method Tilte</label>
                         <select class="form-control" id="payment_method_title" name="payment_method_title">
-                            <option value="cod" {{ $orders['payment_method_title'] == "cod" ? 'selected' : ''}}>Cod</option>
-                            <option value="xendit_gateway"  {{ $orders['payment_method_title']  == "Xendit Gateway" ? 'selected' : ''}}>Xendit Gateway</option>
-                            <option value="xendit_bcava"    {{ $orders['payment_method_title']  == "Bank Transfer - BCA" ? 'selected' : ''}}>Bank Transfer - BCA</option>
-                            <option value="xendit_bniva"    {{ $orders['payment_method_title']  == "Bank Transfer - BNI" ? 'selected' : ''}}>Bank Transfer - BNI</option>
-                            <option value="xendit_briva"    {{ $orders['payment_method_title']  == "Bank Transfer - BRI" ? 'selected' : ''}}>Bank Transfer - BRI</option>
-                            <option value="xendit_bsiva"    {{ $orders['payment_method_title']  == "Bank Transfer - BSI" ? 'selected' : ''}}>Bank Transfer - BSI</option>
-                            <option value="xendit_bjbva"    {{ $orders['payment_method_title']  == "Bank Transfer - BJB" ? 'selected' : ''}}>Bank Transfer - BJB</option>
-                            <option value="xendit_mandiriva" {{ $orders['payment_method_title'] == "Bank Transfer - MANDIRI" ? 'selected' : ''}}>Bank Transfer - MANDIRI</option>
-                            <option value="xendit_permatava" {{ $orders['payment_method_title'] == "Bank Transfer - Permata" ? 'selected' : ''}}>Bank Transfer - Permata</option>
-                            <option value="xendit_alfamart" {{ $orders['payment_method_title']  == "Bayar di Alfamart Group" ? 'selected' : ''}}>Bayar di Alfamart Group</option>
-                            <option value="xendit_indomaret" {{ $orders['payment_method_title'] == "Bayar di Indomaret" ? 'selected' : ''}}>Bayar di Indomaret</option>
-                            <option value="xendit_shopeepay" {{ $orders['payment_method_title'] == "ShopeePay" ? 'selected' : ''}}>ShopeePay</option>
-                            <option value="xendit_ovo" {{ $orders['payment_method_title'] == "OVO" ? 'selected' : ''}}>OVO</option>
-                            <option value="xendit_dana" {{ $orders['payment_method_title'] == "DANA" ? 'selected' : ''}}>DANA</option>
-                            <option value="xendit_linkaja" {{ $orders['payment_method_title'] == "LinkAja" ? 'selected' : ''}}>LinkAja</option>
-                            <option value="xendit_dd_bri" {{ $orders['payment_method_title'] == "Direct Debit BRI" ? 'selected' : ''}}>Direct Debit BRI</option>
-                            <option value="xendit_dd_bpi" {{ $orders['payment_method_title'] == "Direct Debit BPI" ? 'selected' : ''}}>Direct Debit BPI</option>
-                            <option value="xendit_grabpay" {{ $orders['payment_method_title'] == "GrabPay" ? 'selected' : ''}}>GrabPay</option>
-                            <option value="other" {{ $orders['payment_method_title'] == "Other" ? 'selected' : ''}}>Other</option>
+                            <option value="Cod" {{ $orders['payment_method_title'] == "cod" ? 'selected' : ''}}>Cod</option>
+                            <option value="Xendit Gateway" {{ $orders['payment_method_title']  == "Xendit Gateway" ? 'selected' : ''}}>Xendit Gateway</option>
+                            <option value="Bank Transfer - BCA" {{ $orders['payment_method_title']  == "Bank Transfer - BCA" ? 'selected' : ''}}>Bank Transfer - BCA</option>
+                            <option value="Bank Transfer - BNI" {{ $orders['payment_method_title']  == "Bank Transfer - BNI" ? 'selected' : ''}}>Bank Transfer - BNI</option>
+                            <option value="Bank Transfer - BRI" {{ $orders['payment_method_title']  == "Bank Transfer - BRI" ? 'selected' : ''}}>Bank Transfer - BRI</option>
+                            <option value="Bank Transfer - BSI" {{ $orders['payment_method_title']  == "Bank Transfer - BSI" ? 'selected' : ''}}>Bank Transfer - BSI</option>
+                            <option value="Bank Transfer - BJB" {{ $orders['payment_method_title']  == "Bank Transfer - BJB" ? 'selected' : ''}}>Bank Transfer - BJB</option>
+                            <option value="Bank Transfer - MANDIRI" {{ $orders['payment_method_title'] == "Bank Transfer - MANDIRI" ? 'selected' : ''}}>Bank Transfer - MANDIRI</option>
+                            <option value="Bank Transfer - Permata" {{ $orders['payment_method_title'] == "Bank Transfer - Permata" ? 'selected' : ''}}>Bank Transfer - Permata</option>
+                            <option value="Bayar di Alfamart Group" {{ $orders['payment_method_title']  == "Bayar di Alfamart Group" ? 'selected' : ''}}>Bayar di Alfamart Group</option>
+                            <option value="Bayar di Indomaret" {{ $orders['payment_method_title'] == "Bayar di Indomaret" ? 'selected' : ''}}>Bayar di Indomaret</option>
+                            <option value="ShopeePay" {{ $orders['payment_method_title'] == "ShopeePay" ? 'selected' : ''}}>ShopeePay</option>
+                            <option value="OVO" {{ $orders['payment_method_title'] == "OVO" ? 'selected' : ''}}>OVO</option>
+                            <option value="DANA" {{ $orders['payment_method_title'] == "DANA" ? 'selected' : ''}}>DANA</option>
+                            <option value="LinkAja" {{ $orders['payment_method_title'] == "LinkAja" ? 'selected' : ''}}>LinkAja</option>
+                            <option value="Direct Debit BRI" {{ $orders['payment_method_title'] == "Direct Debit BRI" ? 'selected' : ''}}>Direct Debit BRI</option>
+                            <option value="Direct Debit BPI" {{ $orders['payment_method_title'] == "Direct Debit BPI" ? 'selected' : ''}}>Direct Debit BPI</option>
+                            <option value="GrabPay" {{ $orders['payment_method_title'] == "GrabPay" ? 'selected' : ''}}>GrabPay</option>
+                            <option value="Other" {{ $orders['payment_method_title'] == "Other" ? 'selected' : ''}}>Other</option>
                         </select>
                     </div>
                     <div class="form-group">
                         <label for="total">Total (Rp)</label>
-                        <input type="number" class="form-control" name="total" value="{{ $orders['total'] }}">
+                        <input type="number" class="form-control" name="total" value="{{ $orders['total'] }}" readonly>
                     </div>
                     <div class="form-group">
                         <label for="status">Payment Status</label>
