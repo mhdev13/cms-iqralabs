@@ -69,11 +69,14 @@
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
         aria-controls="collapseTable">
         <i class="fas fa-money-bill"></i>
-        <span>Transaction</span>
+        <span>Woocommerce</span>
       </a>
       <div id="collapseTable" class="collapse show" aria-labelledby="headingTable" data-parent="#accordionSidebar">
         <div class="bg-white py-2 collapse-inner rounded">
           <a class="collapse-item active" href="/order">Order</a>
+        </div>
+        <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item active" href="/coupon">Coupon</a>
         </div>
       </div>
     </li>

@@ -179,6 +179,25 @@ Route::get('/order/edit/{id}','Orders@edit',function(){
 Route::post('/order/update','Orders@update',function(){
 })->middleware('auth');
 
+//Customer
+Route::get('/coupon','Coupons@index',function(){
+})->middleware('auth');
+
+Route::get('/coupon/create', 'Coupons@create',function(){
+})->middleware('auth');
+
+Route::post('/coupon/store', 'Coupons@store',function(){
+})->middleware('auth');
+
+Route::get('/coupon/edit/{id}','Coupons@edit',function(){
+})->middleware('auth');
+
+Route::post('/coupon/update','Coupons@update',function(){
+})->middleware('auth');
+
+Route::get('/coupon/destroy/{id}','Coupons@destroy',function(){
+})->middleware('auth');
+
 //route groups
 Route::get('/group','Group@index',function(){
 })->middleware('auth');

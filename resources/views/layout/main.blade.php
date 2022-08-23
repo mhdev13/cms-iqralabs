@@ -29,7 +29,7 @@
       <script src="{{ URL::asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
       <script src="{{ URL::asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
       <script src="{{ URL::asset('js/ruang-admin.min.js')}}"></script>
-      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
       <!--ck editor-->
       <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
       <script src="{{ URL::asset('js/description.js')}}"></script>
@@ -46,4 +46,9 @@
           $('#dataTableHover').DataTable(); // ID From dataTable with Hover
         });
       </script>
+       <script type="text/javascript">
+        $(function() {
+           $('#CalendarDateTime').datetimepicker();
+        });
+    </script>    
 </html>
