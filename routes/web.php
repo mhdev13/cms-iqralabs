@@ -179,7 +179,7 @@ Route::get('/order/edit/{id}','Orders@edit',function(){
 Route::post('/order/update','Orders@update',function(){
 })->middleware('auth');
 
-//Customer
+//Coupon
 Route::get('/coupon','Coupons@index',function(){
 })->middleware('auth');
 

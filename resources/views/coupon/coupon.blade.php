@@ -39,7 +39,7 @@
                       <th>No</th>
                       <th>ID</th>
                       <th>Code</th>
-                      <th>Amount (Rp)</th>
+                      <th>Amount</th>
                       <th>Discount Type</th>
                       <th>Description</th>
                       <th>Coupon expiry date</th>

@@ -6,17 +6,17 @@
     <!-- Sidebar -->
     <div id="content-wrapper" class="d-flex flex-column">
       <div id="content">
-        
-        @include('layout.navbar')
 
+        @include('layout.navbar')
+        
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Edit Coupon</h1>
+            <h1 class="h3 mb-0 text-gray-800">Add Coupon</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item">Home</a></li>
-              <li class="breadcrumb-item">Coupon</li>
-              <li class="breadcrumb-item active" aria-current="page">Edit Coupon</li>
+              <li class="breadcrumb-item">Woocommerce</li>
+              <li class="breadcrumb-item active" aria-current="page">Add Coupon</li>
             </ol>
           </div>
 
@@ -32,55 +32,49 @@
                   </div>
                 @endif
                 <div class="card-body">
-                  <form action="/coupon/update" method="post" enctype="multipart/form-data">
+                <form action="/coupon/store" method="post" enctype="multipart/form-data">
                     {{ csrf_field() }}
-                    <input type="hidden" name="id" value="{{ $coupons['id'] }}"> <br/>
                     <div class="form-group">
-                        <label for="code">Code</label>
-                        <input type="text" class="form-control" name="code" value="{{ $coupons['code'] }}">
+                        <label for="">Code</label>
+                        <input type="text" class="form-control" name="code" required="required">
                     </div>
                     <div class="form-group">
-                        <label for="amount">Amount</label>
-                        <input type="number" class="form-control" name="amount" value="{{ $coupons['amount'] }}">
+                        <label for="">Amount</label>
+                        <input type="number" class="form-control" step="any" name="amount" required="required">
                     </div>
                     <div class="form-group">
-                        <label for="discount_type">Discount Type</label>
-                        <select class="form-control" id="discount_type" name="discount_type">
-                            <option value="percent" {{ $coupons['discount_type'] == "percent" ? 'selected' : ''}}>Percentage discount</option>
-                            <option value="fixed_cart" {{ $coupons['discount_type'] == "fixed_cart" ? 'selected' : ''}}>Fixed cart discount</option>
-                            <option value="fixed_product" {{ $coupons['discount_type'] == "fixed_product" ? 'selected' : ''}}>Fixed percentage discount</option>
-                        </select>
-                    </div> 
+                    <label for="discount_type">Discount Type</label>
+                    <select class="form-control" id="discount_type" name="discount_type" required="required">
+                        <option value="percent">Percentage Discount</option>
+                        <option value="fixed_cart">Fixed Cart Discount</option>
+                        <option value="fixed_product">Fixed Cart Discount</option>
+                    </select>
+                    </div>
                     <div class="form-group">
                         <label for="description">Description</label>
-                        <textarea class="form-control" name="desc">{{$coupons['description']}}</textarea>
+                        <textarea class="form-control" name="desc"></textarea>
                     </div>
                     <label for="date">Coupon expiry date</label>
                     <div class="form-group">
                         <div class='input-group date' id='CalendarDateTime'>
-                        <input type="date" value="{{Carbon\Carbon::parse($coupons['date_expires_gmt'])->format('Y-m-d')}}" name="date_expires_gmt" class="form-control">
+                        <input type="date" name="date_expires_gmt" class="form-control">
                         <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="status">Status</label>
-                        <input type="text" class="form-control" name="status" value="{{ $coupons['status'] }}" readonly>
                     </div>
                     <div class="form-group">
                     <button type="submit" class="btn btn-primary">Save</button>
                     <a href="{{ URL::previous() }}" class="btn btn-success">Back</a>
                     </div>
-                  </form>
+                </form>
                 </div>
               </div>
             </div>
           </div>
           <!--Row-->
-
-          <!-- Modal Logout -->
-          @include('layout.modal_logout')
-          <!--end-->
           
+           <!-- Modal Logout -->
+           @include('layout.modal_logout')
+           <!--end-->
 
         </div>
         <!---Container Fluid-->

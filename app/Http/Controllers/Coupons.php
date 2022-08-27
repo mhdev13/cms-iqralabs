@@ -27,7 +27,7 @@ class Coupons extends Controller
      */
     public function create()
     {
-        //
+        return view('coupon/add_coupon');
     }
 
     /**
@@ -38,18 +38,21 @@ class Coupons extends Controller
      */
     public function store(Request $request)
     {
-        //
-    }
+        $data = [
+            'code' => $request['code'],
+            'discount_type' => $request['discount_type'],
+            'amount' => $request['amount'],
+            'individual_use' => true,
+            'exclude_sale_items' => true,
+            'description' => $request['desc'],
+            'date_expires' => $request['date_expires_gmt'],
+        ];
+        
+        $coupon = Coupon::create($data);
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        Session::flash('flash_message', 'succesfully saved.');
+
+        return redirect('/coupon');
     }
 
     /**
@@ -77,11 +80,7 @@ class Coupons extends Controller
     public function update(Request $request)
     {
         $coupon_id = $request['id'];
-       
-        $dateExpired = $request['date_expires_gmt'];
         
-        $date = date("d-m-y", strtotime($dateExpired));
-
         $data = array(
             'code'                    => $request['code'],
             'discount_type'           => $request['discount_type'],
@@ -109,6 +108,13 @@ class Coupons extends Controller
      */
     public function destroy($id)
     {
-        //
+        $coupon_id = $id;
+        $options = ['force' => true]; // Set force option true for delete permanently. Default value false
+
+        $coupon = Coupon::delete($coupon_id, $options);
+
+        Session::flash('flash_message', 'successfully delete.');
+
+        return redirect('/coupon');
     }
 }
