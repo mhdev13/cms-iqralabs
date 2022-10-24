@@ -30,6 +30,7 @@
                   @if(Session::has('flash_message'))
                   <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
                   @endif
+                  <a href="/order/create" class="btn btn-success"><i class="fas fa fa-plus-circle nav-icon"></i> Add Order </a>
                 </div>
                 <div class="table-responsive p-3">
                   <table class="table align-items-center table-flush" id="dataTable">
@@ -81,6 +82,9 @@
                         <td width="100">
                             <a href="/order/edit/{{$list->id}}"
                             class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
+                            <br>
+                            <br>
+                            <a href="/order/destroy/{{ $list->id }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
                         </td>
                         </tr>
                         @endforeach

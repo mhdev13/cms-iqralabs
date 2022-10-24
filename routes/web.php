@@ -174,9 +174,20 @@ Route::get('/video/destroy/{id}','Video@destroy',function(){
 //Order
 Route::get('/order','Orders@getOrder',function(){
 })->middleware('auth');
+
+Route::get('/order/create', 'Orders@create',function(){
+})->middleware('auth');
+
+Route::post('/order/store', 'Orders@store',function(){
+})->middleware('auth');
+
 Route::get('/order/edit/{id}','Orders@edit',function(){
 })->middleware('auth');
+
 Route::post('/order/update','Orders@update',function(){
+})->middleware('auth');
+
+Route::get('/order/destroy/{id}','Orders@destroy',function(){
 })->middleware('auth');
 
 //Coupon
