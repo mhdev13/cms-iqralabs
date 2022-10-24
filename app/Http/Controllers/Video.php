@@ -67,6 +67,8 @@ class Video extends Controller
                 'title' => $request['title'],
                 'video' => $video_name,
                 'description' => $request['description'],
+                'Status' => $request['status'],
+                'Thumbnail' => $request['thumbnail'],
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
@@ -114,11 +116,15 @@ class Video extends Controller
 
             $title          = $request['title'];
             $description    = $request['description'];
+            $status         = $request['status'];
+            $thumbnail      = $request['thumbnail'];
             
         } else {
             $title          = $request['title'];
             $video_name     = $request['video'];
             $description    = $request['description'];
+            $status         = $request['status'];
+            $thumbnail      = $request['thumbnail'];
         }
     
         DB::table('mau_video')
@@ -127,6 +133,8 @@ class Video extends Controller
                 'title' => $title,
                 'video' => $video_name,
                 'description' => $description,
+                'Status' => $status,
+                'Thumbnail' => $thumbnail,
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);

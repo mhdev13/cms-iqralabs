@@ -64,6 +64,21 @@
                     </div>
                     <br>
                     <div class="form-group">
+                      <label for="status">Status</label>
+                      <select class="form-control" id="status" name="status" required="required">
+                        <option value="Published" {{ $list->Status == "Published" ? 'selected' : ''}}>Published</option>
+                        <option value="Draft" {{ $list->Status == "Draft" ? 'selected' : ''}}>Draft</option>
+                      </select>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                      <label for="thumbnail">Thumbnail</label>
+                      <select class="form-control" id="thumbnail" name="thumbnail" required="required">
+                        <option value="Active" {{ $list->Thumbnail == "Active" ? 'selected' : ''}}>Active</option>
+                        <option value="Inactive" {{ $list->Thumbnail == "Inactive" ? 'selected' : ''}}>Inactive</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
                         <button type="submit" class="btn btn-primary">Save</button>
                         <a href="{{ URL::previous() }}" class="btn btn-success">Back</a>
                     </div>

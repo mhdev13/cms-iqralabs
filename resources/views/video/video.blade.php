@@ -40,6 +40,8 @@
                       <th>Title</th>
                       <th>Video</th>
                       <th>Description</th>
+                      <th>Status</th>
+                      <th>Thumbnail</th>
                       <th>Action</th>
                     </tr>
                     </thead>
@@ -77,6 +79,8 @@
                     <td>{{ $description }}</td>
                     
                     <?php endif; ?>
+                    <td>{{ $list->Status }}</td>
+                    <td>{{ $list->Thumbnail }}</td>
                     <td width="100">
                     <a href="/video/edit/{{ $list->id }}"
                         class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>

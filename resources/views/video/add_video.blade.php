@@ -49,6 +49,20 @@
                       <textarea id="description" class="form-control" name="description" rows="10" cols="50" required></textarea>
                     </div>
                     <div class="form-group">
+                      <label for="status">Status</label>
+                      <select class="form-control" id="status" name="status" required="required">
+                        <option value="Published">Published</option>
+                        <option value="Draft">Draft</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="thumbnail">Thumbnail</label>
+                      <select class="form-control" id="thumbnail" name="thumbnail" required="required">
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
                     <button type="submit" class="btn btn-primary" >Save</button>
                     <a href="{{ URL::previous() }}" class="btn btn-success">Back</a>
                     </div>
