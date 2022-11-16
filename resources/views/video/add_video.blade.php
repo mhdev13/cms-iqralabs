@@ -56,6 +56,10 @@
                       </select>
                     </div>
                     <div class="form-group">
+                      <label for="image_thumbnail">Image Thumbnail</label>
+                      <input type="file" type="file" class="form-control" id="image_thumbnail" name="image_thumbnail"><br/>
+                    </div>
+                    <div class="form-group">
                       <label for="thumbnail">Thumbnail</label>
                       <select class="form-control" id="thumbnail" name="thumbnail" required="required">
                         <option value="Active">Active</option>

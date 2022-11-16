@@ -72,6 +72,25 @@
                     </div>
                     <br>
                     <div class="form-group">
+                      <label for="image_thumbnail">Image Thumbnail</label>
+                      <div class="input-group">
+                        <div class="col-md-12">
+                          <img src="/images/{{ $list->image_thumbnail }}" id="image_thumbnail" name="image_thumbnail" height="100" width="100">
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" name="image_thumbnail"/> 
+                          <input type="hidden" name="image_thumbnail" value="{{ $list->image_thumbnail }}" /> 
+                          <label class="custom-file-label" for="image_thumbnail">Choose file</label>
+                        </div>
+                      </div>
+                    </div>
+                    <br>
+                    <div class="form-group">
                       <label for="thumbnail">Thumbnail</label>
                       <select class="form-control" id="thumbnail" name="thumbnail" required="required">
                         <option value="Active" {{ $list->Thumbnail == "Active" ? 'selected' : ''}}>Active</option>

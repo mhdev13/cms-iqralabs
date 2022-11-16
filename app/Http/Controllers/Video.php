@@ -54,29 +54,41 @@ class Video extends Controller
     public function store(Request $request)
     {
         $video = $request->file('video');
+        
+        $image = $request->file('image_thumbnail');
 
         if($video != ''){
             $request->validate([
                 'video' => 'required|file|mimetypes:video/mp4',
+                'image_thumbnail' => 'mimes:jpeg,jpg,png,gif|required|max:500000',
             ]);
 
             $video_name = time() . '.' . $video->getClientOriginalExtension();
             $video->move(public_path('images'), $video_name);
+
+            $image_thumbnail = time() . '.' . $image->getClientOriginalExtension();
+            $image->move(public_path('images'), $image_thumbnail);
             
             DB::table('mau_video')->insert([
                 'title' => $request['title'],
                 'video' => $video_name,
                 'description' => $request['description'],
                 'Status' => $request['status'],
+                'image_thumbnail' => $image_thumbnail,
                 'Thumbnail' => $request['thumbnail'],
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now()
             ]);
-        } 
-        
-        Session::flash('flash_message', 'successfully saved.');
 
-        return redirect('/video');
+            Session::flash('flash_message', 'successfully saved.');
+
+            return redirect('/video');
+
+        } else {
+            Session::flash('flash_message', 'failde saved.');
+
+            return redirect('/video');
+        }
     }
 
     /**
@@ -103,45 +115,70 @@ class Video extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
-    {
+    {   
+        $id = $request['id'];
+
+        $checkID = DB::table('mau_video')
+        ->select('id')
+        ->where('id', $id)
+        ->first();
+
         $video = $request->file('video');
         
-        if($video != ''){
-            $request->validate([
-                'video' => 'required|file|mimetypes:video/mp4',
-            ]);
+        $image = $request->file('image_thumbnail');
+        
+        if(!empty($checkID->id)){
+            
+            if(!empty($video) || !empty($image)){
+                $video_name = time() . '.' . $video->getClientOriginalExtension();
+                $video->move(public_path('images'), $video_name);
 
-            $video_name = time() . '.' . $video->getClientOriginalExtension();
-            $video->move(public_path('images'), $video_name);
+                $image_thumbnail = time() . '.' . $image->getClientOriginalExtension();
+                $image->move(public_path('images'), $image_thumbnail);
+                
+                $update = [
+                    'title'          => $request['title'],
+                    'video'          => $video_name,
+                    'description'    => $request['description'],
+                    'status'         => $request['status'],
+                    'image_thumbnail'=> $image_thumbnail,
+                    'thumbnail'      => $request['thumbnail'],
+                    'created_at'     => Carbon::now(),
+                    'updated_at'     => Carbon::now()
+                ];
+                
+                DB::table('mau_video')
+                ->where('id', $id)
+                ->update($update);
 
-            $title          = $request['title'];
-            $description    = $request['description'];
-            $status         = $request['status'];
-            $thumbnail      = $request['thumbnail'];
+            } else {
+
+                $update = [
+                    'title'          => $request['title'],
+                    'video'          => $request['video'],
+                    'description'    => $request['description'],
+                    'status'         => $request['status'],
+                    'image_thumbnail'=> $request['image_thumbnail'],
+                    'thumbnail'      => $request['thumbnail'],
+                    'created_at'     => Carbon::now(),
+                    'updated_at'     => Carbon::now()
+                ];
+                
+                DB::table('mau_video')
+                ->where('id', $id)
+                ->update($update);
+            }
+
+            Session::flash('flash_message','successfully update.');
+
+            return redirect('/video');
             
         } else {
-            $title          = $request['title'];
-            $video_name     = $request['video'];
-            $description    = $request['description'];
-            $status         = $request['status'];
-            $thumbnail      = $request['thumbnail'];
+
+            Session::flash('flash_message','failed update.');
+
+            return redirect('/video');
         }
-    
-        DB::table('mau_video')
-            ->where('id', $request->id)
-            ->update([
-                'title' => $title,
-                'video' => $video_name,
-                'description' => $description,
-                'Status' => $status,
-                'Thumbnail' => $thumbnail,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]);
-
-        Session::flash('flash_message','successfully update.');
-
-        return redirect('/video');
     }
 
     /**

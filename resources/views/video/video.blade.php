@@ -41,6 +41,7 @@
                       <th>Video</th>
                       <th>Description</th>
                       <th>Status</th>
+                      <th>Image Thumbnail</th>
                       <th>Thumbnail</th>
                       <th>Action</th>
                     </tr>
@@ -61,13 +62,13 @@
                     <?php if($list->video == '') : ?>
                     <td>
                     <video controls>
-                    <source src="../../images/image_not_found.png" width="100%" height="auto">
+                    <source src="../../images/image_not_found.png" width="20%" height="20%">
                     </video>
                     </td>
                     <?php else : ?>
                     <td>
                     <video controls>
-                    <source src="/images/{{ $list->video }}" width="320" height="240" type="video/mp4">
+                    <source src="/images/{{ $list->video }}" width="20%" height="20%" type="video/mp4">
                     </video>
                     </td>
                     
@@ -80,12 +81,18 @@
                     
                     <?php endif; ?>
                     <td>{{ $list->Status }}</td>
+                    <?php if($list->image_thumbnail == '') : ?>
+                      <td><img src="../../images/image_not_found.png" width="100%" height="auto"></td>
+                    <?php else : ?>
+                      <td><img src="/images/{{ $list->image_thumbnail }}" width="100%" height="auto"></td>
+                    <?php endif; ?>
+                    </td>
                     <td>{{ $list->Thumbnail }}</td>
                     <td width="100">
                     <a href="/video/edit/{{ $list->id }}"
-                        class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
-                        <br>
-                        <br>
+                    class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
+                    <br>
+                    <br>
                     <a href="/video/destroy/{{ $list->id }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
                     </td>
                     
