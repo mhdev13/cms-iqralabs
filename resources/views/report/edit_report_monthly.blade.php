@@ -39,6 +39,9 @@
                     <div class="form-group">
                     <label for="year">Year</label>
                     <select class="form-control" id="year" name="year" required="required">
+                        <option value="2025" {{ $list->year == "2025" ? 'selected' : ''}}>2025</option>
+                        <option value="2024" {{ $list->year == "2024" ? 'selected' : ''}}>2024</option>
+                        <option value="2023" {{ $list->year == "2023" ? 'selected' : ''}}>2023</option>
                         <option value="2022" {{ $list->year == "2022" ? 'selected' : ''}}>2022</option>
                         <option value="2021" {{ $list->year == "2021" ? 'selected' : ''}}>2021</option>
                         <option value="2020" {{ $list->year == "2020" ? 'selected' : ''}}>2020</option>
