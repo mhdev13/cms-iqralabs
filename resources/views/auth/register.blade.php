@@ -77,7 +77,7 @@
 <body class="hold-transition register-page">
 <div class="register-box">
   <div class="register-logo">
-    <img src="../../dist/img/MauNgajiLogo.png"
+    <img src="../../dist/img/logo_manasik_hijau.png"
       style="width: 50%">
   </div>
 
@@ -129,7 +129,7 @@
           </div> -->
           <!-- /.col -->
           <div class="social-auth-links text-center">
-            <button type="submit" class="btn btn-primary btn-block" style="background-color: #3597d4;">SIGN UP</button>
+            <button type="submit" class="btn btn-primary btn-block" style="background-color: #1baa69;">SIGN UP</button>
           </div>
           <!-- /.col -->
       </form>
