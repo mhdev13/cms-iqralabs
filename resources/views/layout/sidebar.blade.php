@@ -2,9 +2,9 @@
 <ul class="navbar-nav sidebar sidebar-light accordion" id="accordionSidebar">
     <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
       <div class="sidebar-brand-icon">
-        <img src="../../img/logo/logo2.png">
+        {{-- <img src="../../img/logo/logo_manasik_hijau.png"> --}}
       </div>
-      <div class="sidebar-brand-text mx-3">Maungaji</div>
+      <div class="sidebar-brand-text mx-3">Maumanasik</div>
     </a>
     <hr class="sidebar-divider my-0">
     <li class="nav-item">
@@ -14,7 +14,7 @@
     </li>
     <hr class="sidebar-divider">
 
-    <li class="nav-item active">
+    {{-- <li class="nav-item active">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
         aria-controls="collapseTable">
         <i class="fas fa-fw fa-user"></i>
@@ -25,7 +25,7 @@
           <a class="collapse-item active" href="/user">Army List</a>
         </div>
       </div>
-    </li>
+    </li> --}}
 
     <li class="nav-item active">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"

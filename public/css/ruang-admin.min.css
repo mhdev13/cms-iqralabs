@@ -539,7 +539,7 @@
     color: #858796;
   }
   .bg-navbar {
-    background-color: #41acef;
+    background-color: #66bb6a;
   }
   .sidebar {
     min-height: 100vh;
@@ -959,7 +959,7 @@
   }
   .sidebar-light .sidebar-brand {
     color: #fafafa;
-    background-color: #39a4e7;
+    background-color: #1baa69;
   }
   .sidebar-light hr.sidebar-divider {
     border-top: 1px solid #eaecf4;
