@@ -65,7 +65,7 @@
       </div>
     </li>
 
-    <li class="nav-item active">
+    {{-- <li class="nav-item active">
       <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTable" aria-expanded="true"
         aria-controls="collapseTable">
         <i class="fas fa-money-bill"></i>
@@ -79,7 +79,7 @@
           <a class="collapse-item active" href="/coupon">Coupon</a>
         </div>
       </div>
-    </li>
+    </li> --}}
     
     <hr class="sidebar-divider">
     <div class="version" id="version-ruangadmin"></div>
