@@ -31,8 +31,8 @@
                 <div class="login-form">
                   <div class="text-center">
                     <div class="register-logo">
-                      <img src="../../dist/img/logo_manasik_hijau.png"
-                        style="width: 50%">
+                      {{-- <img src="../../dist/img/logo_manasik_hijau.png"
+                        style="width: 50%"> --}}
                     </div>
                   </div>
                   <form class="user" method="POST" action="{{ route('login') }}">
@@ -60,7 +60,7 @@
                       </div>
                     </div>
                     <div class="form-group">
-                    <button type="submit" class="btn btn-primary btn-block" style="background-color: #1baa69;">{{ __('Login') }}</button>
+                    <button type="submit" class="btn btn-primary btn-block" style="background-color: #e86548;">{{ __('Login') }}</button>
                     </div>
                     <hr>
                     <!-- <a href="#" class="btn btn-google btn-block">
