@@ -31,8 +31,8 @@
                 <div class="login-form">
                   <div class="text-center">
                     <div class="register-logo">
-                      {{-- <img src="../../dist/img/logo_manasik_hijau.png"
-                        style="width: 50%"> --}}
+                      <img src="../../dist/img/logo_iqralabs.png"
+                        style="width: 50%">
                     </div>
                   </div>
                   <form class="user" method="POST" action="{{ route('login') }}">
