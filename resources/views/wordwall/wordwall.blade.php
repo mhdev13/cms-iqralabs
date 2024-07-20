@@ -38,7 +38,6 @@
                     <tr>
                       <th>No</th>
                       <th>Title</th>
-                      <!--<th>Video Wordwall</th>-->
                       <th>Category</th>
                       <th>Description</th>
                       <th>Status</th>
@@ -49,12 +48,6 @@
                     </thead>
                     <tbody>
                     @foreach($Wordwall as $index => $list)
-                    <?php
-                      
-                     //remove html tag first
-                    //   $description = strip_tags($list->description);
-                      
-                    ?>    
                     <tr>
                     <td>{{ $index +1 }}</td>
                     <td>{{ $list->title }}</td>

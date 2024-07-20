@@ -47,25 +47,19 @@ class Wordwall extends Controller
 
    public function store(Request $request)
    {
-        // $video = $request->file('video');
 
         $image = $request->file('image_thumbnail');
 
         if($request->_token != ''){
             $request->validate([
-                // 'video' => 'required|file|mimetypes:video/mp4',
                 'image_thumbnail' => 'mimes:jpeg,jpg,png,gif|required|max:500000',
             ]);
-
-            // $video_name = time() . '.' . $video->getClientOriginalExtension();
-            // $video->move(public_path('images'), $video_name);
 
             $image_thumbnail = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $image_thumbnail);
 
            WordwallModel::create([
                 'title'             => $request['title'],
-                // 'video'             => $video_name,
                 'category'          => $request['category'],
                 'description'       => $request['description'],
                 'Status'            => $request['status'],
@@ -119,7 +113,6 @@ class Wordwall extends Controller
             $wordwall = WordwallModel::find($id);
 
             $wordwall['title']              = $request['title'];
-            // $wordwall['video']              = $request['video'];
             $wordwall['category']           = $request['category'];
             $wordwall['description']        = $request['description'];
             $wordwall['status']             = $request['status'];

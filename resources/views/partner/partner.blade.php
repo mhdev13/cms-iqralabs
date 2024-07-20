@@ -46,30 +46,29 @@
                     <tbody>
                     @foreach($partner as $index => $list)
                     <?php
-
                       //remove html tag first
-                      $description = strip_tags($list->description);
+                      $description = strip_tags($list['description']);
                       
                     ?>    
                     <tr>
                       <td>{{ $index +1 }}</td>
-                      <?php if($list->photo == '') : ?>
+                      <?php if($list['photo'] == '') : ?>
                         <td><img src="../../images/image_not_found.png" width="100%" height="auto"></td>
                       <?php else : ?>
-                        <td><img src="/images/{{ $list->photo }}" width="100%" height="auto"></td>
+                        <td><img src="/images/{{ $list['photo'] }}" width="100%" height="auto"></td>
                       <?php endif; ?>
-                      <td>{{ $list->url }}</td>
-                      <?php if($list->description == '') : ?>
+                      <td>{{ $list['url'] }}</td>
+                      <?php if($list['description'] == '') : ?>
                         <td>-</td>
                       <?php else : ?>
                         <td>{{ $description }}</td>
                       <?php endif; ?>
                       <td width="100">
-                        <a href="/partner/edit/{{ $list->id }}"
+                        <a href="/partner/edit/{{ $list['id'] }}"
                             class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
                             <br>
                             <br>
-                        <a href="/partner/destroy/{{ $list->id }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
+                        <a href="/partner/destroy/{{ $list['id'] }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
                     </td>
                     </tr>
                     @endforeach

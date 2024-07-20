@@ -34,7 +34,6 @@
                   </div>
                 @endif
                 <div class="card-body">
-                {{-- @foreach($wordwall as $list) --}}
                   <form action="/Wordwall/update" method="post" enctype="multipart/form-data">
                   {{ csrf_field() }}
                   <input type="hidden" name="id" value="{{ $wordwall['id'] }}"> <br/>
@@ -42,21 +41,6 @@
                         <label for="">Title</label>
                         <input type="text" class="form-control" name="title" value="{{ $wordwall['title'] }}" required="required">
                     </div>
-                    <!--<div class="form-group">-->
-                    <!--    <label for="video">Video</label>-->
-                    <!--    <div class="input-group">-->
-                    <!--        <div class="col-md-12">-->
-                    <!--            <video controls style="margin-bottom:25px;">-->
-                    <!--            <source src="/images/{{ $wordwall['video'] }}" type="video/mp4" id="video" name="video" height="100" width="100">-->
-                    <!--            </video>-->
-                    <!--        </div>-->
-                    <!--        <div class="custom-file">-->
-                    <!--            <input type="file" class="custom-file-input" name="video"/> -->
-                    <!--            <input type="hidden" name="video" value="{{ $wordwall['video'] }}" /> -->
-                    <!--            <label class="custom-file-label" for="video">Choose file</label>-->
-                    <!--        </div>-->
-                    <!--    </div>-->
-                    <!--</div>-->
                     <br>
                     <div class="form-group">
                       <label for="">Category</label>
@@ -106,7 +90,6 @@
                         <a href="{{ URL::previous() }}" class="btn btn-success">Back</a>
                     </div>
                   </form>
-                  {{-- @endforeach --}}
                 </div>
               </div>
             </div>

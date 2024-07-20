@@ -17,13 +17,13 @@ use App\Exports\UserExport;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\PartnerModel;
 
 class Partner extends Controller
 {
     public function index(){
-        $partner = DB::table('cms_partner')
-        ->select('*')
-        ->get();
+
+        $partner = PartnerModel::all();
 
         return view('partner/partner',['partner' => $partner]);
     }
@@ -44,7 +44,7 @@ class Partner extends Controller
             $image->move(public_path('images'), $image_name);
         }
 
-        DB::table('cms_partner')->insert([
+        PartnerModel::create([
             'photo' => $image_name,
             'url' => $request->url,
             'description' => $request->description,
@@ -59,10 +59,7 @@ class Partner extends Controller
 
     public function edit($id)
     {
-        $partner = DB::table('cms_partner')
-            ->select('*')
-            ->where('id', $id)
-            ->get();
+        $partner = PartnerModel::find($id);
 
         return view('partner/edit_partner', ['partner' => $partner]);
     }
@@ -82,15 +79,15 @@ class Partner extends Controller
 
         }
 
-        DB::table('cms_partner')
-            ->where('id', $request->id)
-            ->update([
-                'photo' => $image_name,
-                'url' => $request->url,
-                'description' => $request->description,
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now()
-            ]);
+        $id = $request['id'];
+
+        $partner = PartnerModel::find($id);
+
+        $partner['photo']              = $image_name;
+        $partner['url']                = $request['url'];
+        $partner['description']        = $request['description'];
+        $partner['updated_at']         = carbon::now();
+        $partner->save();
 
         Session::flash('flash_message','successfully update.');
 
@@ -99,8 +96,8 @@ class Partner extends Controller
 
     public function destroy($id){
 
-        DB::table('cms_partner')->where('id',$id)->delete();
-
+        $partner = PartnerModel::find($id);
+        $partner->delete();
         Session::flash('flash_message', 'successfully delete.');
 
         return redirect('/partner');
