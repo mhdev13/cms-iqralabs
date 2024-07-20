@@ -48,7 +48,7 @@
                   </div>
                     <div class="form-group">
                         <label for="">Description</label>
-                        <textarea id="description" class="form-control" value="description" id="description" rows="3" name="description" required="required">{{$wordwall['description']}}</textarea>
+                        <textarea id="description" class="form-control" value="description" id="description" rows="3" name="description">{{$wordwall['description']}}</textarea>
                     </div>
                     <br>
                     <div class="form-group">

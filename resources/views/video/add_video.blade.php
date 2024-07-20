@@ -46,7 +46,7 @@
                     </div>
                     <div class="form-group">
                       <label for="">Description</label>
-                      <textarea id="description" class="form-control" name="description" rows="10" cols="50" required></textarea>
+                      <textarea id="description" class="form-control" name="description" rows="10" cols="50"></textarea>
                     </div>
                     <div class="form-group">
                       <label for="status">Status</label>

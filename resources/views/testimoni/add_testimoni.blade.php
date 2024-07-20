@@ -48,7 +48,7 @@
                       </div>
                       <div class="form-group">
                         <label for="">Comment</label>
-                        <textarea id="description" class="form-control" name="Comment" rows="10" cols="50" required></textarea>
+                        <textarea id="description" class="form-control" name="Comment" rows="10" cols="50"></textarea>
                       </div>
                       <div class="form-group">
                         <label for="from_who">From</label>

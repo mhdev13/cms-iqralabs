@@ -89,7 +89,7 @@
                     </div>
                     <div class="form-group">
                       <label for="">Description</label>
-                      <textarea id="description" class="form-control" value="description" id="description" rows="3" name="description" required="required">{{$price['description']}}</textarea>
+                      <textarea id="description" class="form-control" value="description" id="description" rows="3" name="description">{{$price['description']}}</textarea>
                     </div>
                     <div class="form-group">
                     <button type="submit" class="btn btn-primary">Save</button>

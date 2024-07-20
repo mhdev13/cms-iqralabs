@@ -44,7 +44,7 @@
                   <br>
                   <div class="form-group">
                     <label for="">Answer</label>
-                    <textarea id="description" class="form-control" value="answer" id="answer" rows="3" name="answer" required="required">{{$list->answer}}</textarea>
+                    <textarea id="description" class="form-control" value="answer" id="answer" rows="3" name="answer">{{$list->answer}}</textarea>
                   </div>
                   <br>
                   <div class="form-group">

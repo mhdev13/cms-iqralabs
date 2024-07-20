@@ -63,7 +63,7 @@
                   <br>
                   <div class="form-group">
                     <label for="">Comment</label>
-                    <textarea id="description" class="form-control" value="comment" id="comment" rows="3" name="comment" required="required">{{$list->comment}}</textarea>
+                    <textarea id="description" class="form-control" value="comment" id="comment" rows="3" name="comment">{{$list->comment}}</textarea>
                   </div>
                   <div class="form-group">
                   <label for="from_who">From Who</label>
