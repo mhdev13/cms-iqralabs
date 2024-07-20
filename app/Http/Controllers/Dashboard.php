@@ -21,66 +21,66 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Dashboard extends Controller
 {
     public function index(){
-        $dashboard2022 = DB::table('mau_monthly_report')
+        $dashboard2022 = DB::table('cms_monthly_report')
         ->select('count')
         ->where('year', '2022')
         ->orderBy('year', 'DESC')
         ->get();
 
-        $dashboard2021 = DB::table('mau_monthly_report')
+        $dashboard2021 = DB::table('cms_monthly_report')
         ->select('count')
         ->where('year', '2021')
         ->orderBy('year', 'DESC')
         ->get();
 
-        $dashboard2020 = DB::table('mau_monthly_report')
+        $dashboard2020 = DB::table('cms_monthly_report')
         ->select('count')
         ->where('year', '2020')
         ->orderBy('year', 'DESC')
         ->get();
 
-        $dashboardyear2022 = DB::table('mau_monthly_report')
+        $dashboardyear2022 = DB::table('cms_monthly_report')
         ->where('year', '2022')
         ->orderBy('year', 'DESC')
         ->sum('count');
 
-        $dashboardyear2021 = DB::table('mau_monthly_report')
+        $dashboardyear2021 = DB::table('cms_monthly_report')
         ->where('year', '2021')
         ->orderBy('year', 'DESC')
         ->sum('count');
 
-        $dashboardyear2020 = DB::table('mau_monthly_report')
+        $dashboardyear2020 = DB::table('cms_monthly_report')
         ->where('year', '2020')
         ->orderBy('year', 'DESC')
         ->sum('count');
 
-        $countall = DB::table('mau_monthly_report')
+        $countall = DB::table('cms_monthly_report')
         ->select(DB::raw('SUM(count) AS count'))
         ->get()->toArray();
 
         $countall = array_column($countall, 'count');
 
-        $count2022 = DB::table('mau_monthly_report')
+        $count2022 = DB::table('cms_monthly_report')
         ->select(DB::raw('SUM(count) AS count'))
         ->where('year', '2022')
         ->get()->toArray();
 
         $count2022 = array_column($count2022, 'count');
 
-        $count2021 = DB::table('mau_monthly_report')
+        $count2021 = DB::table('cms_monthly_report')
         ->select(DB::raw('SUM(count) AS count'))
         ->where('year', '2021')
         ->get()->toArray();
 
         $count2021 = array_column($count2021, 'count');
 
-        $count2020 = DB::table('mau_monthly_report')
+        $count2020 = DB::table('cms_monthly_report')
         ->select(DB::raw('SUM(count) AS count'))
         ->where('year', '2020')
         ->get()->toArray();
-        
+
         $count2020 = array_column($count2020, 'count');
-        
+
         return view('dashboard',[
             'dashboardyear2022' => $dashboardyear2022,
             'dashboardyear2021' => $dashboardyear2021,

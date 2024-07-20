@@ -13,10 +13,10 @@ class CreateReportTable extends Migration
      */
     public function up()
     {
-        Schema::create('mau_monthly_report', function (Blueprint $table) {
+        Schema::create('cms_monthly_report', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->enum('year',['2022','2021','2020','2019']);
-            $table->enum('month', ['1','2','3','4','5','6','7','8','9','10','11','12']);	
+            $table->enum('month', ['1','2','3','4','5','6','7','8','9','10','11','12']);
             $table->integer('count');
             $table->timestamps();
         });
@@ -29,6 +29,6 @@ class CreateReportTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mau_monthly_report');
+        Schema::dropIfExists('cms_monthly_report');
     }
 }

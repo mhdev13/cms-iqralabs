@@ -27,13 +27,13 @@ class Report extends Controller
      */
     public function index()
     {
-        $report = DB::table('mau_monthly_report')
+        $report = DB::table('cms_monthly_report')
         ->select('*')
         ->orderBy('id','desc')
         ->get();
 
-        $sum = DB::table('mau_monthly_report')
-        ->sum('mau_monthly_report.count');
+        $sum = DB::table('cms_monthly_report')
+        ->sum('cms_monthly_report.count');
 
         return view('report/monthly',['report' => $report, 'sum' => $sum]);
     }
@@ -57,7 +57,7 @@ class Report extends Controller
     public function store(Request $request)
     {
         if($request->_token != ''){
-            DB::table('mau_monthly_report')->insert([
+            DB::table('cms_monthly_report')->insert([
                 'year' => $request->year,
                 'month' => $request->month,
                 'count' => $request->count,
@@ -90,7 +90,7 @@ class Report extends Controller
      */
     public function edit($id)
     {
-        $report = DB::table('mau_monthly_report')
+        $report = DB::table('cms_monthly_report')
         ->Select('*')
         ->where('id', $id)
         ->get();
@@ -108,7 +108,7 @@ class Report extends Controller
     public function update(Request $request)
     {
         if($request->_token != ''){
-            DB::table('mau_monthly_report')
+            DB::table('cms_monthly_report')
             ->where('id', $request->id)
             ->update([
                 'year' => $request->year,
@@ -133,7 +133,7 @@ class Report extends Controller
      */
     public function destroy($id)
     {
-        DB::table('mau_monthly_report')->where('id', $id)->delete();
+        DB::table('cms_monthly_report')->where('id', $id)->delete();
 
         Session::flash('flash_message', 'successfully delete.');
 
@@ -145,8 +145,8 @@ class Report extends Controller
         $data = array(
             "status" => 200,
             "response" => "success",
-            "data" => DB::table('mau_monthly_report')
-            ->sum('mau_monthly_report.count')
+            "data" => DB::table('cms_monthly_report')
+            ->sum('cms_monthly_report.count')
         );
 
         return $data;

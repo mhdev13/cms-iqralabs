@@ -13,15 +13,15 @@ class CreatePriceTable extends Migration
      */
     public function up()
     {
-        Schema::create('mau_price', function (Blueprint $table) {
+        Schema::create('cms_price', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->enum('package_name', ['personal', 'family','group']);	
+            $table->enum('package_name', ['personal', 'family','group']);
             $table->integer('price');
-            $table->enum('class_type', ['offline',['online']]);	
-            $table->enum('session_type', ['meeting',['monthly']]);	
+            $table->enum('class_type', ['offline',['online']]);
+            $table->enum('session_type', ['meeting',['monthly']]);
             $table->integer('max_student');
-            $table->integer('learning_duration');	
-            $table->string('description',500);	
+            $table->integer('learning_duration');
+            $table->string('description',500);
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreatePriceTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mau_price');
+        Schema::dropIfExists('cms_price');
     }
 }

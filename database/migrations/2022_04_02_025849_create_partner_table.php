@@ -13,7 +13,7 @@ class CreatePartnerTable extends Migration
      */
     public function up()
     {
-        Schema::create('mau_partner', function (Blueprint $table) {
+        Schema::create('cms_partner', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->char('photo', 100);
             $table->string('url', 50);
@@ -29,6 +29,6 @@ class CreatePartnerTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mau_partner');
+        Schema::dropIfExists('cms_partner');
     }
 }

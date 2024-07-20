@@ -182,7 +182,7 @@ class Price extends Controller
         $data = array(
             "status" => 200,
             "response" => "success",
-            "data" => DB::table('mau_price')
+            "data" => DB::table('cms_price')
             ->select("*")
             ->get()
         );

@@ -9,5 +9,5 @@ class PriceModel extends Model
 {
     protected $guarded = [];
 
-    protected $table = "mau_price";
+    protected $table = "cms_price";
 }

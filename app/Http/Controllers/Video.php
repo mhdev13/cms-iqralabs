@@ -28,7 +28,7 @@ class Video extends Controller
      */
     public function index()
     {
-        $video = DB::table('mau_video')
+        $video = DB::table('cms_video')
         ->select('*')
         ->get();
 
@@ -54,7 +54,7 @@ class Video extends Controller
     public function store(Request $request)
     {
         $video = $request->file('video');
-        
+
         $image = $request->file('image_thumbnail');
 
         if($video != ''){
@@ -68,8 +68,8 @@ class Video extends Controller
 
             $image_thumbnail = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $image_thumbnail);
-            
-            DB::table('mau_video')->insert([
+
+            DB::table('cms_video')->insert([
                 'title' => $request['title'],
                 'video' => $video_name,
                 'description' => $request['description'],
@@ -99,7 +99,7 @@ class Video extends Controller
      */
     public function edit($id)
     {
-        $video = DB::table('mau_video')
+        $video = DB::table('cms_video')
             ->select('*')
             ->where('id', $id)
             ->get();
@@ -115,27 +115,27 @@ class Video extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
-    {   
+    {
         $id = $request['id'];
 
-        $checkID = DB::table('mau_video')
+        $checkID = DB::table('cms_video')
         ->select('id')
         ->where('id', $id)
         ->first();
 
         $video = $request->file('video');
-        
+
         $image = $request->file('image_thumbnail');
-        
+
         if(!empty($checkID->id)){
-            
+
             if(!empty($video) || !empty($image)){
                 $video_name = time() . '.' . $video->getClientOriginalExtension();
                 $video->move(public_path('images'), $video_name);
 
                 $image_thumbnail = time() . '.' . $image->getClientOriginalExtension();
                 $image->move(public_path('images'), $image_thumbnail);
-                
+
                 $update = [
                     'title'          => $request['title'],
                     'video'          => $video_name,
@@ -146,8 +146,8 @@ class Video extends Controller
                     'created_at'     => Carbon::now(),
                     'updated_at'     => Carbon::now()
                 ];
-                
-                DB::table('mau_video')
+
+                DB::table('cms_video')
                 ->where('id', $id)
                 ->update($update);
 
@@ -163,8 +163,8 @@ class Video extends Controller
                     'created_at'     => Carbon::now(),
                     'updated_at'     => Carbon::now()
                 ];
-                
-                DB::table('mau_video')
+
+                DB::table('cms_video')
                 ->where('id', $id)
                 ->update($update);
             }
@@ -172,7 +172,7 @@ class Video extends Controller
             Session::flash('flash_message','successfully update.');
 
             return redirect('/video');
-            
+
         } else {
 
             Session::flash('flash_message','failed update.');
@@ -189,7 +189,7 @@ class Video extends Controller
      */
     public function destroy($id)
     {
-        DB::table('mau_video')->where('id',$id)->delete();
+        DB::table('cms_video')->where('id',$id)->delete();
 
         Session::flash('flash_message', 'successfully delete.');
 
@@ -200,7 +200,7 @@ class Video extends Controller
         $data = array(
             "status" =>200,
             "response" => "success",
-            "data" =>DB::table('mau_video')
+            "data" =>DB::table('cms_video')
             ->select('*')
             ->get()
         );

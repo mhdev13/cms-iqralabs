@@ -13,7 +13,7 @@ class CreateVideosTable extends Migration
      */
     public function up()
     {
-        Schema::create('mau_video', function (Blueprint $table) {
+        Schema::create('cms_video', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('video');
@@ -29,6 +29,6 @@ class CreateVideosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mau_video');
+        Schema::dropIfExists('cms_video');
     }
 }

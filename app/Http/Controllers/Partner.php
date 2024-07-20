@@ -21,7 +21,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Partner extends Controller
 {
     public function index(){
-        $partner = DB::table('mau_partner')
+        $partner = DB::table('cms_partner')
         ->select('*')
         ->get();
 
@@ -29,7 +29,7 @@ class Partner extends Controller
     }
 
     public function create(){
-        
+
         return view('partner/add_partner');
     }
 
@@ -42,9 +42,9 @@ class Partner extends Controller
             ]);
             $image_name = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $image_name);
-        } 
-        
-        DB::table('mau_partner')->insert([
+        }
+
+        DB::table('cms_partner')->insert([
             'photo' => $image_name,
             'url' => $request->url,
             'description' => $request->description,
@@ -59,7 +59,7 @@ class Partner extends Controller
 
     public function edit($id)
     {
-        $partner = DB::table('mau_partner')
+        $partner = DB::table('cms_partner')
             ->select('*')
             ->where('id', $id)
             ->get();
@@ -71,7 +71,7 @@ class Partner extends Controller
 
         $image_name = $request->image;
         $image = $request->file('image');
-        
+
         if($image != '') {
             $request->validate([
                 'image' => 'mimes:jpeg,jpg,png,gif|required|max:500000'
@@ -80,9 +80,9 @@ class Partner extends Controller
             $image_name = time() . '.' . $image->getClientOriginalExtension();
             $image->move(public_path('images'), $image_name);
 
-        } 
+        }
 
-        DB::table('mau_partner')
+        DB::table('cms_partner')
             ->where('id', $request->id)
             ->update([
                 'photo' => $image_name,
@@ -98,8 +98,8 @@ class Partner extends Controller
     }
 
     public function destroy($id){
-    
-        DB::table('mau_partner')->where('id',$id)->delete();
+
+        DB::table('cms_partner')->where('id',$id)->delete();
 
         Session::flash('flash_message', 'successfully delete.');
 
@@ -110,7 +110,7 @@ class Partner extends Controller
         $data = array(
             "status" =>200,
             "response" => "success",
-            "data" =>DB::table('mau_partner')
+            "data" =>DB::table('cms_partner')
             ->select('*')
             ->get()
         );
