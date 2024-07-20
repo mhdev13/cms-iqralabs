@@ -12,6 +12,7 @@
   <link href="{{ URL::asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css">
   <link href="{{ URL::asset('css/ruang-admin.min.css') }}" rel="stylesheet">
   <link href="{{ URL::asset('vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/42.0.0/ckeditor5.css">
 </head>
       
       <!-- Footer -->
@@ -30,9 +31,47 @@
       <script src="{{ URL::asset('vendor/jquery-easing/jquery.easing.min.js')}}"></script>
       <script src="{{ URL::asset('js/ruang-admin.min.js')}}"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
-      <!--ck editor-->
-      <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
-      <script src="{{ URL::asset('js/description.js')}}"></script>
+      <script type="importmap">
+        {
+            "imports": {
+                "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/42.0.0/ckeditor5.js",
+                "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/42.0.0/"
+            }
+        }
+      </script>
+      <script type="module">
+        import {
+            ClassicEditor,
+            Essentials,
+            Paragraph,
+            Bold,
+            Italic,
+            Font,
+            List
+        } from 'ckeditor5';
+
+        ClassicEditor
+            .create( document.querySelector( '#description' ), {
+                plugins: [ Essentials, Paragraph, Bold, Italic, Font, List],
+                toolbar: [
+                'undo', 'redo', '|', 'bold', 'italic', '|','fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor','|','bulletedList',''
+                ]
+            } )
+            .then( editor => {
+                window.editor = editor;
+            } )
+            .catch( error => {
+                console.error( error );
+            } );
+      </script>
+      <!-- A friendly reminder to run on a server, remove this during the integration. -->
+      <script>
+        window.onload = function() {
+            if ( window.location.protocol === "file:" ) {
+                alert( "This sample requires an HTTP server. Please serve this file with a web server." );
+            }
+        };
+      </script>
       <!--end-->
 
       <!-- Page level plugins -->
