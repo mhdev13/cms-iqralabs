@@ -7,17 +7,17 @@
     <!-- Sidebar -->
     <div id="content-wrapper" class="d-flex flex-column">
       <div id="content">
-        
+        <!-- TopBar -->
         @include('layout.navbar')
-
+        <!-- Topbar -->
         <!-- Container Fluid-->
         <div class="container-fluid" id="container-wrapper">
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Price</h1>
+            <h1 class="h3 mb-0 text-gray-800">Tutor</h1>
             <ol class="breadcrumb">
               <li class="breadcrumb-item">Home</a></li>
-              <li class="breadcrumb-item">Price</li>
-              <li class="breadcrumb-item active" aria-current="page">Price List</li>
+              <li class="breadcrumb-item">Tutor</li>
+              <li class="breadcrumb-item active" aria-current="page">Tutor</li>
             </ol>
           </div>
 
@@ -30,67 +30,49 @@
                   @if(Session::has('flash_message'))
                   <div class="alert alert-success"><span class="glyphicon glyphicon-ok"></span><em> {!! session('flash_message') !!}</em></div>
                   @endif
-                  <a href="/price/create" class="btn btn-success"><i class="fas fa fa-plus-circle nav-icon"></i> Add Price </a>
+                  <a href="/Tutor/create" class="btn btn-success"><i class="fas fa fa-plus-circle nav-icon"></i> Add tutor </a>
                 </div>
                 <div class="table-responsive p-3">
                   <table class="table align-items-center table-flush" id="dataTable">
                   <thead>
                     <tr>
                       <th>No</th>
-                      <th>Package Name</th>
-                      <th>Price (Rp)</th>
-                      <th>Class Type</th>
-                      <th>Session Type</th>
-                      <th>Service Type</th>
+                      <th>Title</th>
                       <th>Image</th>
-                      <th>Max Student</th>
-                      <th>Learning Duration</th>
-                      <th>Desctiption</th>
-                      <th>Action</th>
+                      <th>Description</th>
+                      <th>Status</th>
+                      <th>Date Created</th>
+                      <th>Date Updated</th>
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($price as $index => $list)
+                    @foreach($Tutor as $index => $list)
                     <?php
                       //remove html tag first
                       $description = strip_tags($list->description);
-                      
                     ?>    
                     <tr>
                       <td>{{ $index +1 }}</td>
-                      <td>{{ $list->package_name }}</td>
-                      <?php
-                      $num = $list->price ; 
-                      if($list->service_type == 'home_visit'){
-                        $service_type = 'home visit';
-                      } elseif ($list->service_type == 'learning_center') {
-                        $service_type = 'learning center';
-                      } else {
-                        $service_type = 'online';
-                      }
-                      ?>
-                      <td>Rp <?php echo number_format($num, 0, ",", ".") ; ?></td>
-                      <td>{{ $list->class_type }}</td>
-                      <td>{{ $list->session_type }}</td>
-                      <td>{{ $service_type }}</td>
-                      <?php if($list->photo == '') : ?>
+                      <td>{{ $list->title }}</td>
+                      <?php if($list->image == '') : ?>
                         <td><img src="../../images/image_not_found.png" width="100%" height="auto"></td>
                       <?php else : ?>
-                        <td><img src="/images/{{ $list->photo }}" width="100%" height="auto"></td>
+                        <td><img src="/images/{{ $list->image }}" width="100%" height="auto"></td>
                       <?php endif; ?>
-                      <td>{{ $list->max_student }}</td>
-                      <td>{{ $list->learning_duration }}</td>
                       <?php if($list->description == '') : ?>
                         <td>-</td>
                       <?php else : ?>
                         <td>{{ $description }}</td>
                       <?php endif; ?>
+                      <td>{{ $list->status }}</td>
+                      <td>{{ $list->created_at }}</td>
+                      <td>{{ $list->updated_at }}</td>
                       <td width="100">
-                        <a href="/price/edit/{{ $list->id }}"
+                        <a href="/Tutor/edit/{{ $list->id }}"
                             class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Edit</a>
                             <br>
                             <br>
-                        <a href="/price/destroy/{{ $list->id }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
+                        <a href="/Tutor/destroy/{{ $list->id }}" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i> Delete</a>
                     </td>
                     </tr>
                     @endforeach
@@ -109,9 +91,9 @@
             </div>
           </div>
 
-          <!-- Modal Logout -->
-          @include('layout.modal_logout')
-          <!--end-->
+           <!-- Modal Logout -->
+           @include('layout.modal_logout')
+           <!--end-->
 
         </div>
         <!---Container Fluid-->
@@ -123,6 +105,14 @@
   <a class="scroll-to-top rounded" href="#page-top">
     <i class="fas fa-angle-up"></i>
   </a>
+
+  <!-- Page level custom scripts -->
+  <script>
+    $(document).ready(function () {
+      $('#dataTable').DataTable(); // ID From dataTable 
+      $('#dataTableHover').DataTable(); // ID From dataTable with Hover
+    });
+  </script>
 
 </body>
 

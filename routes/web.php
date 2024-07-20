@@ -233,6 +233,44 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home',function(){
 })->middleware('auth');
 
+//wordwall
+Route::get('/Wordwall','Wordwall@index',function(){
+})->middleware('auth');
+
+Route::get('/Wordwall/create', 'Wordwall@create',function(){
+})->middleware('auth');
+
+Route::post('/Wordwall/store', 'Wordwall@store',function(){
+})->middleware('auth');
+
+Route::get('/Wordwall/edit/{id}','Wordwall@edit',function(){
+})->middleware('auth');
+
+Route::post('/Wordwall/update','Wordwall@update',function(){
+})->middleware('auth');
+
+Route::get('/Wordwall/destroy/{id}','Wordwall@destroy',function(){
+})->middleware('auth');
+
+//tutor
+Route::get('/Tutor','Tutor@index',function(){
+})->middleware('auth');
+
+Route::get('/Tutor/create', 'Tutor@create',function(){
+})->middleware('auth');
+
+Route::post('/Tutor/store', 'Tutor@store',function(){
+})->middleware('auth');
+
+Route::get('/Tutor/edit/{id}','Tutor@edit',function(){
+})->middleware('auth');
+
+Route::post('/Tutor/update','Tutor@update',function(){
+})->middleware('auth');
+
+Route::get('/Tutor/destroy/{id}','Tutor@destroy',function(){
+})->middleware('auth');
+
 //--- API ---//
 //route api users
 Route::get('/user/getUser','User@getUser');

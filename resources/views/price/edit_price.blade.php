@@ -32,58 +32,71 @@
                   </div>
                 @endif
                 <div class="card-body">
-                @foreach($price as $list)
+                {{-- @foreach($price as $list) --}}
                   <form action="/price/update" method="post" enctype="multipart/form-data">
                   {{ csrf_field() }}
-                  <input type="hidden" name="id" value="{{ $list->id }}"> <br/>
+                  <input type="hidden" name="id" value="{{ $price['id'] }}"> <br/>
                   <div class="form-group">
                     <label for="package_name">Package Name</label>
-                    <select class="form-control" id="package_name" name="package_name" required="required">
-                        <option value="personal" {{ $list->package_name == "personal" ? 'selected' : ''}}>Personal</option>
-                        <option value="family"  {{  $list->package_name == "family" ? 'selected' : ''}}>Family</option>
-                        <option value="group" {{  $list->package_name == "group" ? 'selected' : ''}}>Group</option>
-                    </select>
+                    <input type="text" class="form-control" name="package_name"  value="{{ $price['package_name'] }}" required="required">
                     </div>
                     <div class="form-group">
                     <label for="">Price (Rp)</label>
-                    <input type="number" class="form-control" name="price" value="{{ $list->price }}" required="required">
+                    <input type="number" class="form-control" name="price" value="{{ $price['price'] }}" required="required">
                     </div>
-                    <div class="form-group">
-                      <label for="">Url Woocommerce</label>
-                      <input type="text" class="form-control" name="url_woocommerce" value="{{ $list->url_woocommerce }}" required="required">
-                      </div>
                     <div class="form-group">
                         <label for="class_type">Class Type</label>
                         <select class="form-control" id="class_type" name="class_type" required="required">
-                            <option value="offline" {{ $list->class_type == "offline" ? 'selected' : ''}}>Offline</option>
-                            <option value="online" {{ $list->class_type == "online" ? 'selected' : ''}}>Online</option>
+                            <option value="offline" {{ $price['class_type'] == "offline" ? 'selected' : ''}}>Offline</option>
+                            <option value="online" {{ $price['class_type'] == "online" ? 'selected' : ''}}>Online</option>
                         </select>
                     </div>
                     <div class="form-group">
                       <label for="session_type">Class Type</label>
                       <select class="form-control" id="session_type" name="session_type" required="required">
-                          <option value="meeting" {{ $list->session_type == "meeting" ? 'selected' : ''}}>Meeting</option>
-                          <option value="monthly" {{ $list->session_type == "monthly" ? 'selected' : ''}}>Monthly</option>
+                          <option value="meeting" {{ $price['session_type'] == "meeting" ? 'selected' : ''}}>Meeting</option>
+                          <option value="monthly" {{ $price['session_type'] == "monthly" ? 'selected' : ''}}>Monthly</option>
                       </select>
-                  </div>
+                    </div>
+                    <div class="form-group">
+                      <label for="service_type">Service Type</label>
+                      <select class="form-control" id="session_type" name="service_type" required="required">
+                          <option value="online" {{ $price['service_type'] == "online" ? 'selected' : ''}}>Online</option>
+                          <option value="home_visit" {{ $price['service_type'] == "home_visit" ? 'selected' : ''}}>Home Visit</option>
+                          <option value="learning_center" {{ $price['service_type'] == "learning_center" ? 'selected' : ''}}>Learning Center</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="image">Image</label>
+                      <div class="input-group">
+                        <div class="col-md-12">
+                          <img src="/images/{{ $price['photo'] }}" id="image" name="image" height="100" width="100">
+                        </div>
+                        <div class="custom-file">
+                          <input type="file" class="custom-file-input" name="image"/> 
+                          <input type="hidden" name="image" value="{{ $price['photo'] }}" /> 
+                          <label class="custom-file-label" for="image">Choose file</label>
+                        </div>
+                      </div>
+                    </div>
                     <div class="form-group">
                         <label for="">Max Student</label>
-                        <input type="number" class="form-control" name="max_student" value="{{ $list->max_student }}" required="required">
+                        <input type="number" class="form-control" name="max_student" value="{{ $price['max_student'] }}" required="required">
                     </div>
                     <div class="form-group">
                         <label for="">Learning Duration (minutes)</label>
-                        <input type="number" class="form-control" name="learning_duration" value="{{ $list->learning_duration }}" required="required">
+                        <input type="number" class="form-control" name="learning_duration" value="{{ $price['learning_duration'] }}" required="required">
                     </div>
                     <div class="form-group">
                       <label for="">Description</label>
-                      <textarea id="description" class="form-control" value="description" id="description" rows="3" name="description" required="required">{{$list->description}}</textarea>
+                      <textarea id="description" class="form-control" value="description" id="description" rows="3" name="description" required="required">{{$price['description']}}</textarea>
                     </div>
                     <div class="form-group">
                     <button type="submit" class="btn btn-primary">Save</button>
                     <a href="{{ URL::previous() }}" class="btn btn-success">Back</a>
                     </div>
                   </form>
-                  @endforeach
+                  {{-- @endforeach --}}
                 </div>
               </div>
             </div>

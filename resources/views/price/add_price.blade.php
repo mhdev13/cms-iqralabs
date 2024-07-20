@@ -36,11 +36,7 @@
                     {{ csrf_field() }}
                     <div class="form-group">
                     <label for="package_name">Package Name</label>
-                    <select class="form-control" id="package_name" name="package_name" required="required">
-                        <option value="personal">Personal</option>
-                        <option value="family">Family</option>
-                        <option value="group">Group</option>
-                    </select>
+                    <input type="text" class="form-control" name="package_name" required="required">
                     </div>
                     <div class="form-group">
                     <label for="">Price (Rp)</label>
@@ -61,6 +57,22 @@
                       </select>
                     </div>
                     <div class="form-group">
+                      <label for="service_type">Service Type</label>
+                      <select class="form-control" id="class_type" name="service_type" required="required">
+                          <option value="online">Online</option>
+                          <option value="home_visit">Home Visit</option>
+                          <option value="learning_center">Learning Center</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="image">Image</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" class="form-control" id="image" name="image">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
                         <label for="">Max Student</label>
                         <input type="number" class="form-control" name="max_student" required="required">
                     </div>
@@ -68,10 +80,6 @@
                         <label for="">Learning Duration (minutes)</label>
                         <input type="number" class="form-control" name="learning_duration" required="required">
                     </div>
-                    <div class="form-group">
-                      <label for="">Url Woocommerce</label>
-                      <input type="text" class="form-control" name="url_woocommerce" required="required">
-                      </div>
                     <div class="form-group">
                       <label for="">Description</label>
                       <textarea id="description" class="form-control" name="description" rows="10" cols="50" required></textarea>
